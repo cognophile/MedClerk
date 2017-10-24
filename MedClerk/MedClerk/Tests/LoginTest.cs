@@ -29,11 +29,5 @@ namespace NUnit.Tests
         {
             throw new NotImplementedException();
         }
-
-        [Test]
-        public void TestPasswordHashing_ReturnsExpectedHashValue()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
