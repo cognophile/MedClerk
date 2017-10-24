@@ -14,14 +14,20 @@ namespace MedClerk.Tests
         public void TestPasswordHashing_ReturnsExpected_Md5HashValue()
         {
             // Arrange
-            var password = "password";
-            var expected = "5f4dcc3b5aa765d61d8327deb882cf99";
+            var password = "example-password";
+            var expected = "cc4436eff149ba9761aaac07b36360ea";
 
             // Act
             var passwordHash = Password.Hash(password);
 
             // Assert
             Assert.That(passwordHash, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void TestPasswordHashing_NullPassword_ThrowsArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(() => Password.Hash(null));
         }
     }
 }
