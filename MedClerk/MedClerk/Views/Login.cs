@@ -8,9 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MedClerk.Controllers;
-using MedClerk.Views;
 
-namespace MedClerk
+namespace MedClerk.Views
 {
     public partial class Login : Form
     {
@@ -18,7 +17,7 @@ namespace MedClerk
         {
             InitializeComponent();
         }
-
+        
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -37,10 +36,8 @@ namespace MedClerk
 
             if (LoginController.Login(usernameTextBox.Text, passwordTextBox.Text))
             {
-                Views.MainMenu menu = new Views.MainMenu();
-                this.Hide();
-                menu.Closed += (senderObj, eventArgs) => this.Close();
-                menu.Show();
+                LoginController.LoadMenu(this);
+
             } else {
                 MessageBox.Show("The provided credentials cannot be verified. Please try again.", "Invalid Login!", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);

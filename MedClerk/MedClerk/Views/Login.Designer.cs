@@ -1,4 +1,4 @@
-﻿namespace MedClerk
+﻿namespace MedClerk.Views
 {
     partial class Login
     {
