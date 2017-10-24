@@ -63,7 +63,7 @@
             // usernameTextBox
             // 
             this.usernameTextBox.Location = new System.Drawing.Point(325, 188);
-            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(120, 20);
             this.usernameTextBox.TabIndex = 2;
@@ -71,8 +71,9 @@
             // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(325, 239);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(120, 20);
             this.passwordTextBox.TabIndex = 3;
             // 
@@ -99,7 +100,7 @@
             // enterButton
             // 
             this.enterButton.Location = new System.Drawing.Point(314, 291);
-            this.enterButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enterButton.Margin = new System.Windows.Forms.Padding(2);
             this.enterButton.Name = "enterButton";
             this.enterButton.Size = new System.Drawing.Size(101, 35);
             this.enterButton.TabIndex = 6;
@@ -110,7 +111,7 @@
             // exitButton
             // 
             this.exitButton.Location = new System.Drawing.Point(314, 353);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(101, 35);
             this.exitButton.TabIndex = 7;
@@ -131,7 +132,7 @@
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.logoLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login";
             this.Text = "Login";
             this.ResumeLayout(false);
