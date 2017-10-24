@@ -42,9 +42,10 @@
             // 
             this.logoLabel.AutoSize = true;
             this.logoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoLabel.Location = new System.Drawing.Point(576, 70);
+            this.logoLabel.Location = new System.Drawing.Point(288, 36);
+            this.logoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.logoLabel.Name = "logoLabel";
-            this.logoLabel.Size = new System.Drawing.Size(310, 55);
+            this.logoLabel.Size = new System.Drawing.Size(155, 29);
             this.logoLabel.TabIndex = 0;
             this.logoLabel.Text = "Over Surgery";
             // 
@@ -52,67 +53,76 @@
             // 
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLabel.Location = new System.Drawing.Point(668, 203);
+            this.loginLabel.Location = new System.Drawing.Point(334, 106);
+            this.loginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.loginLabel.Name = "loginLabel";
-            this.loginLabel.Size = new System.Drawing.Size(110, 42);
+            this.loginLabel.Size = new System.Drawing.Size(57, 24);
             this.loginLabel.TabIndex = 1;
             this.loginLabel.Text = "Login";
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(650, 362);
+            this.usernameTextBox.Location = new System.Drawing.Point(325, 188);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(236, 31);
+            this.usernameTextBox.Size = new System.Drawing.Size(120, 20);
             this.usernameTextBox.TabIndex = 2;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(650, 459);
+            this.passwordTextBox.Location = new System.Drawing.Point(325, 239);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(235, 31);
+            this.passwordTextBox.Size = new System.Drawing.Size(120, 20);
             this.passwordTextBox.TabIndex = 3;
             // 
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(528, 365);
+            this.usernameLabel.Location = new System.Drawing.Point(264, 190);
+            this.usernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(116, 25);
+            this.usernameLabel.Size = new System.Drawing.Size(58, 13);
             this.usernameLabel.TabIndex = 4;
             this.usernameLabel.Text = "Username:";
             // 
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(532, 462);
+            this.passwordLabel.Location = new System.Drawing.Point(266, 240);
+            this.passwordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(112, 25);
+            this.passwordLabel.Size = new System.Drawing.Size(56, 13);
             this.passwordLabel.TabIndex = 5;
             this.passwordLabel.Text = "Password:";
             // 
             // enterButton
             // 
-            this.enterButton.Location = new System.Drawing.Point(629, 560);
+            this.enterButton.Location = new System.Drawing.Point(314, 291);
+            this.enterButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.enterButton.Name = "enterButton";
-            this.enterButton.Size = new System.Drawing.Size(202, 68);
+            this.enterButton.Size = new System.Drawing.Size(101, 35);
             this.enterButton.TabIndex = 6;
             this.enterButton.Text = "Enter";
             this.enterButton.UseVisualStyleBackColor = true;
+            this.enterButton.Click += new System.EventHandler(this.enterButton_Click);
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(629, 679);
+            this.exitButton.Location = new System.Drawing.Point(314, 353);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(202, 68);
+            this.exitButton.Size = new System.Drawing.Size(101, 35);
             this.exitButton.TabIndex = 7;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1475, 870);
+            this.ClientSize = new System.Drawing.Size(738, 452);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.enterButton);
             this.Controls.Add(this.passwordLabel);
@@ -121,6 +131,7 @@
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.logoLabel);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Login";
             this.Text = "Login";
             this.ResumeLayout(false);

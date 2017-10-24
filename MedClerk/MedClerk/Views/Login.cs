@@ -16,5 +16,14 @@ namespace MedClerk
         {
             InitializeComponent();
         }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void enterButton_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
