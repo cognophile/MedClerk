@@ -60,7 +60,7 @@ namespace MedClerk.Utilities
 
             } catch (IndexOutOfRangeException) {
                 return false;
-            } catch (Exception e) {
+            } catch (Exception) {
                 return false;
             }
         }
