@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MedClerk.Views;
+using MedClerk.Controllers;
 
 namespace MedClerk.Views
 {
@@ -27,10 +28,7 @@ namespace MedClerk.Views
             if (MessageBox.Show("Are you sure you wish to logout?", "Confirm Logout", 
                 MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
-                Login login = new Login();
-                this.Hide();
-                login.Closed += (senderObj, eventArgs) => this.Close();
-                login.Show();
+                LoginController.Logout(this);
             }
         }
     }
