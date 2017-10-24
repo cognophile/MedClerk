@@ -101,8 +101,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Tests\.gitkeep" />
-    <None Include="Views\.gitkeep" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
