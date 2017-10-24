@@ -26,11 +26,11 @@ namespace MedClerk.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\MedClerkDatab" +
-            "ase.mdf;Integrated Security=True;Connect Timeout=30")]
-        public string DataSource {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\MCDatabase.md" +
+            "f;Integrated Security=True;Connect Timeout=30")]
+        public string DBSource {
             get {
-                return ((string)(this["DataSource"]));
+                return ((string)(this["DBSource"]));
             }
         }
     }
