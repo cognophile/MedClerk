@@ -68,6 +68,8 @@
   <ItemGroup>
     <Compile Include="Database\DatabaseManager.cs" />
     <Compile Include="Tests\LoginTest.cs" />
+    <Compile Include="Tests\PasswordTest.cs" />
+    <Compile Include="Utilities\Password.cs" />
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
