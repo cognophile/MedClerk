@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Database\DatabaseManager.cs" />
     <Compile Include="Tests\LoginTest.cs" />
     <Compile Include="Tests\PasswordTest.cs" />
@@ -99,7 +100,6 @@
     <EmbeddedResource Include="Views\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Controllers\.gitkeep" />
     <None Include="Images\.gitkeep" />
     <None Include="Interfaces\.gitkeep" />
     <None Include="Models\.gitkeep" />
