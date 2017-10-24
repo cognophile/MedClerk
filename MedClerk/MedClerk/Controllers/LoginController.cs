@@ -21,5 +21,21 @@ namespace MedClerk.Controllers
             bool isVerified = Password.Verify(username, passwordHash);
             return isVerified ? true : false;
         }
+
+        public static void Logout(Views.MainMenu menuForm)
+        {
+            Views.Login login = new Views.Login();
+            menuForm.Hide();
+            login.Closed += (senderObj, eventArgs) => menuForm.Close();
+            login.Show();
+        }
+
+        public static void LoadMenu(Views.Login loginForm)
+        {
+            Views.MainMenu menu = new Views.MainMenu();
+            loginForm.Hide();
+            menu.Closed += (senderObj, eventArgs) => loginForm.Close();
+            menu.Show();
+        }
     }
 }
