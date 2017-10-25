@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MedClerk.Utilities;
+using MedClerk.Models;
 
 namespace MedClerk.Controllers
 {
@@ -18,7 +19,7 @@ namespace MedClerk.Controllers
         public static Boolean Login(string username, string password)
         {
             var passwordHash = Password.Hash(password);
-            bool isVerified = Password.Verify(username, passwordHash);
+            bool isVerified = User.Verify(username, passwordHash);
             return isVerified ? true : false;
         }
 
