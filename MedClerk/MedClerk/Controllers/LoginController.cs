@@ -19,7 +19,7 @@ namespace MedClerk.Controllers
         public static Boolean Login(string username, string password)
         {
             var passwordHash = Password.Hash(password);
-            bool isVerified = User.Verify(username, passwordHash);
+            bool isVerified = UserModel.Verify(username, passwordHash);
             return isVerified ? true : false;
         }
 
