@@ -17,6 +17,11 @@ This application has been designed and developed to support the Over Surgery's r
 - Manage patient prescriptions 
 - Check and print patient test results
 
+## Using the Application
+### Login 
+Username: reception
+Password: password
+
 ## Contributions
 ### Issues
 - Give a suitable subject line, description, and regular updates. A template is provided. 
