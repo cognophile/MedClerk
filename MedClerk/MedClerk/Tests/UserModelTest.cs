@@ -12,27 +12,35 @@ namespace MedClerk.Tests
 {
     class UserModelTest
     {
+        private TransactionScope rollback;
+
+        [SetUp]
+        public void SetUp()
+        {
+            rollback = new TransactionScope();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            rollback.Dispose();
+        }
+
         [Test]        
         public void IntegrationTest_EnsureDatabaseIsReadable_ReturnsTrueIfValidUser()
         {
-            using (TransactionScope scope = new TransactionScope())
-            {
-                var username = "reception";
-                var hashedPassword = Password.Hash("password");
+            var username = "reception";
+            var hashedPassword = Password.Hash("password");
 
-                bool isValid = UserModel.Verify(username, hashedPassword);
+            bool isValid = UserModel.Verify(username, hashedPassword);
 
-                Assert.That(isValid, Is.EqualTo(true));
-            }
+            Assert.That(isValid, Is.EqualTo(true));
         }
 
         [Test]
         public void IntegrationTest_EnsureDatabaseIsWritable_ReturnsTrueIfUserCreated()
         {
-            using (TransactionScope scope = new TransactionScope())
-            {
-                throw new NotImplementedException();
-            }
+            throw new NotImplementedException();
         }
 
         [Test]
