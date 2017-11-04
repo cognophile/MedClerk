@@ -16,5 +16,10 @@ namespace MedClerk.Views
         {
             InitializeComponent();
         }
+
+        private void MenuButton_Click(object sender, EventArgs e)
+        {
+            Controllers.StaffController.LoadMainMenu(this);
+        }
     }
 }

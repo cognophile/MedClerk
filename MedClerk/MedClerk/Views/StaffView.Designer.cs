@@ -42,18 +42,20 @@
             // 
             this.lbl_StaffRegAndTblTitle.AutoSize = true;
             this.lbl_StaffRegAndTblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_StaffRegAndTblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lbl_StaffRegAndTblTitle.Location = new System.Drawing.Point(24, 17);
+            this.lbl_StaffRegAndTblTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_StaffRegAndTblTitle.Name = "lbl_StaffRegAndTblTitle";
-            this.lbl_StaffRegAndTblTitle.Size = new System.Drawing.Size(206, 16);
+            this.lbl_StaffRegAndTblTitle.Size = new System.Drawing.Size(365, 30);
             this.lbl_StaffRegAndTblTitle.TabIndex = 6;
             this.lbl_StaffRegAndTblTitle.Text = "Staff Register and Timetable";
             // 
             // lbl_StaffUserInstructions
             // 
             this.lbl_StaffUserInstructions.AutoSize = true;
-            this.lbl_StaffUserInstructions.Location = new System.Drawing.Point(12, 33);
+            this.lbl_StaffUserInstructions.Location = new System.Drawing.Point(24, 63);
+            this.lbl_StaffUserInstructions.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_StaffUserInstructions.Name = "lbl_StaffUserInstructions";
-            this.lbl_StaffUserInstructions.Size = new System.Drawing.Size(656, 13);
+            this.lbl_StaffUserInstructions.Size = new System.Drawing.Size(1331, 25);
             this.lbl_StaffUserInstructions.TabIndex = 7;
             this.lbl_StaffUserInstructions.Text = "Select a date to view the staff register for. To view a staff members timetable, " +
     "highlight them in the register and click the \'Timetable\' button.";
@@ -61,59 +63,68 @@
             // RegisterListBox
             // 
             this.RegisterListBox.FormattingEnabled = true;
-            this.RegisterListBox.Location = new System.Drawing.Point(304, 55);
+            this.RegisterListBox.ItemHeight = 25;
+            this.RegisterListBox.Location = new System.Drawing.Point(608, 106);
+            this.RegisterListBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.RegisterListBox.MultiColumn = true;
             this.RegisterListBox.Name = "RegisterListBox";
-            this.RegisterListBox.Size = new System.Drawing.Size(183, 381);
+            this.RegisterListBox.Size = new System.Drawing.Size(362, 729);
             this.RegisterListBox.TabIndex = 2;
             // 
             // TimetableListBox
             // 
             this.TimetableListBox.FormattingEnabled = true;
-            this.TimetableListBox.Location = new System.Drawing.Point(493, 55);
+            this.TimetableListBox.ItemHeight = 25;
+            this.TimetableListBox.Location = new System.Drawing.Point(986, 106);
+            this.TimetableListBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.TimetableListBox.MultiColumn = true;
             this.TimetableListBox.Name = "TimetableListBox";
-            this.TimetableListBox.Size = new System.Drawing.Size(183, 381);
+            this.TimetableListBox.Size = new System.Drawing.Size(362, 729);
             this.TimetableListBox.TabIndex = 4;
             // 
             // RegisterDatePicker
             // 
-            this.RegisterDatePicker.Location = new System.Drawing.Point(15, 55);
+            this.RegisterDatePicker.Location = new System.Drawing.Point(30, 106);
+            this.RegisterDatePicker.Margin = new System.Windows.Forms.Padding(18, 17, 18, 17);
             this.RegisterDatePicker.Name = "RegisterDatePicker";
             this.RegisterDatePicker.TabIndex = 0;
             // 
             // ViewRegisterButton
             // 
-            this.ViewRegisterButton.Location = new System.Drawing.Point(148, 229);
+            this.ViewRegisterButton.Location = new System.Drawing.Point(296, 440);
+            this.ViewRegisterButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.ViewRegisterButton.Name = "ViewRegisterButton";
-            this.ViewRegisterButton.Size = new System.Drawing.Size(94, 23);
+            this.ViewRegisterButton.Size = new System.Drawing.Size(188, 44);
             this.ViewRegisterButton.TabIndex = 1;
             this.ViewRegisterButton.Text = "View Register";
             this.ViewRegisterButton.UseVisualStyleBackColor = true;
             // 
             // ViewTimetableButton
             // 
-            this.ViewTimetableButton.Location = new System.Drawing.Point(582, 448);
+            this.ViewTimetableButton.Location = new System.Drawing.Point(1164, 862);
+            this.ViewTimetableButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.ViewTimetableButton.Name = "ViewTimetableButton";
-            this.ViewTimetableButton.Size = new System.Drawing.Size(94, 23);
+            this.ViewTimetableButton.Size = new System.Drawing.Size(188, 44);
             this.ViewTimetableButton.TabIndex = 3;
             this.ViewTimetableButton.Text = "View Timetable";
             this.ViewTimetableButton.UseVisualStyleBackColor = true;
             // 
             // MenuButton
             // 
-            this.MenuButton.Location = new System.Drawing.Point(12, 448);
+            this.MenuButton.Location = new System.Drawing.Point(24, 862);
+            this.MenuButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MenuButton.Name = "MenuButton";
-            this.MenuButton.Size = new System.Drawing.Size(94, 23);
+            this.MenuButton.Size = new System.Drawing.Size(188, 44);
             this.MenuButton.TabIndex = 5;
             this.MenuButton.Text = "Menu";
             this.MenuButton.UseVisualStyleBackColor = true;
+            this.MenuButton.Click += new System.EventHandler(this.MenuButton_Click);
             // 
             // StaffView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 483);
+            this.ClientSize = new System.Drawing.Size(1376, 929);
             this.Controls.Add(this.MenuButton);
             this.Controls.Add(this.ViewTimetableButton);
             this.Controls.Add(this.ViewRegisterButton);
@@ -122,6 +133,7 @@
             this.Controls.Add(this.RegisterListBox);
             this.Controls.Add(this.lbl_StaffUserInstructions);
             this.Controls.Add(this.lbl_StaffRegAndTblTitle);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "StaffView";
             this.Text = "StaffView";
             this.ResumeLayout(false);

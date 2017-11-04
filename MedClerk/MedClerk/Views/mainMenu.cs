@@ -31,5 +31,10 @@ namespace MedClerk.Views
                 LoginController.Logout(this);
             }
         }
+
+        private void staffBtn_Click(object sender, EventArgs e)
+        {
+            Controllers.StaffController.LoadStaff(this);
+        }
     }
 }
