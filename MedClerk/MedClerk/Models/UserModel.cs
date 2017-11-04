@@ -19,15 +19,14 @@ namespace MedClerk.Models
         public static Boolean Verify(string username, string passwordHash)
         {
             var connection = Properties.Settings.Default.DBSource;
-            var sql = String.Format("SELECT [User].Username FROM dbo.[User] " +
-                                    "WHERE Username = '{0}' AND " +
-                                    "PasswordHash = '{1}';", username, passwordHash);
             var database = new DatabaseManager(connection);
+            var sql = sqlValidateUserCredntialsExistInUserTable(username, passwordHash);
 
             database.OpenConnection();
-            var results = database.ExecuteQuery(sql);
-            database.CloseConnection();
 
+            var results = database.ExecuteQuery(sql);
+
+            database.CloseConnection();
 
             try
             {
@@ -35,7 +34,6 @@ namespace MedClerk.Models
                 var user = table.Rows[0].ItemArray.GetValue(0).ToString();
                 // TODO: Remove magic numbers
                 if (user == username) { return true; } else { return false; }
-
             }
             catch (IndexOutOfRangeException)
             {
@@ -45,6 +43,11 @@ namespace MedClerk.Models
             {
                 return false;
             }
+        }
+
+        protected static string sqlValidateUserCredntialsExistInUserTable(string user, string hash)
+        {
+            return String.Format("SELECT [User].Username FROM dbo.[User] WHERE Username = '{0}' AND PasswordHash = '{1}';", user, hash);
         }
     }
 }

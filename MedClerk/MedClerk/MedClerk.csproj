@@ -55,6 +55,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,6 +71,7 @@
     <Compile Include="Database\DatabaseManager.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Tests\PasswordTest.cs" />
+    <Compile Include="Tests\UserModelTest.cs" />
     <Compile Include="Utilities\Password.cs" />
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
