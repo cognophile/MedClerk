@@ -42,12 +42,5 @@ namespace MedClerk.Tests
         {
             throw new NotImplementedException();
         }
-
-        [Test]
-        public void UnitTest_CheckSqlQuery_ReturnsExpectedQueryString_WhenGivenValues()
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }
