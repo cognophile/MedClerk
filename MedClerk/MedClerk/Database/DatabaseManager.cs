@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Data;
 
 namespace MedClerk.Database
@@ -10,8 +11,8 @@ namespace MedClerk.Database
     class DatabaseManager
     {
         private string connectionStr;
-        private System.Data.SqlClient.SqlConnection connection;
-        private System.Data.SqlClient.SqlDataAdapter adapter;
+        private SqlConnection connection;
+        private SqlDataAdapter adapter;
 
         /// <summary>
         /// Constructer to set the connection string from soloution properties 
@@ -27,16 +28,21 @@ namespace MedClerk.Database
         /// </summary>
         public void OpenConnection()
         {
-            connection = new System.Data.SqlClient.SqlConnection(connectionStr);
+            connection = new SqlConnection(connectionStr);
             connection.Open();
         }
-
+        
         /// <summary>
         /// Close the connection to the member variable database
         /// </summary>
         public void CloseConnection()
         {
             connection.Close();
+        }
+
+        public SqlCommand CreateCommand()
+        {
+            return new SqlCommand();
         }
 
         /// <summary>
@@ -47,7 +53,7 @@ namespace MedClerk.Database
         public DataSet ExecuteQuery(string sql)
         {
             DataSet results;
-            adapter = new System.Data.SqlClient.SqlDataAdapter(sql, connection);
+            adapter = new SqlDataAdapter(sql, connection);
 
             results = new DataSet();
             adapter.Fill(results);
