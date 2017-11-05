@@ -25,5 +25,6 @@ namespace MedClerk.Controllers
             menu.Closed += (senderObj, EventArgs) => staff.Close();
             menu.Show();
         }
+
     }
 }
