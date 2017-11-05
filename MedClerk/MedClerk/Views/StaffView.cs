@@ -21,5 +21,34 @@ namespace MedClerk.Views
         {
             Controllers.StaffController.LoadMainMenu(this);
         }
+
+        private void ViewRegisterButton_Click(object sender, EventArgs e)
+        {
+            RegisterListBox.Items.Clear();
+            if(RegisterDatePicker.Value.DayOfWeek == DayOfWeek.Saturday)
+            {
+                RegisterListBox.Items.Add("Practice is closed on Saturdays.");
+                return;
+            }
+            if(RegisterDatePicker.Value.DayOfWeek == DayOfWeek.Sunday)
+            {
+                RegisterListBox.Items.Add("Practice is closed on Sundays.");
+                return;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void RegisterDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegisterListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -32,10 +32,10 @@
             this.lbl_StaffUserInstructions = new System.Windows.Forms.Label();
             this.RegisterListBox = new System.Windows.Forms.ListBox();
             this.TimetableListBox = new System.Windows.Forms.ListBox();
-            this.RegisterDatePicker = new System.Windows.Forms.MonthCalendar();
             this.ViewRegisterButton = new System.Windows.Forms.Button();
             this.ViewTimetableButton = new System.Windows.Forms.Button();
             this.MenuButton = new System.Windows.Forms.Button();
+            this.RegisterDatePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lbl_StaffRegAndTblTitle
@@ -65,44 +65,39 @@
             this.RegisterListBox.FormattingEnabled = true;
             this.RegisterListBox.ItemHeight = 25;
             this.RegisterListBox.Location = new System.Drawing.Point(608, 106);
-            this.RegisterListBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.RegisterListBox.Margin = new System.Windows.Forms.Padding(6);
             this.RegisterListBox.MultiColumn = true;
             this.RegisterListBox.Name = "RegisterListBox";
             this.RegisterListBox.Size = new System.Drawing.Size(362, 729);
             this.RegisterListBox.TabIndex = 2;
+            this.RegisterListBox.SelectedIndexChanged += new System.EventHandler(this.RegisterListBox_SelectedIndexChanged);
             // 
             // TimetableListBox
             // 
             this.TimetableListBox.FormattingEnabled = true;
             this.TimetableListBox.ItemHeight = 25;
             this.TimetableListBox.Location = new System.Drawing.Point(986, 106);
-            this.TimetableListBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.TimetableListBox.Margin = new System.Windows.Forms.Padding(6);
             this.TimetableListBox.MultiColumn = true;
             this.TimetableListBox.Name = "TimetableListBox";
             this.TimetableListBox.Size = new System.Drawing.Size(362, 729);
             this.TimetableListBox.TabIndex = 4;
             // 
-            // RegisterDatePicker
-            // 
-            this.RegisterDatePicker.Location = new System.Drawing.Point(30, 106);
-            this.RegisterDatePicker.Margin = new System.Windows.Forms.Padding(18, 17, 18, 17);
-            this.RegisterDatePicker.Name = "RegisterDatePicker";
-            this.RegisterDatePicker.TabIndex = 0;
-            // 
             // ViewRegisterButton
             // 
-            this.ViewRegisterButton.Location = new System.Drawing.Point(296, 440);
-            this.ViewRegisterButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ViewRegisterButton.Location = new System.Drawing.Point(687, 862);
+            this.ViewRegisterButton.Margin = new System.Windows.Forms.Padding(6);
             this.ViewRegisterButton.Name = "ViewRegisterButton";
             this.ViewRegisterButton.Size = new System.Drawing.Size(188, 44);
             this.ViewRegisterButton.TabIndex = 1;
             this.ViewRegisterButton.Text = "View Register";
             this.ViewRegisterButton.UseVisualStyleBackColor = true;
+            this.ViewRegisterButton.Click += new System.EventHandler(this.ViewRegisterButton_Click);
             // 
             // ViewTimetableButton
             // 
             this.ViewTimetableButton.Location = new System.Drawing.Point(1164, 862);
-            this.ViewTimetableButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ViewTimetableButton.Margin = new System.Windows.Forms.Padding(6);
             this.ViewTimetableButton.Name = "ViewTimetableButton";
             this.ViewTimetableButton.Size = new System.Drawing.Size(188, 44);
             this.ViewTimetableButton.TabIndex = 3;
@@ -112,7 +107,7 @@
             // MenuButton
             // 
             this.MenuButton.Location = new System.Drawing.Point(24, 862);
-            this.MenuButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.MenuButton.Margin = new System.Windows.Forms.Padding(6);
             this.MenuButton.Name = "MenuButton";
             this.MenuButton.Size = new System.Drawing.Size(188, 44);
             this.MenuButton.TabIndex = 5;
@@ -120,20 +115,28 @@
             this.MenuButton.UseVisualStyleBackColor = true;
             this.MenuButton.Click += new System.EventHandler(this.MenuButton_Click);
             // 
+            // RegisterDatePicker
+            // 
+            this.RegisterDatePicker.Location = new System.Drawing.Point(170, 174);
+            this.RegisterDatePicker.Name = "RegisterDatePicker";
+            this.RegisterDatePicker.Size = new System.Drawing.Size(251, 31);
+            this.RegisterDatePicker.TabIndex = 8;
+            this.RegisterDatePicker.ValueChanged += new System.EventHandler(this.RegisterDatePicker_ValueChanged);
+            // 
             // StaffView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1376, 929);
+            this.Controls.Add(this.RegisterDatePicker);
             this.Controls.Add(this.MenuButton);
             this.Controls.Add(this.ViewTimetableButton);
             this.Controls.Add(this.ViewRegisterButton);
-            this.Controls.Add(this.RegisterDatePicker);
             this.Controls.Add(this.TimetableListBox);
             this.Controls.Add(this.RegisterListBox);
             this.Controls.Add(this.lbl_StaffUserInstructions);
             this.Controls.Add(this.lbl_StaffRegAndTblTitle);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "StaffView";
             this.Text = "StaffView";
             this.ResumeLayout(false);
@@ -147,9 +150,9 @@
         private System.Windows.Forms.Label lbl_StaffUserInstructions;
         private System.Windows.Forms.ListBox RegisterListBox;
         private System.Windows.Forms.ListBox TimetableListBox;
-        private System.Windows.Forms.MonthCalendar RegisterDatePicker;
         private System.Windows.Forms.Button ViewRegisterButton;
         private System.Windows.Forms.Button ViewTimetableButton;
         private System.Windows.Forms.Button MenuButton;
+        private System.Windows.Forms.DateTimePicker RegisterDatePicker;
     }
 }

@@ -70,6 +70,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Database\DatabaseManager.cs" />
+    <Compile Include="Models\StaffModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Tests\PasswordTest.cs" />
     <Compile Include="Tests\UserModelTest.cs" />
