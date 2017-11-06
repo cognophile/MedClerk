@@ -30,12 +30,19 @@ namespace MedClerk.Models
         private static string sqlGetStaffInformation(string date)
         {
             return String.Format("SELECT [Staff].[Title], " +
-                                        "[Staff].[First Name], " +
-                                        "[Staff].[Last Name], " +
-                                        "[Appointments].[Date] " +
+                                        "[Staff].[Name] " +
                                  "FROM [Appointments] " +
                                  "INNER JOIN [Staff] ON [Appointments].[Staff Id] = [Staff].[Staff Id] " +
                                  "WHERE [Appointments].[Date] = CONVERT(DATE, '{0}', 103);", date);
         }
+
+        //private static string sqlGetStaffMemberTimetable(string date, )
+        //{
+        //    return String.Format("SELECT [Appointments].[Time], " +
+        //                                "[Patients].[   
+        //                         "FROM [Appointments] " +
+        //                         "INNER JOIN [Staff] ON [Appointments].[Staff Id] = [Staff].[Staff Id] " +
+        //                         "WHERE [Appointments].[Date] = CONVERT(DATE, '{0}', 103);", date);
+        //}
     }
 }

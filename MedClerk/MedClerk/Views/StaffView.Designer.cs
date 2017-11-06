@@ -64,7 +64,7 @@
             // 
             this.RegisterListBox.FormattingEnabled = true;
             this.RegisterListBox.ItemHeight = 25;
-            this.RegisterListBox.Location = new System.Drawing.Point(608, 106);
+            this.RegisterListBox.Location = new System.Drawing.Point(619, 106);
             this.RegisterListBox.Margin = new System.Windows.Forms.Padding(6);
             this.RegisterListBox.MultiColumn = true;
             this.RegisterListBox.Name = "RegisterListBox";
@@ -76,7 +76,7 @@
             // 
             this.TimetableListBox.FormattingEnabled = true;
             this.TimetableListBox.ItemHeight = 25;
-            this.TimetableListBox.Location = new System.Drawing.Point(986, 106);
+            this.TimetableListBox.Location = new System.Drawing.Point(993, 106);
             this.TimetableListBox.Margin = new System.Windows.Forms.Padding(6);
             this.TimetableListBox.MultiColumn = true;
             this.TimetableListBox.Name = "TimetableListBox";
@@ -85,7 +85,7 @@
             // 
             // ViewRegisterButton
             // 
-            this.ViewRegisterButton.Location = new System.Drawing.Point(687, 862);
+            this.ViewRegisterButton.Location = new System.Drawing.Point(715, 862);
             this.ViewRegisterButton.Margin = new System.Windows.Forms.Padding(6);
             this.ViewRegisterButton.Name = "ViewRegisterButton";
             this.ViewRegisterButton.Size = new System.Drawing.Size(188, 44);

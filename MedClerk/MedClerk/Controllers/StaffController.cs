@@ -35,7 +35,7 @@ namespace MedClerk.Controllers
      
             foreach (DataRow row in data.Rows)
             {
-                var item = String.Concat(row["Title"].ToString(), ". ", row["First Name"].ToString(), " ", row["Last Name"].ToString());
+                var item = String.Concat(row["Title"].ToString(), ". ", row["Name"].ToString());
 
                 if (staff.Contains(item))
                 {
