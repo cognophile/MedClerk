@@ -29,14 +29,20 @@ namespace MedClerk.Controllers
 
         public static List<string> FindStaff(Views.StaffView staffView)
         {
+            List<string> staff = new List<string>();
             var date = staffView.getSelectedDate();
             var data = StaffModel.getRegister(date.Date.ToString("d"));
-
-            List<string> staff = new List<string>();
-
+     
             foreach (DataRow row in data.Rows)
             {
-                staff.Add(String.Concat(row["Title"].ToString(), ". ", row["First Name"].ToString(), " ", row["Last Name"].ToString()));
+                var item = String.Concat(row["Title"].ToString(), ". ", row["First Name"].ToString(), " ", row["Last Name"].ToString());
+
+                if (staff.Contains(item))
+                {
+                    continue;
+                }
+
+                staff.Add(item);
             }
 
             return staff;

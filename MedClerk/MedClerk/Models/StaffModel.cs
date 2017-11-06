@@ -27,14 +27,15 @@ namespace MedClerk.Models
             return table;
         }
 
-        static string sqlGetStaffInformation(string date)
+        private static string sqlGetStaffInformation(string date)
         {
             return String.Format("SELECT [Staff].[Title], " +
                                         "[Staff].[First Name], " +
-                                        "[Staff].[Last Name] " +
-                                 "FROM dbo.[Staff] " +
-                                 "INNER JOIN [Appointments] ON [Staff Id] = [Appointments.Staff Id] " +
-                                 "WHERE [Date] = CAST({0} AS DATE);", date);
+                                        "[Staff].[Last Name], " +
+                                        "[Appointments].[Date] " +
+                                 "FROM [Appointments] " +
+                                 "INNER JOIN [Staff] ON [Appointments].[Staff Id] = [Staff].[Staff Id] " +
+                                 "WHERE [Appointments].[Date] = CONVERT(DATE, '{0}', 103);", date);
         }
     }
 }

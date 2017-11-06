@@ -32,13 +32,15 @@ namespace MedClerk.Views
         private void ViewRegisterButton_Click(object sender, EventArgs e)
         {
             //Clears the listbox of previous data for easier reading
-            RegisterListBox.Items.Clear();
+            //RegisterListBox.DataSource = null;
+            
             if(RegisterDatePicker.Value.DayOfWeek == DayOfWeek.Saturday)
             {
                 //Disables view timetable button because there is no data to show
                 ViewTimetableButton.Enabled = false;
                 //Displays a message in RegisterListBox
                 RegisterListBox.Items.Add("Practice is closed on Saturdays.");
+                RegisterListBox.Items.Clear();
                 return;
             }
             if(RegisterDatePicker.Value.DayOfWeek == DayOfWeek.Sunday)
@@ -47,6 +49,7 @@ namespace MedClerk.Views
                 ViewTimetableButton.Enabled = false;
                 //Displays a message in RegisterListBox
                 RegisterListBox.Items.Add("Practice is closed on Sundays.");
+                RegisterListBox.Items.Clear();
                 return;
             }
             else
