@@ -15,7 +15,7 @@ namespace MedClerk.Models
         {
             var connection = Properties.Settings.Default.DBSource;
             var database = new DatabaseManager(connection);
-            var sql = sqlGetStaffInformation(date);
+            var sql = SqlGetStaffInformation(date);
 
             database.OpenConnection();
 
@@ -31,7 +31,7 @@ namespace MedClerk.Models
         {
             var connection = Properties.Settings.Default.DBSource;
             var database = new DatabaseManager(connection);
-            var sql = sqlGetStaffMemberTimetable(staffMember, date);
+            var sql = SqlGetStaffMemberTimetable(staffMember, date);
 
             database.OpenConnection();
 
@@ -43,23 +43,23 @@ namespace MedClerk.Models
             return table;
         }
 
-        private static string sqlGetStaffInformation(string date)
+        private static string SqlGetStaffInformation(string date)
         {
             return String.Format("SELECT [Staff].[Title], " +
                                         "[Staff].[Name] " +
                                  "FROM [Appointments] " +
                                  "INNER JOIN [Staff] ON [Appointments].[Staff Id] = [Staff].[Staff Id] " +
-                                 "WHERE [Appointments].[Date] = CONVERT(DATE, '{0}', 103);", date);
+                                 "WHERE CONVERT(DATE, [Appointments].[Date], 103) = CONVERT(DATE, '{0}', 103);", date);
         }
 
-        private static string sqlGetStaffMemberTimetable(string staffName, string date)
+        private static string SqlGetStaffMemberTimetable(string staffName, string date)
         {
             return String.Format("SELECT [Appointments].[Time], " +
                                         "[Patients].[Name] " +  
                                  "FROM [Appointments] " +
                                  "INNER JOIN [Staff] ON [Appointments].[Staff Id] = [Staff].[Staff Id] " +
                                  "INNER JOIN [Patients] ON [Appointments].[Patient Id] = [Patients].[Patient Id] " +
-                                 "WHERE [Appointments].[Date] = CONVERT(DATE, '{0}', 103) " +
+                                 "WHERE CONVERT(DATE, [Appointments].[Date], 103) = CONVERT(DATE, '{0}', 103) " +
                                  "AND [Staff].[Name] = '{1}';", date, staffName);
         }
     }
