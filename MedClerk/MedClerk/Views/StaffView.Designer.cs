@@ -103,6 +103,7 @@
             this.ViewTimetableButton.TabIndex = 3;
             this.ViewTimetableButton.Text = "View Timetable";
             this.ViewTimetableButton.UseVisualStyleBackColor = true;
+            this.ViewTimetableButton.Click += new System.EventHandler(this.ViewTimetableButton_Click);
             // 
             // MenuButton
             // 

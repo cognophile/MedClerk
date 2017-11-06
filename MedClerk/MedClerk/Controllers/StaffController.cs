@@ -31,11 +31,34 @@ namespace MedClerk.Controllers
         {
             List<string> staff = new List<string>();
             var date = staffView.getSelectedDate();
-            var data = StaffModel.getRegister(date.Date.ToString("d"));
+            var data = StaffModel.getStaffRegister(date.Date.ToString("d"));
      
             foreach (DataRow row in data.Rows)
             {
                 var item = String.Concat(row["Title"].ToString(), ". ", row["Name"].ToString());
+
+                if (staff.Contains(item))
+                {
+                    continue;
+                }
+
+                staff.Add(item);
+            }
+
+            return staff;
+        }
+
+        public static List<string> GenerateTimetable(Views.StaffView staffView, string staffMember)
+        {
+            List<string> staff = new List<string>();
+            staffMember = staffMember.Split('.').Last().Trim();
+
+            var date = staffView.getSelectedDate();
+            var data = StaffModel.getStaffMemberTimetable(staffMember, date.Date.ToString("d"));
+
+            foreach (DataRow row in data.Rows)
+            {
+                var item = String.Concat(row["Time"].ToString(), ": ", row["Name"].ToString());
 
                 if (staff.Contains(item))
                 {

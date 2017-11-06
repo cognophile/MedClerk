@@ -72,6 +72,12 @@ namespace MedClerk.Views
 
         }
 
-
+        private void ViewTimetableButton_Click(object sender, EventArgs e)
+        {
+            //Collect the data from the database
+            var staffMember = RegisterListBox.GetItemText(RegisterListBox.SelectedItem);
+            var timetable = StaffController.GenerateTimetable(this, staffMember);
+            TimetableListBox.DataSource = timetable;
+        }
     }
 }
