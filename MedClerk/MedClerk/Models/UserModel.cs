@@ -10,6 +10,10 @@ namespace MedClerk.Models
 {
     class UserModel
     {
+        private const int RESULTS_TABLE = 0;
+        private const int FIRST_RESULT = 0;
+        private const int USERNAME = 0;
+
         /// <summary>
         /// Verifies a user with matching password exists in the database
         /// </summary>
@@ -20,7 +24,7 @@ namespace MedClerk.Models
         {
             var connection = Properties.Settings.Default.DBSource;
             var database = new DatabaseManager(connection);
-            var sql = sqlValidateUserCredntialsExistInUserTable(username, passwordHash);
+            var sql = SqlValidateUserCredntialsExistInUserTable(username, passwordHash);
 
             database.OpenConnection();
 
@@ -30,9 +34,9 @@ namespace MedClerk.Models
 
             try
             {
-                DataTable table = results.Tables[0];
-                var user = table.Rows[0].ItemArray.GetValue(0).ToString();
-                // TODO: Remove magic numbers
+                DataTable table = results.Tables[RESULTS_TABLE];
+                var user = table.Rows[FIRST_RESULT].ItemArray.GetValue(USERNAME).ToString();
+                
                 if (user == username) { return true; } else { return false; }
             }
             catch (IndexOutOfRangeException)
@@ -45,7 +49,7 @@ namespace MedClerk.Models
             }
         }
 
-        protected static string sqlValidateUserCredntialsExistInUserTable(string user, string hash)
+        protected static string SqlValidateUserCredntialsExistInUserTable(string user, string hash)
         {
             return String.Format("SELECT [User].Username FROM dbo.[User] WHERE Username = '{0}' AND PasswordHash = '{1}';", user, hash);
         }
