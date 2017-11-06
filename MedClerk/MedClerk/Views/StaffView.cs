@@ -19,7 +19,7 @@ namespace MedClerk.Views
             InitializeComponent();
         }
 
-        public DateTime getSelectedDate()
+        private DateTime getSelectedDate()
         {
             return RegisterDatePicker.Value;
         }
@@ -56,8 +56,11 @@ namespace MedClerk.Views
             {
                 //Enables button due to there is data to present
                 ViewTimetableButton.Enabled = true;
+                
+                var date = getSelectedDate();
+
                 //Collect the data from the database
-                var staffMembers = StaffController.FindStaff(this);
+                var staffMembers = StaffController.ProduceRegister(date);
                 RegisterListBox.DataSource = staffMembers;
             }
         }
@@ -74,9 +77,11 @@ namespace MedClerk.Views
 
         private void ViewTimetableButton_Click(object sender, EventArgs e)
         {
-            //Collect the data from the database
+            var date = getSelectedDate();
             var staffMember = RegisterListBox.GetItemText(RegisterListBox.SelectedItem);
-            var timetable = StaffController.GenerateTimetable(this, staffMember);
+
+            // Collect the data from the database
+            var timetable = StaffController.ProduceTimetable(date, staffMember);
             TimetableListBox.DataSource = timetable;
         }
     }
