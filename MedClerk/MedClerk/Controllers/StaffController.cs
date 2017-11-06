@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MedClerk.Utilities;
 using MedClerk.Models;
+using System.Data;
 
 namespace MedClerk.Controllers
 {
@@ -26,5 +27,19 @@ namespace MedClerk.Controllers
             menu.Show();
         }
 
+        public static List<string> FindStaff(Views.StaffView staffView)
+        {
+            var date = staffView.getSelectedDate();
+            var data = StaffModel.getRegister(date.Date.ToString("d"));
+
+            List<string> staff = new List<string>();
+
+            foreach (DataRow row in data.Rows)
+            {
+                staff.Add(String.Concat(row["Title"].ToString(), ". ", row["First Name"].ToString(), " ", row["Last Name"].ToString()));
+            }
+
+            return staff;
+        }
     }
 }

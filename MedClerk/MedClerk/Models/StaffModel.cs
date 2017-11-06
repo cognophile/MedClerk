@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,22 +11,30 @@ namespace MedClerk.Models
 {
     class StaffModel
     {
-        public static void Register(string title, string firstName, string lastName, string room)
+        public static DataTable getRegister(string date)
         {
             var connection = Properties.Settings.Default.DBSource;
             var database = new DatabaseManager(connection);
-            var sql = sqlGetStaffInformation(title, firstName, lastName, room);
+            var sql = sqlGetStaffInformation(date);
 
             database.OpenConnection();
 
-            var result = database.ExecuteQuery(sql);
+            var results = database.ExecuteQuery(sql);
 
             database.CloseConnection();
+
+            DataTable table = results.Tables[0];
+            return table;
         }
 
-        static string sqlGetStaffInformation(string title, string firstName, string lastName, string room)
+        static string sqlGetStaffInformation(string date)
         {
-            return String.Format("SELECT * FROM dbo.[Staff];");
+            return String.Format("SELECT [Staff].[Title], " +
+                                        "[Staff].[First Name], " +
+                                        "[Staff].[Last Name] " +
+                                 "FROM dbo.[Staff] " +
+                                 "INNER JOIN [Appointments] ON [Staff Id] = [Appointments.Staff Id] " +
+                                 "WHERE [Date] = CAST({0} AS DATE);", date);
         }
     }
 }

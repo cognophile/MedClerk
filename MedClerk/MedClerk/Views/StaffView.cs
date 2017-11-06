@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MedClerk.Models;
+using MedClerk.Controllers;
 
 namespace MedClerk.Views
 {
@@ -15,6 +17,11 @@ namespace MedClerk.Views
         public StaffView()
         {
             InitializeComponent();
+        }
+
+        public DateTime getSelectedDate()
+        {
+            return RegisterDatePicker.Value;
         }
 
         private void MenuButton_Click(object sender, EventArgs e)
@@ -47,7 +54,8 @@ namespace MedClerk.Views
                 //Enables button due to there is data to present
                 ViewTimetableButton.Enabled = true;
                 //Collect the data from the database
-
+                var staffMembers = StaffController.FindStaff(this);
+                RegisterListBox.DataSource = staffMembers;
             }
         }
 
@@ -60,5 +68,7 @@ namespace MedClerk.Views
         {
 
         }
+
+
     }
 }

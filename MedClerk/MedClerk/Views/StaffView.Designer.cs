@@ -117,9 +117,9 @@
             // 
             // RegisterDatePicker
             // 
-            this.RegisterDatePicker.Location = new System.Drawing.Point(170, 174);
+            this.RegisterDatePicker.Location = new System.Drawing.Point(29, 150);
             this.RegisterDatePicker.Name = "RegisterDatePicker";
-            this.RegisterDatePicker.Size = new System.Drawing.Size(251, 31);
+            this.RegisterDatePicker.Size = new System.Drawing.Size(570, 31);
             this.RegisterDatePicker.TabIndex = 8;
             this.RegisterDatePicker.ValueChanged += new System.EventHandler(this.RegisterDatePicker_ValueChanged);
             // 
