@@ -19,8 +19,8 @@ namespace MedClerk.Utilities
         /// <returns>String representing the UK format of the given Date</returns>
         public static string ConvertToUkFormat(string dateUsFormat)
         {
-            DateTime dt = DateTime.ParseExact(dateUsFormat, "MM/d/yyyy", CultureInfo.InvariantCulture);
-            return dt.ToString("d/MM/yyyy");
+            DateTime dt = DateTime.ParseExact(dateUsFormat, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+            return dt.ToString("dd/MM/yyyy");
         }
 
         /// <summary>

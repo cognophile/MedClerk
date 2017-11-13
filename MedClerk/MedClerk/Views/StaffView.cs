@@ -34,33 +34,33 @@ namespace MedClerk.Views
             //Clears the listbox of previous data for easier reading
             //RegisterListBox.DataSource = null;
             
-            if(RegisterDatePicker.Value.DayOfWeek == DayOfWeek.Saturday)
+            if(RegisterDatePicker.Value.DayOfWeek == DayOfWeek.Saturday || RegisterDatePicker.Value.DayOfWeek == DayOfWeek.Sunday)
             {
                 //Disables view timetable button because there is no data to show
                 ViewTimetableButton.Enabled = false;
                 //Displays a message in RegisterListBox
-                RegisterListBox.Items.Add("Practice is closed on Saturdays.");
                 RegisterListBox.Items.Clear();
+                MessageBox.Show("Practice is closed on weekends!", "No data found",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if(RegisterDatePicker.Value.DayOfWeek == DayOfWeek.Sunday)
+            
+            //Enables button due to there is data to present
+            ViewTimetableButton.Enabled = true;
+                
+            var date = getSelectedDate();
+
+            //Collect the data from the database
+            var staffMembers = StaffController.ProduceRegister(date);
+
+            if (!staffMembers.Any())
             {
-                //Disables view timetable button because there is no data to show
-                ViewTimetableButton.Enabled = false;
-                //Displays a message in RegisterListBox
-                RegisterListBox.Items.Add("Practice is closed on Sundays.");
+                MessageBox.Show("No staff data was found for this date.", "No data found",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 RegisterListBox.Items.Clear();
-                return;
             }
             else
             {
-                //Enables button due to there is data to present
-                ViewTimetableButton.Enabled = true;
-                
-                var date = getSelectedDate();
-
-                //Collect the data from the database
-                var staffMembers = StaffController.ProduceRegister(date);
                 RegisterListBox.DataSource = staffMembers;
             }
         }
