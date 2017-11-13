@@ -49,7 +49,7 @@ namespace MedClerk.Models
                                         "[Staff].[Name] " +
                                  "FROM [Appointments] " +
                                  "INNER JOIN [Staff] ON [Appointments].[Staff Id] = [Staff].[Staff Id] " +
-                                 "WHERE CONVERT(DATE, [Appointments].[Date], 103) = CONVERT(DATE, '{0}', 103);", date);
+                                 "WHERE CONVERT(DATE, [Appointments].[Date], 103) = CONVERT(DATE, '{0}', 103);", date.ToString());
         }
 
         private static string SqlGetStaffMemberTimetable(string staffName, string date)
@@ -60,7 +60,7 @@ namespace MedClerk.Models
                                  "INNER JOIN [Staff] ON [Appointments].[Staff Id] = [Staff].[Staff Id] " +
                                  "INNER JOIN [Patients] ON [Appointments].[Patient Id] = [Patients].[Patient Id] " +
                                  "WHERE CONVERT(DATE, [Appointments].[Date], 103) = CONVERT(DATE, '{0}', 103) " +
-                                 "AND [Staff].[Name] = '{1}';", date, staffName);
+                                 "AND [Staff].[Name] = '{1}';", date.ToString(), staffName);
         }
     }
 }

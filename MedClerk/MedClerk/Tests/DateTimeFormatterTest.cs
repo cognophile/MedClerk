@@ -15,12 +15,26 @@ namespace MedClerk.Tests
         public void TestConverToUkFormat_GivenADefaultUsFormat_ReturnsExpectedUkDateFormatString()
         {
             // Arrange
-            var expected = "5/12/2017";
-            DateTime testDate = new DateTime(2017, 12, 5);
-            var testDateStr = testDate.Date.ToString("d");
+            var expected = "21/12/2017";
+            DateTime testDate = new DateTime(2017, 12, 21);
+            var testDateStr = testDate.ToString();
             
             // Act
             var date = DateTimeFormatter.ConvertToUkFormat(testDateStr);
+
+            // Assert
+            Assert.That(date, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void TestConvertToUkFormat_GivenIncorrectDateFormat_ReturnsTodaysDateInUkFormat_AsDefault()
+        {
+            // Arrange
+            var incorrectFormat = "27/11/2017";
+            var expected = DateTime.Today.ToString("d/MM/yyyy");
+
+            // Act
+            var date = DateTimeFormatter.ConvertToUkFormat(incorrectFormat);
 
             // Assert
             Assert.That(date, Is.EqualTo(expected));
