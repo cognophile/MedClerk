@@ -285,7 +285,7 @@
             this.Controls.Add(this.btn_SearchPatients);
             this.Controls.Add(this.btn_OpenMenu);
             this.Name = "PatientManagementView";
-            this.Text = "PatientManagementView";
+            this.Text = "Patient Management";
             ((System.ComponentModel.ISupportInitialize)(this.dGrid_SearchPatientResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
