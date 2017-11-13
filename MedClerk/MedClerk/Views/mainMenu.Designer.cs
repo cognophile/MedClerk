@@ -67,11 +67,14 @@
             this.patientsBtn.Text = "Patients";
             this.patientsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.patientsBtn.UseVisualStyleBackColor = true;
+            this.patientsBtn.Click += new System.EventHandler(this.patientsBtn_Click);
             // 
             // logoutBtn
             // 
             this.logoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.logoutBtn.Location = new System.Drawing.Point(426, 219);
+
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.Size = new System.Drawing.Size(195, 54);
             this.logoutBtn.TabIndex = 3;
@@ -96,8 +99,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(681, 385);
             this.Controls.Add(this.appBtn);
+
             this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.patientsBtn);
             this.Controls.Add(this.staffBtn);
