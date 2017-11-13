@@ -61,6 +61,7 @@ namespace MedClerk.Views
             }
             else
             {
+                RegisterListBox.DataSource = null;
                 RegisterListBox.DataSource = staffMembers;
             }
         }
@@ -82,6 +83,7 @@ namespace MedClerk.Views
 
             // Collect the data from the database
             var timetable = StaffController.ProduceTimetable(date, staffMember);
+            TimetableListBox.DataSource = null;
             TimetableListBox.DataSource = timetable;
         }
     }
