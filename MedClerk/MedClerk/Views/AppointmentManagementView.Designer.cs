@@ -48,27 +48,30 @@
             // 
             // menuBtn
             // 
-            this.menuBtn.Location = new System.Drawing.Point(27, 837);
+            this.menuBtn.Location = new System.Drawing.Point(14, 435);
+            this.menuBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.menuBtn.Name = "menuBtn";
-            this.menuBtn.Size = new System.Drawing.Size(189, 68);
+            this.menuBtn.Size = new System.Drawing.Size(94, 35);
             this.menuBtn.TabIndex = 0;
             this.menuBtn.Text = "Menu";
             this.menuBtn.UseVisualStyleBackColor = true;
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(907, 837);
+            this.addBtn.Location = new System.Drawing.Point(454, 435);
+            this.addBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(189, 68);
+            this.addBtn.Size = new System.Drawing.Size(94, 35);
             this.addBtn.TabIndex = 1;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = true;
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(1160, 837);
+            this.cancelBtn.Location = new System.Drawing.Point(580, 435);
+            this.cancelBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(189, 68);
+            this.cancelBtn.Size = new System.Drawing.Size(94, 35);
             this.cancelBtn.TabIndex = 2;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
@@ -77,60 +80,66 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(37, 34);
+            this.label1.Location = new System.Drawing.Point(18, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(214, 37);
+            this.label1.Size = new System.Drawing.Size(108, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "Appointments";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(50, 116);
+            this.dateTimePicker1.Location = new System.Drawing.Point(25, 60);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(262, 31);
+            this.dateTimePicker1.Size = new System.Drawing.Size(133, 20);
             this.dateTimePicker1.TabIndex = 4;
             // 
             // mandatoryLbl1
             // 
             this.mandatoryLbl1.AutoSize = true;
             this.mandatoryLbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mandatoryLbl1.Location = new System.Drawing.Point(318, 116);
+            this.mandatoryLbl1.Location = new System.Drawing.Point(159, 60);
+            this.mandatoryLbl1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mandatoryLbl1.Name = "mandatoryLbl1";
-            this.mandatoryLbl1.Size = new System.Drawing.Size(25, 31);
+            this.mandatoryLbl1.Size = new System.Drawing.Size(13, 17);
             this.mandatoryLbl1.TabIndex = 5;
             this.mandatoryLbl1.Text = "*";
             // 
             // staffNameCB
             // 
             this.staffNameCB.FormattingEnabled = true;
-            this.staffNameCB.Location = new System.Drawing.Point(462, 116);
+            this.staffNameCB.Location = new System.Drawing.Point(231, 60);
+            this.staffNameCB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.staffNameCB.Name = "staffNameCB";
-            this.staffNameCB.Size = new System.Drawing.Size(244, 33);
+            this.staffNameCB.Size = new System.Drawing.Size(124, 21);
             this.staffNameCB.TabIndex = 6;
             // 
             // staffMemberLbl
             // 
             this.staffMemberLbl.AutoSize = true;
-            this.staffMemberLbl.Location = new System.Drawing.Point(727, 121);
+            this.staffMemberLbl.Location = new System.Drawing.Point(364, 63);
+            this.staffMemberLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.staffMemberLbl.Name = "staffMemberLbl";
-            this.staffMemberLbl.Size = new System.Drawing.Size(139, 25);
+            this.staffMemberLbl.Size = new System.Drawing.Size(69, 13);
             this.staffMemberLbl.TabIndex = 7;
             this.staffMemberLbl.Text = "Staff member";
             // 
             // appointmentSelectLB
             // 
             this.appointmentSelectLB.FormattingEnabled = true;
-            this.appointmentSelectLB.ItemHeight = 25;
-            this.appointmentSelectLB.Location = new System.Drawing.Point(48, 209);
+            this.appointmentSelectLB.Location = new System.Drawing.Point(24, 109);
+            this.appointmentSelectLB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.appointmentSelectLB.Name = "appointmentSelectLB";
-            this.appointmentSelectLB.Size = new System.Drawing.Size(657, 204);
+            this.appointmentSelectLB.Size = new System.Drawing.Size(330, 108);
             this.appointmentSelectLB.TabIndex = 8;
             // 
             // patientIDTB
             // 
-            this.patientIDTB.Location = new System.Drawing.Point(48, 463);
+            this.patientIDTB.Location = new System.Drawing.Point(24, 241);
+            this.patientIDTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.patientIDTB.Name = "patientIDTB";
-            this.patientIDTB.Size = new System.Drawing.Size(260, 31);
+            this.patientIDTB.Size = new System.Drawing.Size(132, 20);
             this.patientIDTB.TabIndex = 9;
             this.patientIDTB.Text = "Patient ID";
             // 
@@ -138,35 +147,39 @@
             // 
             this.mandatoryLbl2.AutoSize = true;
             this.mandatoryLbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mandatoryLbl2.Location = new System.Drawing.Point(315, 463);
+            this.mandatoryLbl2.Location = new System.Drawing.Point(158, 241);
+            this.mandatoryLbl2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mandatoryLbl2.Name = "mandatoryLbl2";
-            this.mandatoryLbl2.Size = new System.Drawing.Size(25, 31);
+            this.mandatoryLbl2.Size = new System.Drawing.Size(13, 17);
             this.mandatoryLbl2.TabIndex = 10;
             this.mandatoryLbl2.Text = "*";
             // 
             // staffIDCB
             // 
             this.staffIDCB.FormattingEnabled = true;
-            this.staffIDCB.Location = new System.Drawing.Point(48, 518);
+            this.staffIDCB.Location = new System.Drawing.Point(24, 269);
+            this.staffIDCB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.staffIDCB.Name = "staffIDCB";
-            this.staffIDCB.Size = new System.Drawing.Size(261, 33);
+            this.staffIDCB.Size = new System.Drawing.Size(132, 21);
             this.staffIDCB.TabIndex = 11;
             // 
             // mandatoryLbl3
             // 
             this.mandatoryLbl3.AutoSize = true;
             this.mandatoryLbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mandatoryLbl3.Location = new System.Drawing.Point(315, 520);
+            this.mandatoryLbl3.Location = new System.Drawing.Point(158, 270);
+            this.mandatoryLbl3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mandatoryLbl3.Name = "mandatoryLbl3";
-            this.mandatoryLbl3.Size = new System.Drawing.Size(25, 31);
+            this.mandatoryLbl3.Size = new System.Drawing.Size(13, 17);
             this.mandatoryLbl3.TabIndex = 12;
             this.mandatoryLbl3.Text = "*";
             // 
             // timeTB
             // 
-            this.timeTB.Location = new System.Drawing.Point(48, 584);
+            this.timeTB.Location = new System.Drawing.Point(24, 304);
+            this.timeTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.timeTB.Name = "timeTB";
-            this.timeTB.Size = new System.Drawing.Size(260, 31);
+            this.timeTB.Size = new System.Drawing.Size(132, 20);
             this.timeTB.TabIndex = 13;
             this.timeTB.Text = "Time";
             // 
@@ -174,26 +187,28 @@
             // 
             this.mandatoryLbl4.AutoSize = true;
             this.mandatoryLbl4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mandatoryLbl4.Location = new System.Drawing.Point(315, 584);
+            this.mandatoryLbl4.Location = new System.Drawing.Point(158, 304);
+            this.mandatoryLbl4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mandatoryLbl4.Name = "mandatoryLbl4";
-            this.mandatoryLbl4.Size = new System.Drawing.Size(25, 31);
+            this.mandatoryLbl4.Size = new System.Drawing.Size(13, 17);
             this.mandatoryLbl4.TabIndex = 14;
             this.mandatoryLbl4.Text = "*";
             // 
             // explainationLbl
             // 
             this.explainationLbl.AutoSize = true;
-            this.explainationLbl.Location = new System.Drawing.Point(62, 677);
+            this.explainationLbl.Location = new System.Drawing.Point(173, 25);
+            this.explainationLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.explainationLbl.Name = "explainationLbl";
-            this.explainationLbl.Size = new System.Drawing.Size(146, 25);
+            this.explainationLbl.Size = new System.Drawing.Size(73, 13);
             this.explainationLbl.TabIndex = 15;
             this.explainationLbl.Text = "* = Mandatory";
             // 
             // AppointmentManagementView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1376, 929);
+            this.ClientSize = new System.Drawing.Size(688, 483);
             this.Controls.Add(this.explainationLbl);
             this.Controls.Add(this.mandatoryLbl4);
             this.Controls.Add(this.timeTB);
@@ -210,7 +225,6 @@
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.menuBtn);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "AppointmentManagementView";
             this.Text = "AppointmentManagementView";
             this.ResumeLayout(false);
