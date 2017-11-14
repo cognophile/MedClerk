@@ -12,7 +12,7 @@ namespace MedClerk.Tests
     class DateTimeFormatterTest
     {
         [Test]
-        public void TestConverToUkFormat_GivenADefaultUsFormat_ReturnsExpectedUkDateFormatString()
+        public void TestConverUsToUkFormat_GivenADefaultUsFormat_ReturnsExpectedUkDateFormatString()
         {
             // Arrange
             var expected = "21/12/2017";
@@ -27,11 +27,53 @@ namespace MedClerk.Tests
         }
 
         [Test]
-        public void TestConvertToUkFormat_GivenUSDateFormat_ReturnsGivenDateInUKFormat()
+        public void TestConvertUsToUKFormat_GivenUSDateFormat_ReturnsGivenDateInUKFormat()
         {
             // Arrange
             var usDateFormat = "11/29/2017 11:00:00 AM";
             var expected = "29/11/2017";
+
+            // Act
+            var date = DateTimeFormatter.ConvertUsToUkFormat(usDateFormat);
+
+            // Assert
+            Assert.That(date, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void TestConvertUsToUKFormat_GivenUKDateFormat_With24HrTime_ReturnsGivenDateInUKFormat()
+        {
+            // Arrange
+            var usDateFormat = "29/11/2017 14:00:00";
+            var expected = "29/11/2017";
+
+            // Act
+            var date = DateTimeFormatter.ConvertUsToUkFormat(usDateFormat);
+
+            // Assert
+            Assert.That(date, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void TestConvertUsToUKFormat_GivenUKDateFormat_WithoutTime_ReturnsGivenDateInUKFormat()
+        {
+            // Arrange
+            var usDateFormat = "29/11/2017";
+            var expected = "29/11/2017";
+
+            // Act
+            var date = DateTimeFormatter.ConvertUsToUkFormat(usDateFormat);
+
+            // Assert
+            Assert.That(date, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void TestConvertUsToUkFormat_GivenUKFormat_MissingTimeDefinition_ReturnTodaysDateInUKFormat()
+        {
+            // Arrange
+            var usDateFormat = "10/29/2017";
+            var expected = DateTime.Today.ToString("d/MM/yyyy");
 
             // Act
             var date = DateTimeFormatter.ConvertUsToUkFormat(usDateFormat);
