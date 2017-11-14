@@ -31,7 +31,7 @@ namespace MedClerk.Tests
         {
             // Arrange
             var incorrectFormat = "27/11/2017";
-            var expected = DateTime.Today.ToString("d/MM/yyyy");
+            var expected = DateTime.Today.ToString("dd/MM/yyyy");
 
             // Act
             var date = DateTimeFormatter.ConvertToUkFormat(incorrectFormat);
