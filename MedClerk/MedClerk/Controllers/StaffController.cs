@@ -38,7 +38,8 @@ namespace MedClerk.Controllers
         {
             List<string> staff = new List<string>();
 
-            var date = Convert.ToString(dateTime);//DateTimeFormatter.ConvertToUkFormat(dateTime.ToString());
+            var date = DateTimeFormatter.ConvertUsToUkFormat(dateTime.ToString());
+
             var results = StaffModel.getStaffRegister(date);
      
             foreach (DataRow row in results.Rows)

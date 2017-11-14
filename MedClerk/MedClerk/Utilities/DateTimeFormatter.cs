@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -17,17 +18,23 @@ namespace MedClerk.Utilities
         /// </summary>
         /// <param name="usFormat">String representation of a date, in US format 'MM/dd/yyyy' including time, in default 12-hour format.</param>
         /// <returns>String representing the UK format of the given Date</returns>
-        public static string ConvertToUkFormat(string dateTime)
+        public static string ConvertUsToUkFormat(string dateTime)
         {
-            try
+            DateTime expected; 
+            if (DateTime.TryParseExact(dateTime, "MM/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out expected))
             {
-                DateTime dt = DateTime.ParseExact(dateTime, "MM/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
-                return dt.ToString("d/MM/yyyy");
+                try
+                {
+                    DateTime dt = DateTime.ParseExact(dateTime, "MM/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
+                    return dt.ToString("d/MM/yyyy");
+                }
+                catch (FormatException e)
+                {
+                     return String.Concat("Error converting date: {0}", e.Message);
+                }
             }
-            catch (FormatException)
-            {
-                return DateTime.Today.ToString("d/MM/yyyy");
-            }
+            
+            return dateTime.Split(' ').First(); 
         }
 
         /// <summary>

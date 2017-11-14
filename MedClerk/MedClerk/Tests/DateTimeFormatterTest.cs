@@ -20,21 +20,21 @@ namespace MedClerk.Tests
             var testDateStr = testDate.ToString();
             
             // Act
-            var date = DateTimeFormatter.ConvertToUkFormat(testDateStr);
+            var date = DateTimeFormatter.ConvertUsToUkFormat(testDateStr);
 
             // Assert
             Assert.That(date, Is.EqualTo(expected));
         }
 
         [Test]
-        public void TestConvertToUkFormat_GivenIncorrectDateFormat_ReturnsTodaysDateInUkFormat_AsDefault()
+        public void TestConvertToUkFormat_GivenUSDateFormat_ReturnsGivenDateInUKFormat()
         {
             // Arrange
-            var incorrectFormat = "27/11/2017";
-            var expected = DateTime.Today.ToString("dd/MM/yyyy");
+            var usDateFormat = "11/29/2017 11:00:00 AM";
+            var expected = "29/11/2017";
 
             // Act
-            var date = DateTimeFormatter.ConvertToUkFormat(incorrectFormat);
+            var date = DateTimeFormatter.ConvertUsToUkFormat(usDateFormat);
 
             // Assert
             Assert.That(date, Is.EqualTo(expected));
