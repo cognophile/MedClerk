@@ -77,6 +77,12 @@
     <Compile Include="Tests\UserModelTest.cs" />
     <Compile Include="Utilities\DateTimeFormatter.cs" />
     <Compile Include="Utilities\Password.cs" />
+    <Compile Include="Views\AppointmentManagementView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AppointmentManagementView.Designer.cs">
+      <DependentUpon>AppointmentManagementView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\AppointmentManagementView.resx">
+      <DependentUpon>AppointmentManagementView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
