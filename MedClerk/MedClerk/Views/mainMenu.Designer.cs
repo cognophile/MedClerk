@@ -90,6 +90,7 @@
             this.appBtn.Text = "Appointments";
             this.appBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.appBtn.UseVisualStyleBackColor = true;
+            this.appBtn.Click += new System.EventHandler(this.appBtn_Click);
             // 
             // MainMenu
             // 

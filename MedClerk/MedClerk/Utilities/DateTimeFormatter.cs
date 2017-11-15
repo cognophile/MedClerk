@@ -20,17 +20,17 @@ namespace MedClerk.Utilities
         /// <returns>String representing the UK format of the given Date</returns>
         public static string ConvertUsToUkFormat(string dateTime)
         {
-            string[] formats = { "MM/d/yyyy h:mm:ss tt", "MM/d/yyyy HH:mm:ss", "MM/d/yyyy" };
+            string[] formats = { "MM/dd/yyyy hh:mm:ss tt", "MM/dd/yyyy HH:mm:ss", "MM/dd/yyyy" };
             if (DateTime.TryParseExact(dateTime, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime expected))
             {
                 try
                 {
-                    DateTime dt = DateTime.ParseExact(dateTime, "MM/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
-                    return dt.ToString("d/MM/yyyy");
+                    DateTime dt = DateTime.ParseExact(dateTime, "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+                    return dt.ToString("dd/MM/yyyy");
                 }
-                catch (FormatException e)
+                catch (FormatException)
                 {
-                    return DateTime.Today.ToString("d/MM/yyyy");
+                    return DateTime.Today.ToString("dd/MM/yyyy");
                 }
             }
 

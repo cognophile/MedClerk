@@ -65,17 +65,6 @@ namespace MedClerk.Views
                 RegisterListBox.DataSource = staffMembers;
             }
         }
-
-        private void RegisterDatePicker_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RegisterListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ViewTimetableButton_Click(object sender, EventArgs e)
         {
             var date = getSelectedDate();

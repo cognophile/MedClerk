@@ -38,7 +38,7 @@ namespace MedClerk.Controllers
         {
             List<string> staff = new List<string>();
 
-            var date = DateTimeFormatter.ConvertUsToUkFormat(dateTime.ToString());
+            var date = Convert.ToString(dateTime);//DateTimeFormatter.ConvertUsToUkFormat(dateTime.ToString());
 
             var results = StaffModel.getStaffRegister(date);
      
@@ -74,7 +74,7 @@ namespace MedClerk.Controllers
             foreach (DataRow row in results.Rows)
             {
                 var time = DateTimeFormatter.RemoveSeconds(row["Time"].ToString());
-                var patient = row["Name"].ToString();
+                var patient = row["Patient Name"].ToString();
 
                 var item = String.Concat(time, ": ", patient);
 
