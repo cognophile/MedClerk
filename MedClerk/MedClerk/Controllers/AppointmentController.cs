@@ -30,7 +30,7 @@ namespace MedClerk.Controllers
         {
             List<string> appointments = new List<string>();
             var date = Convert.ToString(dateTime);
-            var results = StaffModel.getAppointments(date);
+            var results = PatientModel.getAppointments(date);
 
             foreach (DataRow row in results.Rows)
             {

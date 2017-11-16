@@ -29,5 +29,32 @@ namespace MedClerk.Models
             return String.Format("SELECT [Patients].[Patient Name] " +
                                  "FROM [Patients] ", name.ToString());
         }
+        public static DataTable getAppointments(string date)
+        {
+            var connection = Properties.Settings.Default.DBSource;
+            var database = new DatabaseManager(connection);
+            var sql = SqlGetAppointments(date);
+
+            database.OpenConnection();
+
+            var results = database.ExecuteQuery(sql);
+
+            database.CloseConnection();
+
+            DataTable table = results.Tables[0];
+            return table;
+        }
+        private static string SqlGetAppointments(string date)
+        {
+            return String.Format("SELECT [Appointments].[Time], " +
+                                        "[Staff].[Room], " +
+                                        "[Staff].[Title], " +
+                                        "[Staff].[Name], " +
+                                        "[Patients].[Patient Name] " +
+                                 "FROM [Appointments] " +
+                                 "INNER JOIN [Staff] ON [Appointments].[Staff Id] = [Staff].[Staff Id] " +
+                                 "INNER JOIN [Patients] ON [Appointments].[Patient Id] = [Patients].[Patient Id] " +
+                                 "WHERE CONVERT(DATE, [Appointments].[Date], 103) = CONVERT(DATE, '{0}', 103);", date.ToString());
+        }
     }
 }
