@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MedClerk.Controllers;
+using MedClerk.Models;
 
 namespace MedClerk.Views
 {
@@ -24,14 +25,24 @@ namespace MedClerk.Views
         private DateTime getSelectedDate()
         {
             return appointmentDatePicker.Value;
-
         }
-
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             var date = appointmentDatePicker.Value;
             var staffMembers = AppointmentController.ProduceAppointments(date);
             appListBox.DataSource = staffMembers;
+        }
+        private void patientIDCB_Load(object sender, EventArgs e)
+        {
+            PatientModel patient = new PatientModel();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Patient Name", typeof(string));
+            patientIDCB.ValueMember = "Patient Name";
+            patientIDCB.DataSource = dt;
+        }
+        private void patientIDCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string patient = patientIDCB.SelectedValue.ToString();
         }
     }
 }

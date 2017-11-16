@@ -34,8 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.appointmentDatePicker = new System.Windows.Forms.DateTimePicker();
             this.mandatoryLbl1 = new System.Windows.Forms.Label();
-            this.staffNameCB = new System.Windows.Forms.ComboBox();
-            this.staffMemberLbl = new System.Windows.Forms.Label();
             this.mandatoryLbl2 = new System.Windows.Forms.Label();
             this.staffIDCB = new System.Windows.Forms.ComboBox();
             this.mandatoryLbl3 = new System.Windows.Forms.Label();
@@ -108,25 +106,6 @@
             this.mandatoryLbl1.TabIndex = 5;
             this.mandatoryLbl1.Text = "*";
             // 
-            // staffNameCB
-            // 
-            this.staffNameCB.FormattingEnabled = true;
-            this.staffNameCB.Location = new System.Drawing.Point(231, 60);
-            this.staffNameCB.Margin = new System.Windows.Forms.Padding(2);
-            this.staffNameCB.Name = "staffNameCB";
-            this.staffNameCB.Size = new System.Drawing.Size(124, 21);
-            this.staffNameCB.TabIndex = 6;
-            // 
-            // staffMemberLbl
-            // 
-            this.staffMemberLbl.AutoSize = true;
-            this.staffMemberLbl.Location = new System.Drawing.Point(364, 63);
-            this.staffMemberLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.staffMemberLbl.Name = "staffMemberLbl";
-            this.staffMemberLbl.Size = new System.Drawing.Size(69, 13);
-            this.staffMemberLbl.TabIndex = 7;
-            this.staffMemberLbl.Text = "Staff member";
-            // 
             // mandatoryLbl2
             // 
             this.mandatoryLbl2.AutoSize = true;
@@ -197,6 +176,7 @@
             this.patientIDCB.Size = new System.Drawing.Size(132, 21);
             this.patientIDCB.TabIndex = 18;
             this.patientIDCB.Text = "Choose Patient";
+            this.patientIDCB.SelectedIndexChanged += new System.EventHandler(this.patientIDCB_SelectedIndexChanged);
             // 
             // timeCB
             // 
@@ -221,8 +201,6 @@
             this.Controls.Add(this.mandatoryLbl3);
             this.Controls.Add(this.staffIDCB);
             this.Controls.Add(this.mandatoryLbl2);
-            this.Controls.Add(this.staffMemberLbl);
-            this.Controls.Add(this.staffNameCB);
             this.Controls.Add(this.mandatoryLbl1);
             this.Controls.Add(this.appointmentDatePicker);
             this.Controls.Add(this.label1);
@@ -244,8 +222,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker appointmentDatePicker;
         private System.Windows.Forms.Label mandatoryLbl1;
-        private System.Windows.Forms.ComboBox staffNameCB;
-        private System.Windows.Forms.Label staffMemberLbl;
         private System.Windows.Forms.Label mandatoryLbl2;
         private System.Windows.Forms.ComboBox staffIDCB;
         private System.Windows.Forms.Label mandatoryLbl3;

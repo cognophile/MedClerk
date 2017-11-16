@@ -46,5 +46,23 @@ namespace MedClerk.Controllers
 
             return appointments;
         }
+        public void ProducePatients(String name)
+        {
+            List<string> patients = new List<string>();
+            var results = PatientModel.getPatients(name);
+            foreach (DataRow row in results.Rows)
+            {
+                var item = String.Concat(row["Patient Name"].ToString());
+
+                if (patients.Contains(item))
+                {
+                    continue;
+                }
+
+                patients.Add(item);
+            }
+
+            return;
+        }
     }
 }
