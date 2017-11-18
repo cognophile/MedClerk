@@ -46,10 +46,11 @@ namespace MedClerk.Controllers
 
             return appointments;
         }
-        public void ProducePatients(String name)
+        public static List<string> ProducePatients()
         {
             List<string> patients = new List<string>();
-            var results = PatientModel.getPatients(name);
+            var results = PatientModel.getPatients();
+            patients.Insert(0, "Choose Patient");
             foreach (DataRow row in results.Rows)
             {
                 var item = String.Concat(row["Patient Name"].ToString());
@@ -62,7 +63,39 @@ namespace MedClerk.Controllers
                 patients.Add(item);
             }
 
-            return;
+            return patients;
         }
+        public static List<string> ProduceStaff()
+        {
+            List<string> staff = new List<string>();
+            var results = PatientModel.getStaff();
+            staff.Insert(0, "Choose Staff Member");
+            foreach (DataRow row in results.Rows)
+            {
+                var item = String.Concat(row["Name"].ToString());
+
+                if (staff.Contains(item))
+                {
+                    continue;
+                }
+
+                staff.Add(item);
+            }
+
+            return staff;
+        }
+        public static List<TimeSpan> ProduceTime()
+        {
+            var times = new List<TimeSpan>();
+            double interval = 15;
+            DateTime start = new DateTime(2017,1,1,09, 00, 0);
+            DateTime end = new DateTime(2017, 1, 1,14, 00, 0);
+            for (var ts = start; ts <= end; ts = ts.AddMinutes(interval))
+            {
+                times.Add(ts.TimeOfDay);
+            }
+            return times;
+        }
+        
     }
 }

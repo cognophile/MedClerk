@@ -17,6 +17,9 @@ namespace MedClerk.Views
         public AppointmentManagementView()
         {
             InitializeComponent();
+            fillPatients();
+            fillStaff();
+            fillTimes();
         }
         private void menuBtn_Click(object sender, EventArgs e)
         {
@@ -32,17 +35,21 @@ namespace MedClerk.Views
             var staffMembers = AppointmentController.ProduceAppointments(date);
             appListBox.DataSource = staffMembers;
         }
-        private void patientIDCB_Load(object sender, EventArgs e)
+        private void fillPatients()
         {
-            PatientModel patient = new PatientModel();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Patient Name", typeof(string));
-            patientIDCB.ValueMember = "Patient Name";
-            patientIDCB.DataSource = dt;
+            patientIDCB.DataSource = AppointmentController.ProducePatients();
         }
         private void patientIDCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string patient = patientIDCB.SelectedValue.ToString();
+
+        }
+        private void fillStaff()
+        {
+            staffIDCB.DataSource = AppointmentController.ProduceStaff();
+        }
+        private void fillTimes()
+        {
+            timeCB.DataSource = AppointmentController.ProduceTime();
         }
     }
 }

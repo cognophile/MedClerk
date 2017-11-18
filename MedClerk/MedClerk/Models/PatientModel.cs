@@ -9,11 +9,11 @@ namespace MedClerk.Models
 {
     class PatientModel
     {
-        public static DataTable getPatients(string name)
+        public static DataTable getPatients()
         {
             var connection = Properties.Settings.Default.DBSource;
             var database = new DatabaseManager(connection);
-            var sql = SqlGetPatientName(name);
+            var sql = SqlGetPatientNames();
 
             database.OpenConnection();
 
@@ -24,10 +24,30 @@ namespace MedClerk.Models
             DataTable table = results.Tables[0];
             return table;
         }
-        private static string SqlGetPatientName(string name)
+        private static string SqlGetPatientNames()
         {
-            return String.Format("SELECT [Patients].[Patient Name] " +
-                                 "FROM [Patients] ", name.ToString());
+            return String.Format("SELECT [PATIENT NAME] " +
+                                 "FROM [Patients] ");
+        }
+        public static DataTable getStaff()
+        {
+            var connection = Properties.Settings.Default.DBSource;
+            var database = new DatabaseManager(connection);
+            var sql = SqlGetStaffNames();
+
+            database.OpenConnection();
+
+            var results = database.ExecuteQuery(sql);
+
+            database.CloseConnection();
+
+            DataTable table = results.Tables[0];
+            return table;
+        }
+        private static string SqlGetStaffNames()
+        {
+            return String.Format("SELECT [NAME] " +
+                                 "FROM [Staff] ");
         }
         public static DataTable getAppointments(string date)
         {
