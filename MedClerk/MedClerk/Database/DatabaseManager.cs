@@ -60,5 +60,21 @@ namespace MedClerk.Database
 
             return results;
         }
+
+        /// <summary>
+        /// Given a SQL statement, execute the command on the database
+        /// </summary>
+        /// <param name="sql">A string of SQL statements</param>
+        /// <returns>DataSet object representing results of the query</returns>
+        public DataSet ExecuteCommand(string sql)
+        {
+            DataSet results;
+            adapter = new SqlDataAdapter(sql, connection);
+
+            results = new DataSet();
+            adapter.Fill(results);
+
+            return results;
+        }
     }
 }
