@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MedClerk.Utilities;
 using MedClerk.Models;
+using MedClerk.Views;
 using System.Globalization;
 
 namespace MedClerk.Controllers
@@ -95,6 +96,12 @@ namespace MedClerk.Controllers
                 times.Add(ts.TimeOfDay);
             }
             return times;
+        }
+        public static AddAppointment(object chosenPatient,object chosenStaff,object chosenTime)
+        {
+            var results = PatientModel.createAppointments();
+            DataRow insertAppointment = results.NewRow();
+            return results;
         }
         
     }

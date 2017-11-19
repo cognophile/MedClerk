@@ -9,6 +9,19 @@ namespace MedClerk.Models
 {
     class PatientModel
     {
+        public static DataTable createAppointments()
+        {
+            var connection = Properties.Settings.Default.DBSource;
+            var database = new DatabaseManager(connection);
+
+            database.OpenConnection();
+            
+
+            database.CloseConnection();
+
+            DataTable table = results.Tables[0];
+            return table;
+        }
         public static DataTable getPatients()
         {
             var connection = Properties.Settings.Default.DBSource;

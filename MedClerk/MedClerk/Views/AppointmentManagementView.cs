@@ -39,10 +39,6 @@ namespace MedClerk.Views
         {
             patientIDCB.DataSource = AppointmentController.ProducePatients();
         }
-        private void patientIDCB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private void fillStaff()
         {
             staffIDCB.DataSource = AppointmentController.ProduceStaff();
@@ -50,6 +46,23 @@ namespace MedClerk.Views
         private void fillTimes()
         {
             timeCB.DataSource = AppointmentController.ProduceTime();
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            var chosenPatient = patientIDCB.SelectedValue;
+            var chosenStaff = staffIDCB.SelectedValue;
+            var chosenTime = timeCB.SelectedValue;
+            if (patientIDCB.SelectedValue == null || staffIDCB.SelectedValue == null || timeCB.SelectedValue == null)
+            {
+                MessageBox.Show("Error!", "Please Fill all Required Fields",
+                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else
+            {
+                AppointmentController.AddAppointment(chosenPatient,chosenStaff,chosenTime);
+            }
         }
     }
 }

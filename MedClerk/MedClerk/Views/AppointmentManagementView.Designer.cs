@@ -64,6 +64,7 @@
             this.addBtn.TabIndex = 1;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // cancelBtn
             // 
@@ -176,7 +177,6 @@
             this.patientIDCB.Size = new System.Drawing.Size(132, 21);
             this.patientIDCB.TabIndex = 18;
             this.patientIDCB.Text = "Choose Patient";
-            this.patientIDCB.SelectedIndexChanged += new System.EventHandler(this.patientIDCB_SelectedIndexChanged);
             // 
             // timeCB
             // 
