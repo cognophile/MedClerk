@@ -54,6 +54,7 @@ namespace MedClerk.Views
             var chosenStaff = staffIDCB.SelectedItem;
             var chosenTime = timeCB.SelectedItem;
             var chosenDate = appointmentDatePicker.Value;
+
             if (patientIDCB.SelectedValue == null || staffIDCB.SelectedValue == null || timeCB.SelectedValue == null)
             {
                 MessageBox.Show("Error!", "Please Fill all Required Fields",
@@ -62,7 +63,13 @@ namespace MedClerk.Views
             }
             else
             {
-                AppointmentController.CreateAppointment(chosenDate, chosenTime, chosenStaff, chosenPatient);
+                //      Cut the chosenStaff/chosenPatients strings to only the number before the ':'
+                //      Parse those string numbers into integers
+                // var successful = AppointmentController.CreateAppointment(chosenStaff, chosenPatient, chosenTime, chosenDate);
+
+                // Successful might be bool 'true' if the record is saved. Else, we want to send back an error to the view here
+                //  if it wasn't written to the Database. Pop up a message box if it works to say 'Added' and one to say 'Not Added' 
+                //  if it was unsuccessful, and put the error message in the message box. 
             }
         }
     }
