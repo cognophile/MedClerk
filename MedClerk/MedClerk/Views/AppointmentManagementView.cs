@@ -50,9 +50,10 @@ namespace MedClerk.Views
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            var chosenPatient = patientIDCB.SelectedValue;
-            var chosenStaff = staffIDCB.SelectedValue;
-            var chosenTime = timeCB.SelectedValue;
+            var chosenPatient = patientIDCB.SelectedItem;
+            var chosenStaff = staffIDCB.SelectedItem;
+            var chosenTime = timeCB.SelectedItem;
+            var chosenDate = appointmentDatePicker.Value;
             if (patientIDCB.SelectedValue == null || staffIDCB.SelectedValue == null || timeCB.SelectedValue == null)
             {
                 MessageBox.Show("Error!", "Please Fill all Required Fields",
@@ -61,7 +62,7 @@ namespace MedClerk.Views
             }
             else
             {
-                AppointmentController.AddAppointment(chosenPatient,chosenStaff,chosenTime);
+                AppointmentController.CreateAppointment(chosenDate, chosenTime, chosenStaff, chosenPatient);
             }
         }
     }

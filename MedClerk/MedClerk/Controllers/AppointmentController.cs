@@ -97,11 +97,9 @@ namespace MedClerk.Controllers
             }
             return times;
         }
-        public static AddAppointment(object chosenPatient,object chosenStaff,object chosenTime)
+        public static CreateAppointment(object chosenDate,object chosenTime,object chosenStaff,object chosenPatient)
         {
-            var results = PatientModel.createAppointments();
-            DataRow insertAppointment = results.NewRow();
-            return results;
+            return;
         }
         
     }
