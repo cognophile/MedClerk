@@ -50,10 +50,10 @@ namespace MedClerk.Views
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            var chosenPatient = patientIDCB.SelectedItem;
+            /*var chosenPatient = patientIDCB.SelectedItem;
             var chosenStaff = staffIDCB.SelectedItem;
             var chosenTime = timeCB.SelectedItem;
-            var chosenDate = appointmentDatePicker.Value;
+            var chosenDate = appointmentDatePicker.Value;*/
 
             if (patientIDCB.SelectedValue == null || staffIDCB.SelectedValue == null || timeCB.SelectedValue == null)
             {
@@ -63,9 +63,15 @@ namespace MedClerk.Views
             }
             else
             {
+                var chosenTime = timeCB.SelectedItem.ToString();
+                var chosenDate = appointmentDatePicker.Value;
+                string[] patID = patientIDCB.SelectedText.Split(':');
+                string chosenPatient = patID[0];
+                string[] staffID = staffIDCB.SelectedText.Split(':');
+                string chosenStaff = staffID[0];
                 //      Cut the chosenStaff/chosenPatients strings to only the number before the ':'
                 //      Parse those string numbers into integers
-                // var successful = AppointmentController.CreateAppointment(chosenStaff, chosenPatient, chosenTime, chosenDate);
+                var successful = AppointmentController.CreateAppointment(chosenStaff, chosenPatient, chosenTime, chosenDate);
 
                 // Successful might be bool 'true' if the record is saved. Else, we want to send back an error to the view here
                 //  if it wasn't written to the Database. Pop up a message box if it works to say 'Added' and one to say 'Not Added' 

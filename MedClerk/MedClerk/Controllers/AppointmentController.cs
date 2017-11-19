@@ -54,7 +54,7 @@ namespace MedClerk.Controllers
             patients.Insert(0, "Choose Patient");
             foreach (DataRow row in results.Rows)
             {
-                var item = String.Concat(row["Patient Name"].ToString());
+                var item = String.Concat(row["Patient Id"].ToString(), ": ",row["Patient Name"].ToString());
 
                 if (patients.Contains(item))
                 {
@@ -73,7 +73,7 @@ namespace MedClerk.Controllers
             staff.Insert(0, "Choose Staff Member");
             foreach (DataRow row in results.Rows)
             {
-                var item = String.Concat(row["Name"].ToString());
+                var item = String.Concat(row["Staff Id"].ToString(), ": ", row["Name"].ToString());
 
                 if (staff.Contains(item))
                 {
@@ -98,7 +98,7 @@ namespace MedClerk.Controllers
             return times;
         }
         
-        public bool CreateAppointment(string staffId, string patientId, string appointmentTime, DateTime appointmentDate)
+        public static bool CreateAppointment(string chosenstaff, string chosenPatient, string chosenTime, DateTime chosenDate)
         {
             // Surround this in a try/catch in case we can't write to the database. 
             // Where you catch the exception, send the message back to the view to display in a text box. 

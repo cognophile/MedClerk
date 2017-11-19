@@ -17,7 +17,10 @@ namespace MedClerk.Models
 
         public AppointmentModel(int staffId, int patientId, string appointmentTime, DateTime appointmentDate)
         {
-            // this.staffId = staffId; ... etc.
+            this.staffId = staffId;
+            this.patientId = patientId;
+            this.appointmentTime = appointmentTime;
+            this.appointmentDate = appointmentDate;
         }
 
         public bool SaveAppointment()
@@ -31,10 +34,9 @@ namespace MedClerk.Models
             throw new NotImplementedException();
         }
 
-        private static string SqlWriteAppointmentRecordToAppointmentsTable()
+        private string SqlWriteAppointmentRecordToAppointmentsTable()
         {
-            // return String.Format("INSERT INTO table (field1, field2,...) VALUES ({0}, {1}...);", this.staffId, ...);
-            throw new NotImplementedException();
+            return String.Format("INSERT INTO Appointments (Staff Id, Patient Id, Date, Time) VALUES ({1},{2},{3},{4});", staffId, patientId, appointmentTime, appointmentDate);
         }
         
     }

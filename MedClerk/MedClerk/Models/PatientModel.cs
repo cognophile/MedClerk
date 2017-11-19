@@ -26,8 +26,7 @@ namespace MedClerk.Models
         }
         private static string SqlGetPatientNames()
         {
-            return String.Format("SELECT [PATIENT NAME] " +
-                                 "FROM [Patients] ");
+            return String.Format("SELECT[Patient Id], [Patient Name] FROM [Patients] ");
         }
         public static DataTable getStaff()
         {
@@ -46,8 +45,7 @@ namespace MedClerk.Models
         }
         private static string SqlGetStaffNames()
         {
-            return String.Format("SELECT [NAME] " +
-                                 "FROM [Staff] ");
+            return String.Format("SELECT[Staff Id], [Name] FROM [Staff] ");
         }
         public static DataTable getAppointments(string date)
         {
