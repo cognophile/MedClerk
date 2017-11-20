@@ -44,7 +44,7 @@ namespace MedClerk.Views
 
         private void patientsBtn_Click(object sender, EventArgs e)
         {
-            PatientController.LoadPatientManagement(this);
+            Controllers.PatientController.LoadPatientManagement(this);
         }
     }
 }
