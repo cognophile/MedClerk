@@ -40,9 +40,9 @@ namespace MedClerk.Database
             connection.Close();
         }
 
-        public SqlCommand CreateCommand()
+        public SqlCommand CreateCommand(string sql, SqlConnection connection)
         {
-            return new SqlCommand();
+            return new SqlCommand(sql, connection);
         }
 
         /// <summary>
@@ -66,15 +66,15 @@ namespace MedClerk.Database
         /// </summary>
         /// <param name="sql">A string of SQL statements</param>
         /// <returns>DataSet object representing results of the query</returns>
-        public DataSet ExecuteCommand(string sql)
+        public int ExecuteCommand(string sql)
         {
-            DataSet results;
-            adapter = new SqlDataAdapter(sql, connection);
+            using (SqlCommand cmd = new SqlCommand(sql, this.connection))
+            {
+                cmd.CommandType = CommandType.Text;
 
-            results = new DataSet();
-            adapter.Fill(results);
-
-            return results;
+                var result = cmd.ExecuteNonQuery();
+                return result;
+            }
         }
     }
 }

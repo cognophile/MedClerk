@@ -65,14 +65,31 @@ namespace MedClerk.Views
             {
                 var chosenTime = timeCB.SelectedItem.ToString();
                 var chosenDate = appointmentDatePicker.Value;
-                string[] patID = patientIDCB.SelectedText.Split(':');
-                string chosenPatient = patID[0];
-                string[] staffID = staffIDCB.SelectedText.Split(':');
-                string chosenStaff = staffID[0];
+                //string[] GetPatID = patientIDCB.SelectedText.Split(':');
+                //int patientID = Int32.Parse(GetPatID[0]);
+                var GetPatientID = patientIDCB.GetItemText(patientIDCB.SelectedItem);
+                var pID = GetPatientID.Split(':').First();
+                int patientID = Int32.Parse(pID);
+                var GetStaffID = staffIDCB.GetItemText(staffIDCB.SelectedItem);
+                var sID = GetStaffID.Split(':').First();
+                int staffID = Int32.Parse(sID);
                 //      Cut the chosenStaff/chosenPatients strings to only the number before the ':'
                 //      Parse those string numbers into integers
-                var successful = AppointmentController.CreateAppointment(chosenStaff, chosenPatient, chosenTime, chosenDate);
+                var allAppointments = AppointmentController.CreateAppointment(staffID, patientID, chosenTime, chosenDate.ToString("dd/MM/yyyy"));
 
+                if (allAppointments.Any())
+                {
+                    appListBox.DataSource = allAppointments;
+                    MessageBox.Show("Success!", "Appointment created.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Error!", "Appoitment couldn't be added.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 // Successful might be bool 'true' if the record is saved. Else, we want to send back an error to the view here
                 //  if it wasn't written to the Database. Pop up a message box if it works to say 'Added' and one to say 'Not Added' 
                 //  if it was unsuccessful, and put the error message in the message box. 

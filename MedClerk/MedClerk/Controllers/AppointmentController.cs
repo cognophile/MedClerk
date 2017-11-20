@@ -98,19 +98,29 @@ namespace MedClerk.Controllers
             return times;
         }
         
-        public static bool CreateAppointment(string chosenstaff, string chosenPatient, string chosenTime, DateTime chosenDate)
+        public static List<string> CreateAppointment(int staffID, int patientID, string chosenTime, string chosenDate)
         {
             // Surround this in a try/catch in case we can't write to the database. 
             // Where you catch the exception, send the message back to the view to display in a text box. 
 
-            // var appointment = new AppointmentModel(staffId, patientId, appointmentTime, appointmentDate)
-            // var result = appointment.SaveAppointment();
+            var appointment = new AppointmentModel(staffID, patientID, chosenTime, chosenDate);
+            var result = appointment.SaveAppointment();
             // If result is all good, return true (it saved to the database)
             // If the save failed, it'll go into the exception catch block where you can send back the error message something like:  
             // catch (Exception ex) {
             //      return e.GetMessage();
             // }
-            throw new NotImplementedException();
+
+            if (result)
+            {
+                var app = ProduceAppointments(Convert.ToDateTime(chosenDate));
+                return app;
+            } 
+            else
+            {
+                List<string> noResults = new List<string>();
+                return noResults;
+            }
         }
 
     }
