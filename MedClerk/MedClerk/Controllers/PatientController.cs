@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MedClerk.Models;
 using MedClerk.Views;
+using System.Data;
 
 namespace MedClerk.Controllers
 {
@@ -23,6 +25,34 @@ namespace MedClerk.Controllers
             patientManagement.Hide();
             menu.Closed += (senderObj, EventArgs) => patientManagement.Close();
             menu.Show();
+        }
+
+        public static DataTable FindPatient(int id)
+        {
+            PatientModel patient = new PatientModel { Id = id };
+            return patient.FindPatientById();
+        }
+        
+        public static DataTable FindPatient(string name, string address)
+        {
+            PatientModel patient = new PatientModel
+            {
+                FullName = name,
+                Address = address
+            };
+
+            return patient.FindPatientByNameAndAddress();
+        }
+
+        public static DataTable FindPatient(string name, DateTime dob)
+        {
+            PatientModel patient = new PatientModel
+            {
+                FullName = name,
+                DateOfBirth = dob
+            };
+
+            return patient.FindPatientByNameAndDateOfBirth();
         }
     }
 }
