@@ -103,25 +103,6 @@ namespace MedClerk.Models
             return table;
         }
 
-        private static string SqlFindPatientById(int id)
-        {
-            return String.Format("SELECT * FROM [Patients] WHERE [Patient Id] = {0};", id);
-        }
-
-        private static string SqlFindPatientByNameAndAddress(string name, string address)
-        {
-            return String.Format("SELECT * FROM [Patients] WHERE [Patient Name] = '{0}' AND [Address] = '{1}';", name, address);
-        }
-
-        private static string SqlFindPatientByNameAndDateOfBirth(string name, DateTime dob)
-        {
-            return String.Format("SELECT * FROM [Patients] WHERE [Patient Name] = '{0}' AND [Date of Birth] = CONVERT(DATE, '{1}', 103);", name, dob.ToString("dd/MM/yyyy"));
-        }
-
-        private static string SqlGetPatientNames()
-        {
-            return String.Format("SELECT[Patient Id], [Patient Name] FROM [Patients] ");
-        }
         public static DataTable getStaff()
         {
             var connection = Properties.Settings.Default.DBSource;
@@ -137,11 +118,7 @@ namespace MedClerk.Models
             DataTable table = results.Tables[0];
             return table;
         }
-        private static string SqlGetStaffNames()
-        {
-            return String.Format("SELECT[Staff Id], [Name] FROM [Staff] ");
-        }
-
+        
         public static DataTable getAppointments(string date)
         {
             var connection = Properties.Settings.Default.DBSource;
@@ -157,6 +134,32 @@ namespace MedClerk.Models
             DataTable table = results.Tables[0];
             return table;
         }
+
+        private static string SqlGetPatientNames()
+        {
+            return String.Format("SELECT[Patient Id], [Patient Name] FROM [Patients] ");
+        }
+
+        private static string SqlGetStaffNames()
+        {
+            return String.Format("SELECT[Staff Id], [Name] FROM [Staff] ");
+        }
+
+        private static string SqlFindPatientById(int id)
+        {
+            return String.Format("SELECT * FROM [Patients] WHERE [Patient Id] = {0};", id);
+        }
+
+        private static string SqlFindPatientByNameAndAddress(string name, string address)
+        {
+            return String.Format("SELECT * FROM [Patients] WHERE [Patient Name] = '{0}' AND [Address] = '{1}';", name, address);
+        }
+
+        private static string SqlFindPatientByNameAndDateOfBirth(string name, DateTime dob)
+        {
+            return String.Format("SELECT * FROM [Patients] WHERE [Patient Name] = '{0}' AND [Date of Birth] = CONVERT(DATE, '{1}', 103);", name, dob.ToString("dd/MM/yyyy"));
+        }
+
         private static string SqlGetAppointments(string date)
         {
             return String.Format("SELECT [Appointments].[Time], " +
