@@ -27,12 +27,24 @@ namespace MedClerk.Controllers
             menu.Show();
         }
 
+        /// <summary>
+        /// Locate a patient 
+        /// - 3 OVERLOADS: int id | string name, string address | string name, DateTime dob
+        /// </summary>
+        /// <param name="id">Integer: id</param>
+        /// <returns>DataTable: Results Set of Query</returns>
         public static DataTable FindPatient(int id)
         {
             PatientModel patient = new PatientModel { Id = id };
             return patient.FindPatientById();
         }
-        
+
+        /// <summary>
+        /// Locate a patient 
+        /// - 3 OVERLOADS: int id | string name, string address | string name, DateTime dob
+        /// </summary>
+        /// <param name="id">String: Full Name, String: Full Address</param>
+        /// <returns>DataTable: Results Set of Query</returns>
         public static DataTable FindPatient(string name, string address)
         {
             PatientModel patient = new PatientModel
@@ -44,6 +56,12 @@ namespace MedClerk.Controllers
             return patient.FindPatientByNameAndAddress();
         }
 
+        /// <summary>
+        /// Locate a patient 
+        /// - 3 OVERLOADS: int id | string name, string address | string name, DateTime dob
+        /// </summary>
+        /// <param name="id">String: Full Name, DateTime: Date of Birth</param>
+        /// <returns>DataTable: Results Set of Query</returns>
         public static DataTable FindPatient(string name, DateTime dob)
         {
             PatientModel patient = new PatientModel
