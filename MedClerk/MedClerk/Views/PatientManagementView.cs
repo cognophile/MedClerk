@@ -16,11 +16,75 @@ namespace MedClerk.Views
         public PatientManagementView()
         {
             InitializeComponent();
+            dtp_AddDobSelector.Value = DateTime.Today;
+            dtp_SearchDobSelector.Value = DateTime.Today;
         }
 
         private void btn_OpenMenu_Click(object sender, EventArgs e)
         {
             PatientController.LoadMenu(this);
+        }
+
+        private void btn_SearchPatients_Click(object sender, EventArgs e)
+        {
+            const int DATE_TODAY = 0;
+
+            var id = txtbx_SearchIdField.Text;
+            var name = txtbx_SearchNameField.Text;
+            var dob = dtp_SearchDobSelector.Value;
+            var address = txtbx_SearchAddressField.Text;
+            var dateMatch = dob.CompareTo(DateTime.Today);
+
+            if (!String.IsNullOrWhiteSpace(id))
+            {
+                int tmp;
+                if (int.TryParse(id, out tmp))
+                {
+                    var res = PatientController.FindPatient(tmp);
+
+                    if (res.Rows.Count > 0) { dGrid_SearchPatientResults.DataSource = res; }
+                    else
+                    {
+                        MessageBox.Show("No records found matching that criteria.",
+                                "No data found!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The ID provided was invalid. Ensure you enter a number (Eg. 101)",
+                            "Incorrect input format", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            if (!String.IsNullOrWhiteSpace(name) && !String.IsNullOrWhiteSpace(address))
+            {
+                var res = PatientController.FindPatient(name, address);
+
+                if (res.Rows.Count > 0) { dGrid_SearchPatientResults.DataSource = res; }  
+                else
+                {
+                    MessageBox.Show("No records found matching that criteria.",
+                            "No data found!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
+            if (!String.IsNullOrWhiteSpace(name) && dateMatch != DATE_TODAY)
+            {
+                var res = PatientController.FindPatient(name, dob);
+
+                if (res.Rows.Count > 0) { dGrid_SearchPatientResults.DataSource = res; }
+                else
+                {
+                    MessageBox.Show("No records found matching that criteria.",
+                            "No data found!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
+            dtp_SearchDobSelector.Value = DateTime.Today;
         }
     }
 }

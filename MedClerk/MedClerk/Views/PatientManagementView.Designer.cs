@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientManagementView));
             this.btn_OpenMenu = new System.Windows.Forms.Button();
             this.btn_SearchPatients = new System.Windows.Forms.Button();
             this.btn_AddPatient = new System.Windows.Forms.Button();
@@ -42,16 +41,16 @@
             this.lbl_SearchPatientNameField = new System.Windows.Forms.Label();
             this.lbl_SearchAddess = new System.Windows.Forms.Label();
             this.lbl_SearchPatientId = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtbx_SearchNameField = new System.Windows.Forms.TextBox();
             this.txtbx_SearchAddressField = new System.Windows.Forms.TextBox();
-            this.txtbx_SearchPatientIdField = new System.Windows.Forms.TextBox();
+            this.txtbx_SearchIdField = new System.Windows.Forms.TextBox();
             this.lbl_SearchDob = new System.Windows.Forms.Label();
             this.lbl_SearchPatientsTitle = new System.Windows.Forms.Label();
             this.lbl_patientsManagementInstructions = new System.Windows.Forms.Label();
             this.lbl_SearchPatientsInstructions = new System.Windows.Forms.Label();
             this.btn_ViewPatientProfile = new System.Windows.Forms.Button();
             this.dtp_AddDobSelector = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dtp_SearchDobSelector = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dGrid_SearchPatientResults)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +59,7 @@
             this.btn_OpenMenu.Location = new System.Drawing.Point(13, 448);
             this.btn_OpenMenu.Name = "btn_OpenMenu";
             this.btn_OpenMenu.Size = new System.Drawing.Size(75, 23);
-            this.btn_OpenMenu.TabIndex = 0;
+            this.btn_OpenMenu.TabIndex = 10;
             this.btn_OpenMenu.Text = "Menu";
             this.btn_OpenMenu.UseVisualStyleBackColor = true;
             this.btn_OpenMenu.Click += new System.EventHandler(this.btn_OpenMenu_Click);
@@ -70,16 +69,17 @@
             this.btn_SearchPatients.Location = new System.Drawing.Point(603, 192);
             this.btn_SearchPatients.Name = "btn_SearchPatients";
             this.btn_SearchPatients.Size = new System.Drawing.Size(75, 23);
-            this.btn_SearchPatients.TabIndex = 1;
+            this.btn_SearchPatients.TabIndex = 8;
             this.btn_SearchPatients.Text = "Search";
             this.btn_SearchPatients.UseVisualStyleBackColor = true;
+            this.btn_SearchPatients.Click += new System.EventHandler(this.btn_SearchPatients_Click);
             // 
             // btn_AddPatient
             // 
             this.btn_AddPatient.Location = new System.Drawing.Point(603, 83);
             this.btn_AddPatient.Name = "btn_AddPatient";
             this.btn_AddPatient.Size = new System.Drawing.Size(75, 23);
-            this.btn_AddPatient.TabIndex = 2;
+            this.btn_AddPatient.TabIndex = 3;
             this.btn_AddPatient.Text = "Add";
             this.btn_AddPatient.UseVisualStyleBackColor = true;
             // 
@@ -99,7 +99,7 @@
             this.txtbx_AddNameField.Location = new System.Drawing.Point(80, 54);
             this.txtbx_AddNameField.Name = "txtbx_AddNameField";
             this.txtbx_AddNameField.Size = new System.Drawing.Size(181, 20);
-            this.txtbx_AddNameField.TabIndex = 6;
+            this.txtbx_AddNameField.TabIndex = 0;
             this.txtbx_AddNameField.Text = "- Enter full name -";
             // 
             // txtbx_AddAddressField
@@ -108,7 +108,7 @@
             this.txtbx_AddAddressField.Location = new System.Drawing.Point(329, 54);
             this.txtbx_AddAddressField.Name = "txtbx_AddAddressField";
             this.txtbx_AddAddressField.Size = new System.Drawing.Size(349, 20);
-            this.txtbx_AddAddressField.TabIndex = 7;
+            this.txtbx_AddAddressField.TabIndex = 1;
             this.txtbx_AddAddressField.Text = "- Enter full address -";
             // 
             // lbl_AddName
@@ -176,14 +176,13 @@
             this.lbl_SearchPatientId.TabIndex = 16;
             this.lbl_SearchPatientId.Text = "ID";
             // 
-            // textBox4
+            // txtbx_SearchNameField
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(80, 225);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(129, 20);
-            this.textBox4.TabIndex = 15;
-            this.textBox4.Text = "- Enter full name -";
+            this.txtbx_SearchNameField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbx_SearchNameField.Location = new System.Drawing.Point(80, 225);
+            this.txtbx_SearchNameField.Name = "txtbx_SearchNameField";
+            this.txtbx_SearchNameField.Size = new System.Drawing.Size(183, 20);
+            this.txtbx_SearchNameField.TabIndex = 5;
             // 
             // txtbx_SearchAddressField
             // 
@@ -191,17 +190,15 @@
             this.txtbx_SearchAddressField.Location = new System.Drawing.Point(329, 225);
             this.txtbx_SearchAddressField.Name = "txtbx_SearchAddressField";
             this.txtbx_SearchAddressField.Size = new System.Drawing.Size(349, 20);
-            this.txtbx_SearchAddressField.TabIndex = 14;
-            this.txtbx_SearchAddressField.Text = "- Enter full address -";
+            this.txtbx_SearchAddressField.TabIndex = 6;
             // 
-            // txtbx_SearchPatientIdField
+            // txtbx_SearchIdField
             // 
-            this.txtbx_SearchPatientIdField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbx_SearchPatientIdField.Location = new System.Drawing.Point(80, 199);
-            this.txtbx_SearchPatientIdField.Name = "txtbx_SearchPatientIdField";
-            this.txtbx_SearchPatientIdField.Size = new System.Drawing.Size(62, 20);
-            this.txtbx_SearchPatientIdField.TabIndex = 13;
-            this.txtbx_SearchPatientIdField.Text = "- Enter ID -";
+            this.txtbx_SearchIdField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbx_SearchIdField.Location = new System.Drawing.Point(80, 199);
+            this.txtbx_SearchIdField.Name = "txtbx_SearchIdField";
+            this.txtbx_SearchIdField.Size = new System.Drawing.Size(65, 20);
+            this.txtbx_SearchIdField.TabIndex = 4;
             // 
             // lbl_SearchDob
             // 
@@ -227,10 +224,9 @@
             this.lbl_patientsManagementInstructions.AutoSize = true;
             this.lbl_patientsManagementInstructions.Location = new System.Drawing.Point(14, 33);
             this.lbl_patientsManagementInstructions.Name = "lbl_patientsManagementInstructions";
-            this.lbl_patientsManagementInstructions.Size = new System.Drawing.Size(405, 13);
+            this.lbl_patientsManagementInstructions.Size = new System.Drawing.Size(256, 13);
             this.lbl_patientsManagementInstructions.TabIndex = 22;
-            this.lbl_patientsManagementInstructions.Text = "To add a new patient, fill out all required fields. Address should be comma seper" +
-    "ated.";
+            this.lbl_patientsManagementInstructions.Text = "To add a new patient, fill out all required fields below.";
             // 
             // lbl_SearchPatientsInstructions
             // 
@@ -240,14 +236,16 @@
             this.lbl_SearchPatientsInstructions.Name = "lbl_SearchPatientsInstructions";
             this.lbl_SearchPatientsInstructions.Size = new System.Drawing.Size(646, 26);
             this.lbl_SearchPatientsInstructions.TabIndex = 23;
-            this.lbl_SearchPatientsInstructions.Text = resources.GetString("lbl_SearchPatientsInstructions.Text");
+            this.lbl_SearchPatientsInstructions.Text = "To locate a patients details, please enter an ID, name and DOB, or name and addre" +
+    "ss to search by. Highlight a patient and select \'View Profile\' to open the patie" +
+    "nts profile.";
             // 
             // btn_ViewPatientProfile
             // 
             this.btn_ViewPatientProfile.Location = new System.Drawing.Point(603, 448);
             this.btn_ViewPatientProfile.Name = "btn_ViewPatientProfile";
             this.btn_ViewPatientProfile.Size = new System.Drawing.Size(75, 23);
-            this.btn_ViewPatientProfile.TabIndex = 24;
+            this.btn_ViewPatientProfile.TabIndex = 9;
             this.btn_ViewPatientProfile.Text = "View Profile";
             this.btn_ViewPatientProfile.UseVisualStyleBackColor = true;
             // 
@@ -257,24 +255,24 @@
             this.dtp_AddDobSelector.Location = new System.Drawing.Point(80, 83);
             this.dtp_AddDobSelector.Name = "dtp_AddDobSelector";
             this.dtp_AddDobSelector.Size = new System.Drawing.Size(181, 20);
-            this.dtp_AddDobSelector.TabIndex = 26;
+            this.dtp_AddDobSelector.TabIndex = 2;
             this.dtp_AddDobSelector.Value = new System.DateTime(2017, 11, 20, 17, 59, 47, 0);
             // 
-            // textBox1
+            // dtp_SearchDobSelector
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(329, 202);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 20);
-            this.textBox1.TabIndex = 27;
-            this.textBox1.Text = "- DD/MM/YYYY -";
+            this.dtp_SearchDobSelector.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_SearchDobSelector.Location = new System.Drawing.Point(329, 199);
+            this.dtp_SearchDobSelector.Name = "dtp_SearchDobSelector";
+            this.dtp_SearchDobSelector.Size = new System.Drawing.Size(181, 20);
+            this.dtp_SearchDobSelector.TabIndex = 7;
+            this.dtp_SearchDobSelector.Value = new System.DateTime(2017, 11, 20, 17, 59, 47, 0);
             // 
             // PatientManagementView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(688, 483);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dtp_SearchDobSelector);
             this.Controls.Add(this.dtp_AddDobSelector);
             this.Controls.Add(this.btn_ViewPatientProfile);
             this.Controls.Add(this.lbl_SearchPatientsInstructions);
@@ -284,9 +282,9 @@
             this.Controls.Add(this.lbl_SearchPatientNameField);
             this.Controls.Add(this.lbl_SearchAddess);
             this.Controls.Add(this.lbl_SearchPatientId);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtbx_SearchNameField);
             this.Controls.Add(this.txtbx_SearchAddressField);
-            this.Controls.Add(this.txtbx_SearchPatientIdField);
+            this.Controls.Add(this.txtbx_SearchIdField);
             this.Controls.Add(this.dGrid_SearchPatientResults);
             this.Controls.Add(this.lbl_AddDob);
             this.Controls.Add(this.lbl_AddAddress);
@@ -320,15 +318,15 @@
         private System.Windows.Forms.Label lbl_SearchPatientNameField;
         private System.Windows.Forms.Label lbl_SearchAddess;
         private System.Windows.Forms.Label lbl_SearchPatientId;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtbx_SearchNameField;
         private System.Windows.Forms.TextBox txtbx_SearchAddressField;
-        private System.Windows.Forms.TextBox txtbx_SearchPatientIdField;
+        private System.Windows.Forms.TextBox txtbx_SearchIdField;
         private System.Windows.Forms.Label lbl_SearchDob;
         private System.Windows.Forms.Label lbl_SearchPatientsTitle;
         private System.Windows.Forms.Label lbl_patientsManagementInstructions;
         private System.Windows.Forms.Label lbl_SearchPatientsInstructions;
         private System.Windows.Forms.Button btn_ViewPatientProfile;
         private System.Windows.Forms.DateTimePicker dtp_AddDobSelector;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dtp_SearchDobSelector;
     }
 }
