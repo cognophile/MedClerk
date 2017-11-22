@@ -61,7 +61,6 @@ namespace MedClerk.Views
             if (!String.IsNullOrWhiteSpace(name) && !String.IsNullOrWhiteSpace(address))
             {
                 var res = PatientController.FindPatient(name, address);
-                PatientController.
 
                 if (res.Rows.Count > 0) { dGrid_SearchPatientResults.DataSource = res; }  
                 else
