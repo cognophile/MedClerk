@@ -43,7 +43,8 @@ namespace MedClerk.Controllers
         /// Locate a patient 
         /// - 3 OVERLOADS: int id | string name, string address | string name, DateTime dob
         /// </summary>
-        /// <param name="id">String: Full Name, String: Full Address</param>
+        /// <param name="name">String: Full Name</param>
+        /// <param name="address">String: Full Address</param>
         /// <returns>DataTable: Results Set of Query</returns>
         public static DataTable FindPatient(string name, string address)
         {
@@ -60,7 +61,8 @@ namespace MedClerk.Controllers
         /// Locate a patient 
         /// - 3 OVERLOADS: int id | string name, string address | string name, DateTime dob
         /// </summary>
-        /// <param name="id">String: Full Name, DateTime: Date of Birth</param>
+        /// <param name="name">String: Full Name</param>
+        /// <param name="dob">DateTime: Date of Birth</param>
         /// <returns>DataTable: Results Set of Query</returns>
         public static DataTable FindPatient(string name, DateTime dob)
         {
