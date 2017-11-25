@@ -95,5 +95,38 @@ namespace MedClerk.Views
                 //  if it was unsuccessful, and put the error message in the message box. 
             }
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this appointment?","Delete Appointment", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                var SplitRow = appListBox.SelectedValue;
+                var date = SplitRow.ToString().Split('|').First();
+                var room = SplitRow.ToString().Split('|')[1];
+                var stafftitle = SplitRow.ToString().Split('|')[2];
+                var staffMember = SplitRow.ToString().Split('|')[3];
+                var patientMember = SplitRow.ToString().Split('|')[4];
+                var end = SplitRow.ToString().Split('|')[5];
+                var appointments = AppointmentController.RemoveAppointments(date, staffMember, patientMember);
+                if (appointments.Any())
+                {
+                    appListBox.DataSource = appointments;
+                    MessageBox.Show("Success!", "Appointment deleted.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Error!", "Appoitment couldn't be deleted.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else if (DialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
     }
 }

@@ -73,6 +73,7 @@
     <Compile Include="Database\DatabaseManager.cs" />
     <Compile Include="Models\AppointmentModel.cs" />
     <Compile Include="Models\PatientModel.cs" />
+    <Compile Include="Models\RemoveAppointmentModel.cs" />
     <Compile Include="Models\StaffModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Tests\DateTimeFormatterTest.cs" />

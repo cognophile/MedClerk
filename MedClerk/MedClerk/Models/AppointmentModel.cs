@@ -21,8 +21,8 @@ namespace MedClerk.Models
             this.patientId = patientId;
             this.appointmentTime = appointmentTime;
             this.appointmentDate = appointmentDate;
-        }
 
+        }
         public bool SaveAppointment()
         {
             // Reference the fields above with 'this.staffId' etc.
@@ -51,8 +51,8 @@ namespace MedClerk.Models
 
         private string SqlWriteAppointmentRecordToAppointmentsTable()
         {
-            return String.Format("INSERT INTO [Appointments] ([Staff Id], [Patient Id], [Date], [Time]) VALUES ({0}, {1}, CONVERT(DATE, '{2}', 103), CONVERT(TIME, '{3}'));", staffId, patientId, appointmentDate, appointmentTime);
+            return String.Format("INSERT INTO [Appointments] ([Staff Id], [Patient Id], [Date], [Time]) VALUES ({0}, {1}, CONVERT(DATE, '{2}', 103), CONVERT(TIME, '{3}'));", 
+                                staffId, patientId, appointmentDate, appointmentTime);
         }
-        
     }
 }

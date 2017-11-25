@@ -42,6 +42,10 @@
             this.appListBox = new System.Windows.Forms.ListBox();
             this.patientIDCB = new System.Windows.Forms.ComboBox();
             this.timeCB = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // menuBtn
@@ -75,6 +79,7 @@
             this.cancelBtn.TabIndex = 2;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // label1
             // 
@@ -89,7 +94,7 @@
             // 
             // appointmentDatePicker
             // 
-            this.appointmentDatePicker.Location = new System.Drawing.Point(25, 60);
+            this.appointmentDatePicker.Location = new System.Drawing.Point(16, 58);
             this.appointmentDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.appointmentDatePicker.Name = "appointmentDatePicker";
             this.appointmentDatePicker.Size = new System.Drawing.Size(133, 20);
@@ -100,7 +105,7 @@
             // 
             this.mandatoryLbl1.AutoSize = true;
             this.mandatoryLbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mandatoryLbl1.Location = new System.Drawing.Point(159, 60);
+            this.mandatoryLbl1.Location = new System.Drawing.Point(150, 58);
             this.mandatoryLbl1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mandatoryLbl1.Name = "mandatoryLbl1";
             this.mandatoryLbl1.Size = new System.Drawing.Size(13, 17);
@@ -111,7 +116,7 @@
             // 
             this.mandatoryLbl2.AutoSize = true;
             this.mandatoryLbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mandatoryLbl2.Location = new System.Drawing.Point(156, 284);
+            this.mandatoryLbl2.Location = new System.Drawing.Point(148, 284);
             this.mandatoryLbl2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mandatoryLbl2.Name = "mandatoryLbl2";
             this.mandatoryLbl2.Size = new System.Drawing.Size(13, 17);
@@ -121,7 +126,7 @@
             // staffIDCB
             // 
             this.staffIDCB.FormattingEnabled = true;
-            this.staffIDCB.Location = new System.Drawing.Point(22, 312);
+            this.staffIDCB.Location = new System.Drawing.Point(14, 312);
             this.staffIDCB.Margin = new System.Windows.Forms.Padding(2);
             this.staffIDCB.Name = "staffIDCB";
             this.staffIDCB.Size = new System.Drawing.Size(132, 21);
@@ -132,7 +137,7 @@
             // 
             this.mandatoryLbl3.AutoSize = true;
             this.mandatoryLbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mandatoryLbl3.Location = new System.Drawing.Point(156, 313);
+            this.mandatoryLbl3.Location = new System.Drawing.Point(148, 313);
             this.mandatoryLbl3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mandatoryLbl3.Name = "mandatoryLbl3";
             this.mandatoryLbl3.Size = new System.Drawing.Size(13, 17);
@@ -143,7 +148,7 @@
             // 
             this.mandatoryLbl4.AutoSize = true;
             this.mandatoryLbl4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mandatoryLbl4.Location = new System.Drawing.Point(156, 347);
+            this.mandatoryLbl4.Location = new System.Drawing.Point(148, 347);
             this.mandatoryLbl4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mandatoryLbl4.Name = "mandatoryLbl4";
             this.mandatoryLbl4.Size = new System.Drawing.Size(13, 17);
@@ -163,15 +168,15 @@
             // appListBox
             // 
             this.appListBox.FormattingEnabled = true;
-            this.appListBox.Location = new System.Drawing.Point(25, 94);
+            this.appListBox.Location = new System.Drawing.Point(12, 94);
             this.appListBox.Name = "appListBox";
-            this.appListBox.Size = new System.Drawing.Size(330, 173);
+            this.appListBox.Size = new System.Drawing.Size(490, 173);
             this.appListBox.TabIndex = 17;
             // 
             // patientIDCB
             // 
             this.patientIDCB.FormattingEnabled = true;
-            this.patientIDCB.Location = new System.Drawing.Point(22, 282);
+            this.patientIDCB.Location = new System.Drawing.Point(14, 282);
             this.patientIDCB.Margin = new System.Windows.Forms.Padding(2);
             this.patientIDCB.Name = "patientIDCB";
             this.patientIDCB.Size = new System.Drawing.Size(132, 21);
@@ -181,18 +186,62 @@
             // timeCB
             // 
             this.timeCB.FormattingEnabled = true;
-            this.timeCB.Location = new System.Drawing.Point(20, 347);
+            this.timeCB.Location = new System.Drawing.Point(12, 347);
             this.timeCB.Margin = new System.Windows.Forms.Padding(2);
             this.timeCB.Name = "timeCB";
             this.timeCB.Size = new System.Drawing.Size(132, 21);
             this.timeCB.TabIndex = 19;
             this.timeCB.Text = "Choose Time";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(10, 81);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Time";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(146, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Room";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(251, 81);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 13);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Staff Member";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(396, 81);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Patient ";
+            // 
             // AppointmentManagementView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(527, 467);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.timeCB);
             this.Controls.Add(this.patientIDCB);
             this.Controls.Add(this.appListBox);
@@ -230,5 +279,9 @@
         private System.Windows.Forms.ListBox appListBox;
         private System.Windows.Forms.ComboBox patientIDCB;
         private System.Windows.Forms.ComboBox timeCB;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

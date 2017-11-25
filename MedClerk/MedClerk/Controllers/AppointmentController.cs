@@ -35,7 +35,7 @@ namespace MedClerk.Controllers
 
             foreach (DataRow row in results.Rows)
             {
-                var item = String.Concat(row["Time"].ToString(), ". ", row["Room"].ToString(), ". ", row["Title"].ToString(), ". ", row["Name"].ToString(), ". ", row["Patient Name"].ToString());
+                var item = String.Concat(row["Time"].ToString(), "|", row["Room"].ToString(), "|", row["Title"].ToString(), "|", row["Name"].ToString(), "|", row["Patient Name"].ToString());
 
                 if (appointments.Contains(item))
                 {
@@ -122,6 +122,20 @@ namespace MedClerk.Controllers
                 return noResults;
             }
         }
-
+        public static List<string> RemoveAppointments(string date, string staffMember, string patientMember)
+        {
+            var appointment = new RemoveAppointmentModel(date, staffMember, patientMember);
+            var result = appointment.RemoveAppointment();
+            if (result)
+            {
+                List<string> entryDeleted = new List<string>();
+                return entryDeleted;
+            }
+            else
+            {
+                List<string> noResults = new List<string>();
+                return noResults;
+            }
+        }
     }
 }
