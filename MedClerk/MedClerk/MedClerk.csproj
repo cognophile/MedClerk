@@ -78,6 +78,7 @@
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Tests\DateTimeFormatterTest.cs" />
     <Compile Include="Tests\PasswordTest.cs" />
+    <Compile Include="Tests\PatientModelTest.cs" />
     <Compile Include="Tests\UserModelTest.cs" />
     <Compile Include="Utilities\DateTimeFormatter.cs" />
     <Compile Include="Utilities\Password.cs" />
