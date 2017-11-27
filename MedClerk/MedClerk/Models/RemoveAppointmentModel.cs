@@ -12,14 +12,18 @@ namespace MedClerk.Models
     {
         private string patientMember;
         private string staffMember;
+        private int staffId;
+        private int patientId;
+        private string time;
         private string date;
-        public RemoveAppointmentModel(string date, string staffMember, string patientMember)
+        public RemoveAppointmentModel(string date, string time, string staffMember, string patientMember)
         {
             this.patientMember = patientMember;
             this.staffMember = staffMember;
+            this.time = time;
             this.date = date;
         }
-        public string getPatientID(string patientMember)
+        public int getPatientID(string patientMember)
         {
             var connection = Properties.Settings.Default.DBSource;
             var database = new DatabaseManager(connection);
@@ -29,14 +33,14 @@ namespace MedClerk.Models
             var results = database.ExecuteQuery(sql);
             database.CloseConnection();
 
-            string patientId = results.ToString();
-            return patientId;
+            var patientId = results.Tables[0].Rows[0]["Patient Id"];
+            return Int32.Parse(patientId.ToString());
         }
         private static string SqlGetPatientId(string patientMember)
         {
-            return String.Format("SELECT[Patient].[Patient Id] FROM [Patient] WHERE[Patient].[Patient Name] LIKE '‰{0}%';", patientMember);
+            return String.Format("SELECT [Patients].[Patient Id] FROM [Patients] WHERE [Patients].[Patient Name] = '{0}';", patientMember);
         }
-        public string getStaffID(string staffMember)
+        public int getStaffID(string staffMember)
         {
             var connection = Properties.Settings.Default.DBSource;
             var database = new DatabaseManager(connection);
@@ -45,17 +49,23 @@ namespace MedClerk.Models
             database.OpenConnection();
             var results = database.ExecuteQuery(sql);
             database.CloseConnection();
-            //string staffId = results.ToString();
-            return results.ToString();
+            var staffId = results.Tables[0].Rows[0]["Staff Id"];
+            return Int32.Parse(staffId.ToString());
         }
         private static string SqlGetStaffId(string staffMember)
         {
-            return String.Format("SELECT[Staff].[Staff Id] FROM [Staff] WHERE[Staff].[Staff Name] LIKE '‰{0}%';", staffMember);
+            return String.Format("SELECT [Staff].[Staff Id] FROM [Staff] WHERE [Staff].[Name] = '{0}';", staffMember);
         }
         public bool RemoveAppointment()
         {
             var connection = Properties.Settings.Default.DBSource;
             var database = new DatabaseManager(connection);
+
+            // Get staff ID
+            this.staffId = getStaffID(this.staffMember);
+            this.patientId = getPatientID(this.patientMember);
+
+            // Remove 
             var sql = SqlDeleteAppointmentRecordFromAppointmentsTable();
 
             database.OpenConnection();
@@ -73,7 +83,7 @@ namespace MedClerk.Models
         }
         private string SqlDeleteAppointmentRecordFromAppointmentsTable()
         {
-            return String.Format("DELETE FROM [Appointments] WHERE [Date] = '" + date + "'[Staff Id] = '" + staffMember + "'[Patient Id] = '" + patientMember );
+            return String.Format("DELETE FROM [Appointments] WHERE [Date] = CONVERT(DATE, '"+ date +"', 103) AND [Time] = '" + time + "' AND [Staff Id] = " + this.staffId + " AND [Patient Id] = " + this.patientId +";");
         }
     }
 }

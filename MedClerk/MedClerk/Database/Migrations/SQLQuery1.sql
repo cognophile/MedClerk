@@ -1,0 +1,1 @@
+﻿SELECT [Patients].[Patient Id] FROM [Patients] WHERE [Patients].[Patient Name] = 'Nadia Patel';
