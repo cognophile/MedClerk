@@ -38,8 +38,9 @@ namespace MedClerk.Controllers
         {
             List<string> staff = new List<string>();
 
-            //var date = DateTimeFormatter.ConvertToUkFormat(dateTime.Date.ToString("d"));
-            var results = StaffModel.getStaffRegister(dateTime.Date.ToString("d"));
+            var date = Convert.ToString(dateTime);//DateTimeFormatter.ConvertUsToUkFormat(dateTime.ToString());
+
+            var results = StaffModel.getStaffRegister(date);
      
             foreach (DataRow row in results.Rows)
             {
@@ -67,13 +68,13 @@ namespace MedClerk.Controllers
             List<string> staff = new List<string>();
             staffMember = staffMember.Split('.').Last().Trim();
 
-            //var date = DateTimeFormatter.ConvertToUkFormat(dateTime.Date.ToString("d"));
-            var results = StaffModel.getStaffMemberTimetable(staffMember, dateTime.Date.ToString("d"));
+            var date = Convert.ToString(dateTime);//DateTimeFormatter.ConvertToUkFormat(dateTime.ToString());
+            var results = StaffModel.getStaffMemberTimetable(staffMember, date);
 
             foreach (DataRow row in results.Rows)
             {
                 var time = DateTimeFormatter.RemoveSeconds(row["Time"].ToString());
-                var patient = row["Name"].ToString();
+                var patient = row["Patient Name"].ToString();
 
                 var item = String.Concat(time, ": ", patient);
 

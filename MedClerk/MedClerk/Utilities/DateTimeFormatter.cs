@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -15,12 +16,25 @@ namespace MedClerk.Utilities
         /// <summary>
         /// Function to convert from a US format date (MM/dd/yyyy) to UK format (dd/MM/yyyy)
         /// </summary>
-        /// <param name="dateUsFormat">String representation of a date, in US format 'MM/dd/yyyy', without the time appended.</param>
+        /// <param name="usFormat">String representation of a date, in US format 'MM/dd/yyyy' including time, in default 12-hour format.</param>
         /// <returns>String representing the UK format of the given Date</returns>
-        public static string ConvertToUkFormat(string dateUsFormat)
+        public static string ConvertUsToUkFormat(string dateTime)
         {
-            DateTime dt = DateTime.ParseExact(dateUsFormat, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-            return dt.ToString("dd/MM/yyyy");
+            string[] formats = { "MM/dd/yyyy hh:mm:ss tt", "MM/dd/yyyy HH:mm:ss", "MM/dd/yyyy" };
+            if (DateTime.TryParseExact(dateTime, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime expected))
+            {
+                try
+                {
+                    DateTime dt = DateTime.ParseExact(dateTime, "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+                    return dt.ToString("dd/MM/yyyy");
+                }
+                catch (FormatException)
+                {
+                    return DateTime.Today.ToString("dd/MM/yyyy");
+                }
+            }
+
+            return dateTime.Split(' ').First(); 
         }
 
         /// <summary>

@@ -66,7 +66,6 @@
             this.RegisterListBox.Name = "RegisterListBox";
             this.RegisterListBox.Size = new System.Drawing.Size(183, 381);
             this.RegisterListBox.TabIndex = 2;
-            this.RegisterListBox.SelectedIndexChanged += new System.EventHandler(this.RegisterListBox_SelectedIndexChanged);
             // 
             // TimetableListBox
             // 
@@ -114,7 +113,6 @@
             this.RegisterDatePicker.Name = "RegisterDatePicker";
             this.RegisterDatePicker.Size = new System.Drawing.Size(255, 20);
             this.RegisterDatePicker.TabIndex = 8;
-            this.RegisterDatePicker.ValueChanged += new System.EventHandler(this.RegisterDatePicker_ValueChanged);
             // 
             // StaffView
             // 

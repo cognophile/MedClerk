@@ -19,8 +19,9 @@ This application has been designed and developed to support the Over Surgery's r
 
 ## Using the Application
 ### Login 
-Username: reception
-Password: password
+**Username:** reception
+
+**Password:** password
 
 ## Contributions
 ### Issues

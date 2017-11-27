@@ -36,5 +36,15 @@ namespace MedClerk.Views
         {
             Controllers.StaffController.LoadStaff(this);
         }
+
+        private void appBtn_Click(object sender, EventArgs e)
+        {
+            Controllers.AppointmentController.LoadAppointment(this);
+        }
+
+        private void patientsBtn_Click(object sender, EventArgs e)
+        {
+            Controllers.PatientController.LoadPatientManagement(this);
+        }
     }
 }

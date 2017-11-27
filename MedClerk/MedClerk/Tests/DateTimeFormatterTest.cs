@@ -12,15 +12,71 @@ namespace MedClerk.Tests
     class DateTimeFormatterTest
     {
         [Test]
-        public void TestConverToUkFormat_GivenADefaultUsFormat_ReturnsExpectedUkDateFormatString()
+        public void TestConverUsToUkFormat_GivenADefaultUsFormat_ReturnsExpectedUkDateFormatString()
         {
             // Arrange
-            var expected = "5/12/2017";
-            DateTime testDate = new DateTime(2017, 12, 5);
-            var testDateStr = testDate.Date.ToString("d");
+            var expected = "21/12/2017";
+            DateTime testDate = new DateTime(2017, 12, 21);
+            var testDateStr = testDate.ToString();
             
             // Act
-            var date = DateTimeFormatter.ConvertToUkFormat(testDateStr);
+            var date = DateTimeFormatter.ConvertUsToUkFormat(testDateStr);
+
+            // Assert
+            Assert.That(date, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void TestConvertUsToUKFormat_GivenUSDateFormat_ReturnsGivenDateInUKFormat()
+        {
+            // Arrange
+            var usDateFormat = "11/29/2017 11:00:00 AM";
+            var expected = "29/11/2017";
+
+            // Act
+            var date = DateTimeFormatter.ConvertUsToUkFormat(usDateFormat);
+
+            // Assert
+            Assert.That(date, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void TestConvertUsToUKFormat_GivenUKDateFormat_With24HrTime_ReturnsGivenDateInUKFormat()
+        {
+            // Arrange
+            var usDateFormat = "29/11/2017 14:00:00";
+            var expected = "29/11/2017";
+
+            // Act
+            var date = DateTimeFormatter.ConvertUsToUkFormat(usDateFormat);
+
+            // Assert
+            Assert.That(date, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void TestConvertUsToUKFormat_GivenUKDateFormat_WithoutTime_ReturnsGivenDateInUKFormat()
+        {
+            // Arrange
+            var usDateFormat = "29/11/2017";
+            var expected = "29/11/2017";
+
+            // Act
+            var date = DateTimeFormatter.ConvertUsToUkFormat(usDateFormat);
+
+            // Assert
+            Assert.That(date, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void TestConvertUsToUkFormat_GivenUKFormat_MissingTimeDefinition_ReturnTodaysDateInUKFormat()
+        {
+            // Arrange
+            var usDateFormat = "10/29/2017";
+            var expected = DateTime.Today.ToString("d/MM/yyyy");
+
+            // Act
+            var date = DateTimeFormatter.ConvertUsToUkFormat(usDateFormat);
 
             // Assert
             Assert.That(date, Is.EqualTo(expected));
