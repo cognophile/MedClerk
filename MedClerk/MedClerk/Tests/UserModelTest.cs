@@ -36,11 +36,5 @@ namespace MedClerk.Tests
 
             Assert.That(isValid, Is.EqualTo(true));
         }
-
-        [Test]
-        public void IntegrationTest_EnsureDatabaseIsWritable_ReturnsTrueIfUserCreated()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
