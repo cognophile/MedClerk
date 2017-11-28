@@ -108,6 +108,12 @@
     <Compile Include="Views\PatientManagementView.Designer.cs">
       <DependentUpon>PatientManagementView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\PatientProfileView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PatientProfileView.Designer.cs">
+      <DependentUpon>PatientProfileView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\StaffView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,10 +141,12 @@
     <EmbeddedResource Include="Views\PatientManagementView.resx">
       <DependentUpon>PatientManagementView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\PatientProfileView.resx">
+      <DependentUpon>PatientProfileView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\StaffView.resx">
       <DependentUpon>StaffView.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Images\.gitkeep" />
     <None Include="Interfaces\.gitkeep" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -170,6 +178,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\default_photo.png" />
+    <Content Include="Images\profile_default.jpg" />
     <Content Include="MCDatabase.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
