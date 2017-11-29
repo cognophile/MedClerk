@@ -135,11 +135,11 @@ namespace MedClerk.Models
             return table;
         }
 
-        public static DataTable getMedication()
+        public static DataTable getPrescription()
         {
             var connection = Properties.Settings.Default.DBSource;
             var database = new DatabaseManager(connection);
-            var sql = SqlGetMedicationList();
+            var sql = SqlGetPrescription();
 
             database.OpenConnection();
 
@@ -205,7 +205,7 @@ namespace MedClerk.Models
                                  "WHERE CONVERT(DATE, [Appointments].[Date], 103) = CONVERT(DATE, '{0}', 103);", date.ToString());
         }
 
-        private static string SqlGetMedicationList()
+        private static string SqlGetPrescription()
         {
             return String.Format("SELECT * FROM [Medications]");
         }

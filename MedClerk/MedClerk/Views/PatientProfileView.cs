@@ -30,7 +30,7 @@ namespace MedClerk.Views
 
         private void fillPrescription()
         {
-            dgv_patientPrescriptions.DataSource = PatientModel.getMedication();
+            dgv_patientPrescriptions.DataSource = PatientModel.getPrescription();
         }
 
        /* private void fillTests()
