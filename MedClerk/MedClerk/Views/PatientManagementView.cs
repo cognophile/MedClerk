@@ -25,6 +25,11 @@ namespace MedClerk.Views
             PatientController.LoadMenu(this);
         }
 
+        private void btn_ViewPatientProfile_Click(object sender, EventArgs e)
+        {
+            PatientController.LoadPatientProfile(this);
+        }
+
         private void btn_SearchPatients_Click(object sender, EventArgs e)
         {
             const int DATE_TODAY = 0;
@@ -86,5 +91,6 @@ namespace MedClerk.Views
 
             dtp_SearchDobSelector.Value = DateTime.Today;
         }
+
     }
 }

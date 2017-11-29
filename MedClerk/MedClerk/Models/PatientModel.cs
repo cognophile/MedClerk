@@ -135,6 +135,38 @@ namespace MedClerk.Models
             return table;
         }
 
+        public static DataTable getMedication()
+        {
+            var connection = Properties.Settings.Default.DBSource;
+            var database = new DatabaseManager(connection);
+            var sql = SqlGetMedicationList();
+
+            database.OpenConnection();
+
+            var results = database.ExecuteQuery(sql);
+
+            database.CloseConnection();
+
+            DataTable table = results.Tables[0];
+            return table;
+        }
+
+        public static DataTable getTests()
+        {
+            var connection = Properties.Settings.Default.DBSource;
+            var database = new DatabaseManager(connection);
+            var sql = SqlGetTestResults();
+
+            database.OpenConnection();
+
+            var results = database.ExecuteQuery(sql);
+
+            database.CloseConnection();
+
+            DataTable table = results.Tables[0];
+            return table;
+        }
+
         private static string SqlGetPatientNames()
         {
             return String.Format("SELECT[Patient Id], [Patient Name] FROM [Patients] ");
@@ -171,6 +203,21 @@ namespace MedClerk.Models
                                  "INNER JOIN [Staff] ON [Appointments].[Staff Id] = [Staff].[Staff Id] " +
                                  "INNER JOIN [Patients] ON [Appointments].[Patient Id] = [Patients].[Patient Id] " +
                                  "WHERE CONVERT(DATE, [Appointments].[Date], 103) = CONVERT(DATE, '{0}', 103);", date.ToString());
+        }
+
+        private static string SqlGetMedicationList()
+        {
+            return String.Format("SELECT * FROM [Medications]");
+        }
+
+        private static string SqlGetTestResults()
+        {
+            return String.Format("SELECT [Patient_Id], " +
+                                        "[Test_Id], " +
+                                        "[Result], " +
+                                        "[Date], " +
+                                 "FROM [Test Results] " +
+                                 "WHERE [Test Results].[Patient_Id] = [Patients].[Patient Id];");
         }
     }
 }

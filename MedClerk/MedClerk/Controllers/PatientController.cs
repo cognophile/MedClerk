@@ -74,5 +74,21 @@ namespace MedClerk.Controllers
 
             return patient.FindPatientByNameAndDateOfBirth();
         }
+
+        internal static void LoadPatientProfile(Views.PatientManagementView patientManagement)
+        {
+            Views.PatientProfileView patientProfile = new Views.PatientProfileView();
+            patientManagement.Hide();
+            patientProfile.Closed += (senderObj, EventArgs) => patientManagement.Close();
+            patientProfile.Show();
+        }
+
+        internal static void BackToPatientManagement(Views.PatientProfileView patientProfile)
+        {
+            Views.PatientManagementView patientManagement = new Views.PatientManagementView();
+            patientProfile.Hide();
+            patientManagement.Closed += (senderObj, EventArgs) => patientProfile.Close();
+            patientManagement.Show();
+        }
     }
 }

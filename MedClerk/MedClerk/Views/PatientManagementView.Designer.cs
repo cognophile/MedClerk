@@ -56,9 +56,10 @@
             // 
             // btn_OpenMenu
             // 
-            this.btn_OpenMenu.Location = new System.Drawing.Point(13, 448);
+            this.btn_OpenMenu.Location = new System.Drawing.Point(26, 862);
+            this.btn_OpenMenu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btn_OpenMenu.Name = "btn_OpenMenu";
-            this.btn_OpenMenu.Size = new System.Drawing.Size(75, 23);
+            this.btn_OpenMenu.Size = new System.Drawing.Size(150, 44);
             this.btn_OpenMenu.TabIndex = 10;
             this.btn_OpenMenu.Text = "Menu";
             this.btn_OpenMenu.UseVisualStyleBackColor = true;
@@ -66,9 +67,10 @@
             // 
             // btn_SearchPatients
             // 
-            this.btn_SearchPatients.Location = new System.Drawing.Point(603, 192);
+            this.btn_SearchPatients.Location = new System.Drawing.Point(1206, 369);
+            this.btn_SearchPatients.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btn_SearchPatients.Name = "btn_SearchPatients";
-            this.btn_SearchPatients.Size = new System.Drawing.Size(75, 23);
+            this.btn_SearchPatients.Size = new System.Drawing.Size(150, 44);
             this.btn_SearchPatients.TabIndex = 8;
             this.btn_SearchPatients.Text = "Search";
             this.btn_SearchPatients.UseVisualStyleBackColor = true;
@@ -76,9 +78,10 @@
             // 
             // btn_AddPatient
             // 
-            this.btn_AddPatient.Location = new System.Drawing.Point(603, 83);
+            this.btn_AddPatient.Location = new System.Drawing.Point(1206, 160);
+            this.btn_AddPatient.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btn_AddPatient.Name = "btn_AddPatient";
-            this.btn_AddPatient.Size = new System.Drawing.Size(75, 23);
+            this.btn_AddPatient.Size = new System.Drawing.Size(150, 44);
             this.btn_AddPatient.TabIndex = 3;
             this.btn_AddPatient.Text = "Add";
             this.btn_AddPatient.UseVisualStyleBackColor = true;
@@ -87,54 +90,60 @@
             // 
             this.lbl_patientsManagementTitle.AutoSize = true;
             this.lbl_patientsManagementTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_patientsManagementTitle.Location = new System.Drawing.Point(13, 13);
+            this.lbl_patientsManagementTitle.Location = new System.Drawing.Point(26, 25);
+            this.lbl_patientsManagementTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_patientsManagementTitle.Name = "lbl_patientsManagementTitle";
-            this.lbl_patientsManagementTitle.Size = new System.Drawing.Size(226, 20);
+            this.lbl_patientsManagementTitle.Size = new System.Drawing.Size(427, 37);
             this.lbl_patientsManagementTitle.TabIndex = 4;
             this.lbl_patientsManagementTitle.Text = "Patients Management: Add";
             // 
             // txtbx_AddNameField
             // 
             this.txtbx_AddNameField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbx_AddNameField.Location = new System.Drawing.Point(80, 54);
+            this.txtbx_AddNameField.Location = new System.Drawing.Point(160, 104);
+            this.txtbx_AddNameField.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtbx_AddNameField.Name = "txtbx_AddNameField";
-            this.txtbx_AddNameField.Size = new System.Drawing.Size(181, 20);
+            this.txtbx_AddNameField.Size = new System.Drawing.Size(358, 32);
             this.txtbx_AddNameField.TabIndex = 0;
             this.txtbx_AddNameField.Text = "- Enter full name -";
             // 
             // txtbx_AddAddressField
             // 
             this.txtbx_AddAddressField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbx_AddAddressField.Location = new System.Drawing.Point(329, 54);
+            this.txtbx_AddAddressField.Location = new System.Drawing.Point(658, 104);
+            this.txtbx_AddAddressField.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtbx_AddAddressField.Name = "txtbx_AddAddressField";
-            this.txtbx_AddAddressField.Size = new System.Drawing.Size(349, 20);
+            this.txtbx_AddAddressField.Size = new System.Drawing.Size(694, 32);
             this.txtbx_AddAddressField.TabIndex = 1;
             this.txtbx_AddAddressField.Text = "- Enter full address -";
             // 
             // lbl_AddName
             // 
             this.lbl_AddName.AutoSize = true;
-            this.lbl_AddName.Location = new System.Drawing.Point(15, 57);
+            this.lbl_AddName.Location = new System.Drawing.Point(30, 110);
+            this.lbl_AddName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_AddName.Name = "lbl_AddName";
-            this.lbl_AddName.Size = new System.Drawing.Size(35, 13);
+            this.lbl_AddName.Size = new System.Drawing.Size(68, 25);
             this.lbl_AddName.TabIndex = 9;
             this.lbl_AddName.Text = "Name";
             // 
             // lbl_AddAddress
             // 
             this.lbl_AddAddress.AutoSize = true;
-            this.lbl_AddAddress.Location = new System.Drawing.Point(278, 57);
+            this.lbl_AddAddress.Location = new System.Drawing.Point(556, 110);
+            this.lbl_AddAddress.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_AddAddress.Name = "lbl_AddAddress";
-            this.lbl_AddAddress.Size = new System.Drawing.Size(45, 13);
+            this.lbl_AddAddress.Size = new System.Drawing.Size(91, 25);
             this.lbl_AddAddress.TabIndex = 10;
             this.lbl_AddAddress.Text = "Address";
             // 
             // lbl_AddDob
             // 
             this.lbl_AddDob.AutoSize = true;
-            this.lbl_AddDob.Location = new System.Drawing.Point(15, 83);
+            this.lbl_AddDob.Location = new System.Drawing.Point(30, 160);
+            this.lbl_AddDob.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_AddDob.Name = "lbl_AddDob";
-            this.lbl_AddDob.Size = new System.Drawing.Size(30, 13);
+            this.lbl_AddDob.Size = new System.Drawing.Size(57, 25);
             this.lbl_AddDob.TabIndex = 11;
             this.lbl_AddDob.Text = "DOB";
             // 
@@ -143,69 +152,77 @@
             this.dGrid_SearchPatientResults.AllowUserToAddRows = false;
             this.dGrid_SearchPatientResults.AllowUserToDeleteRows = false;
             this.dGrid_SearchPatientResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGrid_SearchPatientResults.Location = new System.Drawing.Point(13, 251);
+            this.dGrid_SearchPatientResults.Location = new System.Drawing.Point(26, 483);
+            this.dGrid_SearchPatientResults.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dGrid_SearchPatientResults.Name = "dGrid_SearchPatientResults";
             this.dGrid_SearchPatientResults.ReadOnly = true;
-            this.dGrid_SearchPatientResults.Size = new System.Drawing.Size(663, 191);
+            this.dGrid_SearchPatientResults.Size = new System.Drawing.Size(1326, 367);
             this.dGrid_SearchPatientResults.TabIndex = 12;
             // 
             // lbl_SearchPatientNameField
             // 
             this.lbl_SearchPatientNameField.AutoSize = true;
-            this.lbl_SearchPatientNameField.Location = new System.Drawing.Point(15, 228);
+            this.lbl_SearchPatientNameField.Location = new System.Drawing.Point(30, 438);
+            this.lbl_SearchPatientNameField.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_SearchPatientNameField.Name = "lbl_SearchPatientNameField";
-            this.lbl_SearchPatientNameField.Size = new System.Drawing.Size(35, 13);
+            this.lbl_SearchPatientNameField.Size = new System.Drawing.Size(68, 25);
             this.lbl_SearchPatientNameField.TabIndex = 18;
             this.lbl_SearchPatientNameField.Text = "Name";
             // 
             // lbl_SearchAddess
             // 
             this.lbl_SearchAddess.AutoSize = true;
-            this.lbl_SearchAddess.Location = new System.Drawing.Point(278, 228);
+            this.lbl_SearchAddess.Location = new System.Drawing.Point(556, 438);
+            this.lbl_SearchAddess.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_SearchAddess.Name = "lbl_SearchAddess";
-            this.lbl_SearchAddess.Size = new System.Drawing.Size(45, 13);
+            this.lbl_SearchAddess.Size = new System.Drawing.Size(91, 25);
             this.lbl_SearchAddess.TabIndex = 17;
             this.lbl_SearchAddess.Text = "Address";
             // 
             // lbl_SearchPatientId
             // 
             this.lbl_SearchPatientId.AutoSize = true;
-            this.lbl_SearchPatientId.Location = new System.Drawing.Point(15, 202);
+            this.lbl_SearchPatientId.Location = new System.Drawing.Point(30, 388);
+            this.lbl_SearchPatientId.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_SearchPatientId.Name = "lbl_SearchPatientId";
-            this.lbl_SearchPatientId.Size = new System.Drawing.Size(18, 13);
+            this.lbl_SearchPatientId.Size = new System.Drawing.Size(32, 25);
             this.lbl_SearchPatientId.TabIndex = 16;
             this.lbl_SearchPatientId.Text = "ID";
             // 
             // txtbx_SearchNameField
             // 
             this.txtbx_SearchNameField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbx_SearchNameField.Location = new System.Drawing.Point(80, 225);
+            this.txtbx_SearchNameField.Location = new System.Drawing.Point(160, 433);
+            this.txtbx_SearchNameField.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtbx_SearchNameField.Name = "txtbx_SearchNameField";
-            this.txtbx_SearchNameField.Size = new System.Drawing.Size(183, 20);
+            this.txtbx_SearchNameField.Size = new System.Drawing.Size(362, 32);
             this.txtbx_SearchNameField.TabIndex = 5;
             // 
             // txtbx_SearchAddressField
             // 
             this.txtbx_SearchAddressField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbx_SearchAddressField.Location = new System.Drawing.Point(329, 225);
+            this.txtbx_SearchAddressField.Location = new System.Drawing.Point(658, 433);
+            this.txtbx_SearchAddressField.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtbx_SearchAddressField.Name = "txtbx_SearchAddressField";
-            this.txtbx_SearchAddressField.Size = new System.Drawing.Size(349, 20);
+            this.txtbx_SearchAddressField.Size = new System.Drawing.Size(694, 32);
             this.txtbx_SearchAddressField.TabIndex = 6;
             // 
             // txtbx_SearchIdField
             // 
             this.txtbx_SearchIdField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbx_SearchIdField.Location = new System.Drawing.Point(80, 199);
+            this.txtbx_SearchIdField.Location = new System.Drawing.Point(160, 383);
+            this.txtbx_SearchIdField.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtbx_SearchIdField.Name = "txtbx_SearchIdField";
-            this.txtbx_SearchIdField.Size = new System.Drawing.Size(65, 20);
+            this.txtbx_SearchIdField.Size = new System.Drawing.Size(126, 32);
             this.txtbx_SearchIdField.TabIndex = 4;
             // 
             // lbl_SearchDob
             // 
             this.lbl_SearchDob.AutoSize = true;
-            this.lbl_SearchDob.Location = new System.Drawing.Point(278, 202);
+            this.lbl_SearchDob.Location = new System.Drawing.Point(556, 388);
+            this.lbl_SearchDob.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_SearchDob.Name = "lbl_SearchDob";
-            this.lbl_SearchDob.Size = new System.Drawing.Size(30, 13);
+            this.lbl_SearchDob.Size = new System.Drawing.Size(57, 25);
             this.lbl_SearchDob.TabIndex = 20;
             this.lbl_SearchDob.Text = "DOB";
             // 
@@ -213,28 +230,31 @@
             // 
             this.lbl_SearchPatientsTitle.AutoSize = true;
             this.lbl_SearchPatientsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_SearchPatientsTitle.Location = new System.Drawing.Point(12, 140);
+            this.lbl_SearchPatientsTitle.Location = new System.Drawing.Point(24, 269);
+            this.lbl_SearchPatientsTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_SearchPatientsTitle.Name = "lbl_SearchPatientsTitle";
-            this.lbl_SearchPatientsTitle.Size = new System.Drawing.Size(251, 20);
+            this.lbl_SearchPatientsTitle.Size = new System.Drawing.Size(473, 37);
             this.lbl_SearchPatientsTitle.TabIndex = 21;
             this.lbl_SearchPatientsTitle.Text = "Patients Management: Search";
             // 
             // lbl_patientsManagementInstructions
             // 
             this.lbl_patientsManagementInstructions.AutoSize = true;
-            this.lbl_patientsManagementInstructions.Location = new System.Drawing.Point(14, 33);
+            this.lbl_patientsManagementInstructions.Location = new System.Drawing.Point(28, 63);
+            this.lbl_patientsManagementInstructions.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_patientsManagementInstructions.Name = "lbl_patientsManagementInstructions";
-            this.lbl_patientsManagementInstructions.Size = new System.Drawing.Size(256, 13);
+            this.lbl_patientsManagementInstructions.Size = new System.Drawing.Size(520, 25);
             this.lbl_patientsManagementInstructions.TabIndex = 22;
             this.lbl_patientsManagementInstructions.Text = "To add a new patient, fill out all required fields below.";
             // 
             // lbl_SearchPatientsInstructions
             // 
             this.lbl_SearchPatientsInstructions.AutoSize = true;
-            this.lbl_SearchPatientsInstructions.Location = new System.Drawing.Point(12, 163);
-            this.lbl_SearchPatientsInstructions.MaximumSize = new System.Drawing.Size(650, 0);
+            this.lbl_SearchPatientsInstructions.Location = new System.Drawing.Point(24, 313);
+            this.lbl_SearchPatientsInstructions.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lbl_SearchPatientsInstructions.MaximumSize = new System.Drawing.Size(1300, 0);
             this.lbl_SearchPatientsInstructions.Name = "lbl_SearchPatientsInstructions";
-            this.lbl_SearchPatientsInstructions.Size = new System.Drawing.Size(646, 26);
+            this.lbl_SearchPatientsInstructions.Size = new System.Drawing.Size(1300, 50);
             this.lbl_SearchPatientsInstructions.TabIndex = 23;
             this.lbl_SearchPatientsInstructions.Text = "To locate a patients details, please enter an ID, name and DOB, or name and addre" +
     "ss to search by. Highlight a patient and select \'View Profile\' to open the patie" +
@@ -242,36 +262,40 @@
             // 
             // btn_ViewPatientProfile
             // 
-            this.btn_ViewPatientProfile.Location = new System.Drawing.Point(603, 448);
+            this.btn_ViewPatientProfile.Location = new System.Drawing.Point(1206, 862);
+            this.btn_ViewPatientProfile.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btn_ViewPatientProfile.Name = "btn_ViewPatientProfile";
-            this.btn_ViewPatientProfile.Size = new System.Drawing.Size(75, 23);
+            this.btn_ViewPatientProfile.Size = new System.Drawing.Size(150, 44);
             this.btn_ViewPatientProfile.TabIndex = 9;
             this.btn_ViewPatientProfile.Text = "View Profile";
             this.btn_ViewPatientProfile.UseVisualStyleBackColor = true;
+            this.btn_ViewPatientProfile.Click += new System.EventHandler(this.btn_ViewPatientProfile_Click);
             // 
             // dtp_AddDobSelector
             // 
             this.dtp_AddDobSelector.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_AddDobSelector.Location = new System.Drawing.Point(80, 83);
+            this.dtp_AddDobSelector.Location = new System.Drawing.Point(160, 160);
+            this.dtp_AddDobSelector.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dtp_AddDobSelector.Name = "dtp_AddDobSelector";
-            this.dtp_AddDobSelector.Size = new System.Drawing.Size(181, 20);
+            this.dtp_AddDobSelector.Size = new System.Drawing.Size(358, 31);
             this.dtp_AddDobSelector.TabIndex = 2;
             this.dtp_AddDobSelector.Value = new System.DateTime(2017, 11, 20, 17, 59, 47, 0);
             // 
             // dtp_SearchDobSelector
             // 
             this.dtp_SearchDobSelector.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_SearchDobSelector.Location = new System.Drawing.Point(329, 199);
+            this.dtp_SearchDobSelector.Location = new System.Drawing.Point(658, 383);
+            this.dtp_SearchDobSelector.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dtp_SearchDobSelector.Name = "dtp_SearchDobSelector";
-            this.dtp_SearchDobSelector.Size = new System.Drawing.Size(181, 20);
+            this.dtp_SearchDobSelector.Size = new System.Drawing.Size(358, 31);
             this.dtp_SearchDobSelector.TabIndex = 7;
             this.dtp_SearchDobSelector.Value = new System.DateTime(2017, 11, 20, 17, 59, 47, 0);
             // 
             // PatientManagementView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 483);
+            this.ClientSize = new System.Drawing.Size(1376, 929);
             this.Controls.Add(this.dtp_SearchDobSelector);
             this.Controls.Add(this.dtp_AddDobSelector);
             this.Controls.Add(this.btn_ViewPatientProfile);
@@ -295,6 +319,7 @@
             this.Controls.Add(this.btn_AddPatient);
             this.Controls.Add(this.btn_SearchPatients);
             this.Controls.Add(this.btn_OpenMenu);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "PatientManagementView";
             this.Text = "Patient Management";
             ((System.ComponentModel.ISupportInitialize)(this.dGrid_SearchPatientResults)).EndInit();

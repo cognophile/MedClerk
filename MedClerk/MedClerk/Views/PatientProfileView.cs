@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MedClerk.Controllers;
+using MedClerk.Models;
+using MedClerk.Views;
 
 namespace MedClerk.Views
 {
@@ -15,6 +18,25 @@ namespace MedClerk.Views
         public PatientProfileView()
         {
             InitializeComponent();
+
+            //fillTests();
+            fillPrescription();
         }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            PatientController.BackToPatientManagement(this);
+        }
+
+        private void fillPrescription()
+        {
+            dgv_patientPrescriptions.DataSource = PatientModel.getMedication();
+        }
+
+       /* private void fillTests()
+        {
+            //dvg_Tests.DataSource = 
+        }*/
+
     }
 }
