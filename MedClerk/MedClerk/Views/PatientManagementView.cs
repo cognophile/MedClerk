@@ -27,7 +27,11 @@ namespace MedClerk.Views
 
         private void btn_ViewPatientProfile_Click(object sender, EventArgs e)
         {
-            PatientController.LoadPatientProfile(this);
+            var id = dGrid_SearchPatientResults.SelectedCells[0].Value.ToString();
+            var name = dGrid_SearchPatientResults.SelectedCells[1].Value.ToString();
+            var dob = dGrid_SearchPatientResults.SelectedCells[2].Value.ToString();
+            var address = dGrid_SearchPatientResults.SelectedCells[3].Value.ToString();
+            PatientController.LoadPatientProfile(this, id, name, dob, address);
         }
 
         private void btn_SearchPatients_Click(object sender, EventArgs e)

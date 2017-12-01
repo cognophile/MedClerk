@@ -15,12 +15,19 @@ namespace MedClerk.Views
 {
     public partial class PatientProfileView : Form
     {
-        public PatientProfileView()
+        public PatientProfileView(string id, string name, string dob, string address)
         {
             InitializeComponent();
+            lbl_patientId.Text = id;
+            lbl_patientName.Text = name;
+            lbl_patientDob.Text = dob;
+            lbl_patientAddress.Text = address;
+            //fillPrescription();
+        }
 
-            //fillTests();
-            fillPrescription();
+        private void PatientProfileView_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -28,15 +35,15 @@ namespace MedClerk.Views
             PatientController.BackToPatientManagement(this);
         }
 
-        private void fillPrescription()
+        /*private void fillPrescription()
         {
             dgv_patientPrescriptions.DataSource = PatientModel.getPrescription();
         }
 
-       /* private void fillTests()
-        {
-            //dvg_Tests.DataSource = 
-        }*/
+        private void fillTests()
+         {
+             //dvg_Tests.DataSource = 
+         }*/
 
     }
 }

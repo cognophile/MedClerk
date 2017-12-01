@@ -247,6 +247,7 @@
             this.MinimumSize = new System.Drawing.Size(1382, 936);
             this.Name = "PatientProfileView";
             this.Text = "PatientProfileView";
+            this.Load += new System.EventHandler(this.PatientProfileView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_patientPrescriptions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_Tests)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -207,7 +207,7 @@ namespace MedClerk.Models
 
         private static string SqlGetPrescription()
         {
-            return String.Format("SELECT * FROM [Medications]");
+            return String.Format("SELECT * FROM [Prescriptions]");
         }
 
         private static string SqlGetTestResults()
