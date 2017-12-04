@@ -1,1 +1,1 @@
-﻿SELECT [Staff].[Staff Id] FROM [Staff] WHERE [Staff].[Name] = 'Nadia Patel';
+﻿UPDATE [Prescriptions]SET [End_Date] = CONVERT(DATE, '10/12/2017', 103) WHERE [Patient_Id] = 300 AND [Prescriptions].[Id] = 505;

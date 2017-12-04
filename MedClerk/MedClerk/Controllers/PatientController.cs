@@ -91,5 +91,39 @@ namespace MedClerk.Controllers
                 return false;
             }
         }
+
+        internal static void LoadPatientProfile(Views.PatientManagementView managementForm, string id, string name, string dob, string address)
+        {
+            Views.PatientProfileView patientProfile = new Views.PatientProfileView(id, name, dob, address);
+            managementForm.Hide();
+            patientProfile.Closed += (senderObj, EventArgs) => managementForm.Close();
+            patientProfile.Show();
+        }
+
+        internal static void BackToPatientManagement(Views.PatientProfileView patientProfile)
+        {
+            Views.PatientManagementView patientManagement = new Views.PatientManagementView();
+            patientProfile.Hide();
+            patientManagement.Closed += (senderObj, EventArgs) => patientProfile.Close();
+            patientManagement.Show();
+        }
+
+        public static DataTable obtainPrescription(int oPiD)
+        {
+            PatientModel patient = new PatientModel { Id = oPiD };
+            return patient.getPrescription();
+        }
+
+        public static DataTable obtainTests(int oTiD)
+        {
+            PatientModel patient = new PatientModel { Id = oTiD };
+            return patient.getTests();
+        }
+
+        public static bool extendPrescription(int prescriptionId, int patientId, DateTime newEndDate)
+        {
+            PatientModel patientID = new PatientModel { Id = patientId };
+            return patientID.extendPrescription(prescriptionId, newEndDate);
+        }
     }
 }

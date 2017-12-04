@@ -24,7 +24,7 @@ namespace MedClerk.Models
             this.Id = id;
             this.FullName = name;
             this.DateOfBirth = dob;
-            this.Address = address; 
+            this.Address = address;
         }
 
         public static DataTable getPatients()
@@ -153,6 +153,61 @@ namespace MedClerk.Models
                 return false;
         }
 
+
+        public DataTable getPrescription()
+        {
+            var connection = Properties.Settings.Default.DBSource;
+            var database = new DatabaseManager(connection);
+            var sql = SqlGetPrescription(this.Id);
+
+            database.OpenConnection();
+
+            var results = database.ExecuteQuery(sql);
+
+            database.CloseConnection();
+
+            DataTable table = results.Tables[0];
+            return table;
+        }
+
+        public DataTable getTests()
+        {
+            var connection = Properties.Settings.Default.DBSource;
+            var database = new DatabaseManager(connection);
+            var sql = SqlGetTestResults(this.Id);
+
+            database.OpenConnection();
+
+            var results = database.ExecuteQuery(sql);
+
+            database.CloseConnection();
+
+            DataTable table = results.Tables[0];
+            return table;
+        }
+
+        public bool extendPrescription(int prescriptionId, DateTime newEndDate)
+        {
+            var connection = Properties.Settings.Default.DBSource;
+            var database = new DatabaseManager(connection);
+            var sql = SqlExtendPrescription(prescriptionId, newEndDate, this.Id);
+
+            database.OpenConnection();
+
+            var results = database.ExecuteCommand(sql);
+
+            database.CloseConnection();
+
+            if (results > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private static string SqlGetPatientNames()
         {
             return String.Format("SELECT[Patient Id], [Patient Name] FROM [Patients] ");
@@ -194,6 +249,32 @@ namespace MedClerk.Models
         private string SqlInsertPatient()
         {
             return String.Format("INSERT INTO [Patients] ([Patient Name], [Date of Birth], [Address]) VALUES ('{0}', CONVERT(DATE, '{1}', 103), '{2}');", FullName, DateOfBirth.ToString("dd/MM/yyyy"), Address);
+        }
+
+        private static string SqlGetPrescription(int Id)
+        {
+            return String.Format("SELECT [Patients].[Patient Id], [Patients].[Patient Name], [Prescriptions].[Id], [Medications].[Name] AS 'Medication', [Medications].[Description], [Medications].[Type], [Prescriptions].[Start_Date], [Prescriptions].[End_Date]" +
+                                    "FROM [Prescriptions]" +
+                                    "INNER JOIN [Patients] ON [Prescriptions].[Patient_Id] = [Patients].[Patient Id]" +
+                                    "INNER JOIN [Medications] ON [Prescriptions].[Medicine_Id] = [Medications].[Id]" +
+                                    "WHERE[Patients].[Patient Id] = {0};", Id);
+                                  
+        }
+
+        private static string SqlGetTestResults(int Id)
+        {
+            return String.Format("SELECT [Patients].[Patient Id], [Patients].[Patient Name], [Tests].[Name] AS 'Test Name', [Tests].[Description], [Test Results].[Date], [Test Results].[Result]" +
+                                    "FROM[Test Results]" + 
+                                    "INNER JOIN[Patients] ON[Test Results].[Patient_Id] = [Patients].[Patient Id]" +
+                                    "INNER JOIN[Tests] ON[Test Results].[Test_Id] = [Tests].[Id]" +
+                                    "WHERE[Patients].[Patient Id] = {0};", Id);
+        }
+
+        private static string SqlExtendPrescription(int prescriptionId, DateTime newEndDate, int patientId)
+        {
+            return String.Format("UPDATE [Prescriptions]" +
+                                 "SET [End_Date] = CONVERT(DATE, '{0}', 103) " +
+                                 "WHERE [Patient_Id] = {1} AND [Prescriptions].[Id] = {2};", newEndDate.ToString("d"), patientId, prescriptionId);
         }
     }
 }
