@@ -12,11 +12,14 @@ using MedClerk.Controllers;
 using MedClerk.Models;
 using MedClerk.Views;
 using System.Diagnostics;
+using System.Drawing.Printing;
 
 namespace MedClerk.Views
 {
     public partial class PatientProfileView : Form
     {
+        private string path = @"C:\PatientTests\PatientTestResults.txt";
+
         public PatientProfileView(string id, string name, string dob, string address)
         {
             InitializeComponent();
@@ -49,10 +52,9 @@ namespace MedClerk.Views
 
         private void btn_PrintSelectedTest_Click(object sender, EventArgs e)
         {
-            // Output test reults to text file
-            var path = @"C:\PatientTests\PatientTestResults.txt";
-            StreamWriter print = new StreamWriter(path);
-            for(int i = 0; i < 1; i++)
+            // Output test reults to CSV text file
+            StreamWriter print = new StreamWriter(this.path);
+            for(int i = 0; i < dvg_Tests.RowCount; i++)
             {
                 string lines = "";
                 for (int j = 0; j < 5; j++)
@@ -64,11 +66,64 @@ namespace MedClerk.Views
             print.Close();
             MessageBox.Show("Test Printed");
 
-            // Print produced text file
-            ProcessStartInfo psi = new ProcessStartInfo(path);
-            psi.Verb = "PRINT";
-            Process.Start(psi);
+            
 
+            PrintDocument doc = new PrintDocument();
+            doc.PrintPage += new PrintPageEventHandler(this.printTestResultsFile);
+            PrintDialog dialog = new PrintDialog();
+            dialog.Document = doc;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                doc.Print();
+            }
+            else
+            {
+                MessageBox.Show("Print Cancelled");
+            }
+
+            doc.Print();
+        }
+
+        private void printTestResultsFile(object sender, PrintPageEventArgs ev)
+        {
+            StreamReader resultsFile = new StreamReader(this.path);
+            Font printFont = new Font("Ariel", 10);
+
+            // First print functionality code
+            // Print produced text file
+            //ProcessStartInfo psi = new ProcessStartInfo(path);
+            //psi.Verb = "PRINT";
+            //Process.Start(psi);
+
+            // Improved print functionality code
+            //  Cite: https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument.aspx
+            float linesPerPage = 0;
+            float yPos = 0;
+            int count = 0;
+            float leftMargin = ev.MarginBounds.Left;
+            float topMargin = ev.MarginBounds.Top;
+            string line = null;
+
+            // Calculate the number of lines per page.
+            linesPerPage = ev.MarginBounds.Height /
+               printFont.GetHeight(ev.Graphics);
+
+            // Print each line of the file.
+            while (count < linesPerPage &&
+               ((line = resultsFile.ReadLine()) != null))
+            {
+                yPos = topMargin + (count *
+                   printFont.GetHeight(ev.Graphics));
+                ev.Graphics.DrawString(line, printFont, Brushes.Black,
+                   leftMargin, yPos, new StringFormat());
+                count++;
+            }
+
+            // If more lines exist, print another page.
+            if (line != null)
+                ev.HasMorePages = true;
+            else
+                ev.HasMorePages = false;
         }
 
         private void btn_ExtendSelectedPrescription_Click(object sender, EventArgs e)
