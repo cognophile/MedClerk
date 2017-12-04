@@ -90,5 +90,22 @@ namespace MedClerk.Controllers
             patientManagement.Closed += (senderObj, EventArgs) => patientProfile.Close();
             patientManagement.Show();
         }
+
+        public static DataTable obtainPrescription(int oPiD)
+        {
+            PatientModel patient = new PatientModel { Id = oPiD };
+            return patient.getPrescription();
+        }
+
+        public static DataTable obtainTests(int oTiD)
+        {
+            PatientModel patient = new PatientModel { Id = oTiD };
+            return patient.getTests();
+        }
+
+        /*public static DataTable extendPrescription()
+        {
+
+        }*/
     }
 }

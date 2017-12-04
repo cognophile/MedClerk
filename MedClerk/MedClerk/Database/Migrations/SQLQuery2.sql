@@ -1,1 +1,0 @@
-﻿SELECT [Staff].[Staff Id] FROM [Staff] WHERE [Staff].[Name] = 'Nadia Patel';

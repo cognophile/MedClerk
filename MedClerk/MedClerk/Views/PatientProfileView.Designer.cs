@@ -45,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.backBtn = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_patientPrescriptions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_Tests)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -102,6 +103,7 @@
             this.btn_PrintSelectedTest.TabIndex = 6;
             this.btn_PrintSelectedTest.Text = "Print";
             this.btn_PrintSelectedTest.UseVisualStyleBackColor = true;
+            this.btn_PrintSelectedTest.Click += new System.EventHandler(this.btn_PrintSelectedTest_Click);
             // 
             // btn_ExtendSelectedPrescription
             // 
@@ -112,6 +114,7 @@
             this.btn_ExtendSelectedPrescription.TabIndex = 7;
             this.btn_ExtendSelectedPrescription.Text = "Extend";
             this.btn_ExtendSelectedPrescription.UseVisualStyleBackColor = true;
+            this.btn_ExtendSelectedPrescription.Click += new System.EventHandler(this.btn_ExtendSelectedPrescription_Click);
             // 
             // lbl_formHeading
             // 
@@ -226,6 +229,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1376, 1123);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.pictureBox1);
@@ -273,5 +277,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button backBtn;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

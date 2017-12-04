@@ -24,7 +24,7 @@ namespace MedClerk.Models
             this.Id = id;
             this.FullName = name;
             this.DateOfBirth = dob;
-            this.Address = address; 
+            this.Address = address;
         }
 
         public static DataTable getPatients()
@@ -135,11 +135,11 @@ namespace MedClerk.Models
             return table;
         }
 
-        public static DataTable getPrescription()
+        public DataTable getPrescription()
         {
             var connection = Properties.Settings.Default.DBSource;
             var database = new DatabaseManager(connection);
-            var sql = SqlGetPrescription();
+            var sql = SqlGetPrescription(this.Id);
 
             database.OpenConnection();
 
@@ -151,11 +151,11 @@ namespace MedClerk.Models
             return table;
         }
 
-        public static DataTable getTests()
+        public DataTable getTests()
         {
             var connection = Properties.Settings.Default.DBSource;
             var database = new DatabaseManager(connection);
-            var sql = SqlGetTestResults();
+            var sql = SqlGetTestResults(this.Id);
 
             database.OpenConnection();
 
@@ -166,6 +166,22 @@ namespace MedClerk.Models
             DataTable table = results.Tables[0];
             return table;
         }
+
+        /*public DataTable extendPrescription(DateTime startDate, DateTime endDate, int patientId)
+        {
+            var connection = Properties.Settings.Default.DBSource;
+            var database = new DatabaseManager(connection);
+            var sql = SqlExtendPrescription(startDate, endDate, patientId);
+
+            database.OpenConnection();
+
+            var results = database.ExecuteQuery(sql);
+
+            database.CloseConnection();
+
+            DataTable table = results.Tables[0];
+            return table;
+        }*/
 
         private static string SqlGetPatientNames()
         {
@@ -205,19 +221,25 @@ namespace MedClerk.Models
                                  "WHERE CONVERT(DATE, [Appointments].[Date], 103) = CONVERT(DATE, '{0}', 103);", date.ToString());
         }
 
-        private static string SqlGetPrescription()
+        private static string SqlGetPrescription(int Id)
         {
-            return String.Format("SELECT * FROM [Prescriptions]");
+            return String.Format("SELECT * FROM [Prescriptions] WHERE [Patient_Id] = {0}", Id);
         }
 
-        private static string SqlGetTestResults()
+        private static string SqlGetTestResults(int Id)
         {
-            return String.Format("SELECT [Patient_Id], " +
-                                        "[Test_Id], " +
-                                        "[Result], " +
-                                        "[Date], " +
-                                 "FROM [Test Results] " +
-                                 "WHERE [Test Results].[Patient_Id] = [Patients].[Patient Id];");
+            return String.Format("SELECT [Patients].[Patient Id], [Patients].[Patient Name], [Tests].[Name] AS 'Test Name', [Tests].[Description], [Test Results].[Date], [Test Results].[Result]" +
+                                    "FROM[Test Results]" + 
+                                    "INNER JOIN[Patients] ON[Test Results].[Patient_Id] = [Patients].[Patient Id]" +
+                                    "INNER JOIN[Tests] ON[Test Results].[Test_Id] = [Tests].[Id]" +
+                                    "WHERE[Patients].[Patient Id] = {0};", Id);
         }
+
+        /*private static string SqlExtendPrescription(DateTime startDate, DateTime endDate, int patientId)
+        {
+            return String.Format("UPDATE [Prescriptions]" +
+                                 "SET [Start_Date] = {0}, [End_Date] = {1}" +
+                                 "WHERE [Patient_Id] = {2}", startDate, endDate, patientId);
+        }*/
     }
 }

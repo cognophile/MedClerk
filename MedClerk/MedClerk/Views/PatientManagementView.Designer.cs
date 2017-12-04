@@ -57,7 +57,7 @@
             // btn_OpenMenu
             // 
             this.btn_OpenMenu.Location = new System.Drawing.Point(26, 862);
-            this.btn_OpenMenu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_OpenMenu.Margin = new System.Windows.Forms.Padding(6);
             this.btn_OpenMenu.Name = "btn_OpenMenu";
             this.btn_OpenMenu.Size = new System.Drawing.Size(150, 44);
             this.btn_OpenMenu.TabIndex = 10;
@@ -68,7 +68,7 @@
             // btn_SearchPatients
             // 
             this.btn_SearchPatients.Location = new System.Drawing.Point(1206, 369);
-            this.btn_SearchPatients.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_SearchPatients.Margin = new System.Windows.Forms.Padding(6);
             this.btn_SearchPatients.Name = "btn_SearchPatients";
             this.btn_SearchPatients.Size = new System.Drawing.Size(150, 44);
             this.btn_SearchPatients.TabIndex = 8;
@@ -79,7 +79,7 @@
             // btn_AddPatient
             // 
             this.btn_AddPatient.Location = new System.Drawing.Point(1206, 160);
-            this.btn_AddPatient.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_AddPatient.Margin = new System.Windows.Forms.Padding(6);
             this.btn_AddPatient.Name = "btn_AddPatient";
             this.btn_AddPatient.Size = new System.Drawing.Size(150, 44);
             this.btn_AddPatient.TabIndex = 3;
@@ -101,7 +101,7 @@
             // 
             this.txtbx_AddNameField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbx_AddNameField.Location = new System.Drawing.Point(160, 104);
-            this.txtbx_AddNameField.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtbx_AddNameField.Margin = new System.Windows.Forms.Padding(6);
             this.txtbx_AddNameField.Name = "txtbx_AddNameField";
             this.txtbx_AddNameField.Size = new System.Drawing.Size(358, 32);
             this.txtbx_AddNameField.TabIndex = 0;
@@ -111,7 +111,7 @@
             // 
             this.txtbx_AddAddressField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbx_AddAddressField.Location = new System.Drawing.Point(658, 104);
-            this.txtbx_AddAddressField.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtbx_AddAddressField.Margin = new System.Windows.Forms.Padding(6);
             this.txtbx_AddAddressField.Name = "txtbx_AddAddressField";
             this.txtbx_AddAddressField.Size = new System.Drawing.Size(694, 32);
             this.txtbx_AddAddressField.TabIndex = 1;
@@ -153,7 +153,7 @@
             this.dGrid_SearchPatientResults.AllowUserToDeleteRows = false;
             this.dGrid_SearchPatientResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGrid_SearchPatientResults.Location = new System.Drawing.Point(26, 483);
-            this.dGrid_SearchPatientResults.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dGrid_SearchPatientResults.Margin = new System.Windows.Forms.Padding(6);
             this.dGrid_SearchPatientResults.Name = "dGrid_SearchPatientResults";
             this.dGrid_SearchPatientResults.ReadOnly = true;
             this.dGrid_SearchPatientResults.Size = new System.Drawing.Size(1326, 367);
@@ -193,7 +193,7 @@
             // 
             this.txtbx_SearchNameField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbx_SearchNameField.Location = new System.Drawing.Point(160, 433);
-            this.txtbx_SearchNameField.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtbx_SearchNameField.Margin = new System.Windows.Forms.Padding(6);
             this.txtbx_SearchNameField.Name = "txtbx_SearchNameField";
             this.txtbx_SearchNameField.Size = new System.Drawing.Size(362, 32);
             this.txtbx_SearchNameField.TabIndex = 5;
@@ -202,7 +202,7 @@
             // 
             this.txtbx_SearchAddressField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbx_SearchAddressField.Location = new System.Drawing.Point(658, 433);
-            this.txtbx_SearchAddressField.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtbx_SearchAddressField.Margin = new System.Windows.Forms.Padding(6);
             this.txtbx_SearchAddressField.Name = "txtbx_SearchAddressField";
             this.txtbx_SearchAddressField.Size = new System.Drawing.Size(694, 32);
             this.txtbx_SearchAddressField.TabIndex = 6;
@@ -211,7 +211,7 @@
             // 
             this.txtbx_SearchIdField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbx_SearchIdField.Location = new System.Drawing.Point(160, 383);
-            this.txtbx_SearchIdField.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtbx_SearchIdField.Margin = new System.Windows.Forms.Padding(6);
             this.txtbx_SearchIdField.Name = "txtbx_SearchIdField";
             this.txtbx_SearchIdField.Size = new System.Drawing.Size(126, 32);
             this.txtbx_SearchIdField.TabIndex = 4;
@@ -263,7 +263,7 @@
             // btn_ViewPatientProfile
             // 
             this.btn_ViewPatientProfile.Location = new System.Drawing.Point(1206, 862);
-            this.btn_ViewPatientProfile.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_ViewPatientProfile.Margin = new System.Windows.Forms.Padding(6);
             this.btn_ViewPatientProfile.Name = "btn_ViewPatientProfile";
             this.btn_ViewPatientProfile.Size = new System.Drawing.Size(150, 44);
             this.btn_ViewPatientProfile.TabIndex = 9;
@@ -275,7 +275,7 @@
             // 
             this.dtp_AddDobSelector.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_AddDobSelector.Location = new System.Drawing.Point(160, 160);
-            this.dtp_AddDobSelector.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtp_AddDobSelector.Margin = new System.Windows.Forms.Padding(6);
             this.dtp_AddDobSelector.Name = "dtp_AddDobSelector";
             this.dtp_AddDobSelector.Size = new System.Drawing.Size(358, 31);
             this.dtp_AddDobSelector.TabIndex = 2;
@@ -285,7 +285,7 @@
             // 
             this.dtp_SearchDobSelector.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_SearchDobSelector.Location = new System.Drawing.Point(658, 383);
-            this.dtp_SearchDobSelector.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtp_SearchDobSelector.Margin = new System.Windows.Forms.Padding(6);
             this.dtp_SearchDobSelector.Name = "dtp_SearchDobSelector";
             this.dtp_SearchDobSelector.Size = new System.Drawing.Size(358, 31);
             this.dtp_SearchDobSelector.TabIndex = 7;
@@ -295,6 +295,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1376, 929);
             this.Controls.Add(this.dtp_SearchDobSelector);
             this.Controls.Add(this.dtp_AddDobSelector);
@@ -319,7 +320,7 @@
             this.Controls.Add(this.btn_AddPatient);
             this.Controls.Add(this.btn_SearchPatients);
             this.Controls.Add(this.btn_OpenMenu);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "PatientManagementView";
             this.Text = "Patient Management";
             ((System.ComponentModel.ISupportInitialize)(this.dGrid_SearchPatientResults)).EndInit();

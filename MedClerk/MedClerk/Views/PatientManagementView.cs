@@ -31,6 +31,10 @@ namespace MedClerk.Views
             var name = dGrid_SearchPatientResults.SelectedCells[1].Value.ToString();
             var dob = dGrid_SearchPatientResults.SelectedCells[2].Value.ToString();
             var address = dGrid_SearchPatientResults.SelectedCells[3].Value.ToString();
+            var oTiD = Convert.ToInt32(id);
+            var oPiD = Convert.ToInt32(id);
+            PatientController.obtainTests(oTiD);
+            PatientController.obtainPrescription(oPiD);
             PatientController.LoadPatientProfile(this, id, name, dob, address);
         }
 
