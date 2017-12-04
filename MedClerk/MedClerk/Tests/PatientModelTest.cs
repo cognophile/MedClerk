@@ -15,7 +15,8 @@ namespace MedClerk.Tests
     class PatientModelTest
     {
         private TransactionScope rollback;
-        private List<object> patient;
+        private List<object> patientForQueries;
+        private List<object> patientForCommands; 
 
         private const int ID_COLUMN = 0;
         private const int NAME_COLUMN = 1;
@@ -26,12 +27,20 @@ namespace MedClerk.Tests
         public void SetUp()
         {
             rollback = new TransactionScope();
-            patient = new List<object>
+            patientForQueries = new List<object>
             {
                 300,
                 "Stephen Jones",
                 "21 Dudley Close",
                 new DateTime(1970, 07, 01)
+            };
+
+            patientForCommands = new List<object>
+            {
+                1,
+                "Test Patient",
+                "123 Test Address Town Postcode",
+                new DateTime(1970, 01, 01)
             };
         }
 
@@ -44,7 +53,7 @@ namespace MedClerk.Tests
         [Test]
         public void IntegrationTest_EnsureDatabaseIsReadable_TestSearchById_ReturnsExpectedPatientName()
         {
-            var expected = patient[NAME_COLUMN].ToString();
+            var expected = patientForQueries[NAME_COLUMN].ToString();
 
             var resultsSet = PatientController.FindPatient(300);
             List<DataRow> tableList = resultsSet.AsEnumerable().ToList();
@@ -58,8 +67,8 @@ namespace MedClerk.Tests
         public void IntegrationTest_EnsureDatabaseIsReadable_TestSearchByNameAndAddress_ReturnsExpectedPatientId()
         {
             var expected = 300;
-            var patientName = patient[NAME_COLUMN].ToString();
-            var patientAddress = patient[ADDRESS_COLUMN].ToString();
+            var patientName = patientForQueries[NAME_COLUMN].ToString();
+            var patientAddress = patientForQueries[ADDRESS_COLUMN].ToString();
 
             var resultsSet = PatientController.FindPatient(patientName, patientAddress);
             List<DataRow> tableList = resultsSet.AsEnumerable().ToList();
@@ -73,8 +82,8 @@ namespace MedClerk.Tests
         public void IntegrationTest_EnsureDatabaseIsReadable_TestSearchByNameAndDateOfBirth_ReturnsExpectedPatientId()
         {
             var expected = 300;
-            var patientName = patient[NAME_COLUMN].ToString();
-            DateTime patientDob = Convert.ToDateTime(patient[DOB_COLUMN]);
+            var patientName = patientForQueries[NAME_COLUMN].ToString();
+            DateTime patientDob = Convert.ToDateTime(patientForQueries[DOB_COLUMN]);
 
             var resultsSet = PatientController.FindPatient(patientName, patientDob);
             List<DataRow> tableList = resultsSet.AsEnumerable().ToList();
@@ -87,7 +96,14 @@ namespace MedClerk.Tests
         [Test]
         public void IntegrationTest_EnsureDatabaseIsWritable_ReturnsTrueIfPatientCreated()
         {
-            throw new NotImplementedException();
+            var expected = true;
+            var name = patientForCommands[NAME_COLUMN].ToString();
+            var dob = patientForCommands[DOB_COLUMN].ToString();
+            var address = patientForCommands[ADDRESS_COLUMN].ToString();
+
+            var isSuccessful = PatientController.AddPatient(name, address, Convert.ToDateTime(dob));
+
+            Assert.That(isSuccessful, Is.EqualTo(expected));
         }
     }
 }

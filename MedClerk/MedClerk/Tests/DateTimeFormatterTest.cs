@@ -73,7 +73,7 @@ namespace MedClerk.Tests
         {
             // Arrange
             var usDateFormat = "10/29/2017";
-            var expected = DateTime.Today.ToString("d/MM/yyyy");
+            var expected = DateTime.Today.ToString("dd/MM/yyyy");
 
             // Act
             var date = DateTimeFormatter.ConvertUsToUkFormat(usDateFormat);
