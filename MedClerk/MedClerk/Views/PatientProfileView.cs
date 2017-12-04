@@ -128,9 +128,38 @@ namespace MedClerk.Views
 
         private void btn_ExtendSelectedPrescription_Click(object sender, EventArgs e)
         {
-            /*dtp_prescriptionEndDate.Value = DateTime.Today;
+            //Get selected date
+            var newDate = dtp_prescriptionEndDate.Value;
 
-            var endDate = dtp_prescriptionEndDate.Value;*/
+            //dtp_prescriptionEndDate.Value = DateTime.Today;
+            //var newEndDate = new DateTime(dtp_prescriptionEndDate.Value);
+            //dtp_prescriptionEndDate.Value = Convert.ToDateTime(newEndDate);
+
+            //Obtaining data from data grid view
+            var prescriptionId = dgv_patientPrescriptions.SelectedCells[0].Value.ToString();
+            var patientId = dgv_patientPrescriptions.SelectedCells[1].Value.ToString();
+            var endDate = dgv_patientPrescriptions.SelectedCells[4].Value.ToString();
+
+            //Converting from objects to values
+            var prescriptionID = Convert.ToInt32(prescriptionId);
+            var patientID = Convert.ToInt32(patientId);
+
+            //Transfer data
+            var result = PatientController.extendPrescription(prescriptionID, patientID, newDate);
+
+            if (result)
+            {
+                MessageBox.Show("The prescription was extended. Click okay to refresh the table.", "Success!",
+                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                dgv_patientPrescriptions.DataSource = PatientController.obtainPrescription(patientID);
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Please Fill all Required Fields", "Error!",
+                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
         }
     }
 }

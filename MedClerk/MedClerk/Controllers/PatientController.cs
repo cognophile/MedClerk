@@ -103,9 +103,10 @@ namespace MedClerk.Controllers
             return patient.getTests();
         }
 
-        /*public static DataTable extendPrescription()
+        public static bool extendPrescription(int prescriptionId, int patientId, DateTime newEndDate)
         {
-
-        }*/
+            PatientModel patientID = new PatientModel { Id = patientId };
+            return patientID.extendPrescription(prescriptionId, newEndDate);
+        }
     }
 }

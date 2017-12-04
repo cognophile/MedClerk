@@ -167,21 +167,27 @@ namespace MedClerk.Models
             return table;
         }
 
-        /*public DataTable extendPrescription(DateTime startDate, DateTime endDate, int patientId)
+        public bool extendPrescription(int prescriptionId, DateTime newEndDate)
         {
             var connection = Properties.Settings.Default.DBSource;
             var database = new DatabaseManager(connection);
-            var sql = SqlExtendPrescription(startDate, endDate, patientId);
+            var sql = SqlExtendPrescription(prescriptionId, newEndDate, this.Id);
 
             database.OpenConnection();
 
-            var results = database.ExecuteQuery(sql);
+            var result = database.ExecuteCommand(sql);
 
             database.CloseConnection();
 
-            DataTable table = results.Tables[0];
-            return table;
-        }*/
+            if (result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         private static string SqlGetPatientNames()
         {
@@ -223,7 +229,12 @@ namespace MedClerk.Models
 
         private static string SqlGetPrescription(int Id)
         {
-            return String.Format("SELECT * FROM [Prescriptions] WHERE [Patient_Id] = {0}", Id);
+            return String.Format("SELECT [Patients].[Patient Id], [Patients].[Patient Name], [Prescriptions].[Id], [Medications].[Name] AS 'Medication', [Medications].[Description], [Medications].[Type], [Prescriptions].[Start_Date], [Prescriptions].[End_Date]" +
+                                    "FROM [Prescriptions]" +
+                                    "INNER JOIN [Patients] ON [Prescriptions].[Patient_Id] = [Patients].[Patient Id]" +
+                                    "INNER JOIN [Medications] ON [Prescriptions].[Medicine_Id] = [Medications].[Id]" +
+                                    "WHERE[Patients].[Patient Id] = {0};", Id);
+                                  
         }
 
         private static string SqlGetTestResults(int Id)
@@ -235,11 +246,11 @@ namespace MedClerk.Models
                                     "WHERE[Patients].[Patient Id] = {0};", Id);
         }
 
-        /*private static string SqlExtendPrescription(DateTime startDate, DateTime endDate, int patientId)
+        private static string SqlExtendPrescription(int prescriptionId, DateTime newEndDate, int patientId)
         {
             return String.Format("UPDATE [Prescriptions]" +
-                                 "SET [Start_Date] = {0}, [End_Date] = {1}" +
-                                 "WHERE [Patient_Id] = {2}", startDate, endDate, patientId);
-        }*/
+                                 "SET [End_Date] = CONVERT(DATE, '{0}', 103) " +
+                                 "WHERE [Patient_Id] = {1} AND [Prescriptions].[Id] = {2};", newEndDate.ToString("d"), patientId, prescriptionId);
+        }
     }
 }
