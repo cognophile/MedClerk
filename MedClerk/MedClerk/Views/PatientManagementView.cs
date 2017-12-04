@@ -48,14 +48,23 @@ namespace MedClerk.Views
             var address = txtbx_SearchAddressField.Text.ToLower();
             var dateMatch = dob.CompareTo(DateTime.Today);
 
+            // Protect against no data entered at all
+            if (String.IsNullOrEmpty(id) && String.IsNullOrEmpty(name) && dateMatch == DATE_TODAY && String.IsNullOrEmpty(address))
+            {
+                MessageBox.Show("Please enter an ID, Name and Address, or Name and Date of Birth to search by.", "Error!",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            // If the ID field is populated, only search with that
             if (!String.IsNullOrWhiteSpace(id))
             {
-                int tmp;
-                if (int.TryParse(id, out tmp))
+                if (int.TryParse(id, out int tmp))
                 {
                     var res = PatientController.FindPatient(tmp);
 
-                    if (res.Rows.Count > 0) { dGrid_SearchPatientResults.DataSource = res; }
+                    // Check data came back
+                    if (res.Rows.Count > 0) { dGrid_SearchPatientResults.DataSource = res; return; }
                     else
                     {
                         MessageBox.Show("No records found matching that criteria.",
@@ -65,17 +74,19 @@ namespace MedClerk.Views
                 }
                 else
                 {
+                    // Inform the user the search criteria may be invalid
                     MessageBox.Show("The ID provided was invalid. Ensure you enter a number (Eg. 101)",
                             "Incorrect input format", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
 
+            // If the ID isn't populated, but both name and address are
             if (!String.IsNullOrWhiteSpace(name) && !String.IsNullOrWhiteSpace(address))
             {
                 var res = PatientController.FindPatient(name, address);
 
-                if (res.Rows.Count > 0) { dGrid_SearchPatientResults.DataSource = res; }  
+                if (res.Rows.Count > 0) { dGrid_SearchPatientResults.DataSource = res; return; }
                 else
                 {
                     MessageBox.Show("No records found matching that criteria.",
@@ -84,11 +95,13 @@ namespace MedClerk.Views
                 }
             }
 
+
+            // If either the ID or name and address aren't populated, attempt to search by name and date (if the date has changed)
             if (!String.IsNullOrWhiteSpace(name) && dateMatch != DATE_TODAY)
             {
                 var res = PatientController.FindPatient(name, dob);
 
-                if (res.Rows.Count > 0) { dGrid_SearchPatientResults.DataSource = res; }
+                if (res.Rows.Count > 0) { dGrid_SearchPatientResults.DataSource = res;  return; }
                 else
                 {
                     MessageBox.Show("No records found matching that criteria.",
