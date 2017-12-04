@@ -53,35 +53,33 @@ namespace MedClerk.Views
         private void btn_PrintSelectedTest_Click(object sender, EventArgs e)
         {
             // Output test reults to CSV text file
-            StreamWriter print = new StreamWriter(this.path);
+            StreamWriter tmpTextFile = new StreamWriter(this.path);
             for(int i = 0; i < dvg_Tests.RowCount; i++)
             {
                 string lines = "";
-                for (int j = 0; j < 5; j++)
+                for (int j = 0; j < dvg_Tests.ColumnCount; j++)
                 {
-                    lines += (string.IsNullOrEmpty(lines) ? " " : ", ") + dvg_Tests.Rows[i].Cells[j].Value.ToString();
+                    var value = dvg_Tests.Rows[i].Cells[j].Value.ToString();
+                    lines += (string.IsNullOrEmpty(lines) ? " " : ", ") + value;
                 }
-                print.WriteLine(lines);
+                tmpTextFile.WriteLine(lines);
             }
-            print.Close();
-            MessageBox.Show("Test Printed");
+            tmpTextFile.Close();
 
-            
-
-            PrintDocument doc = new PrintDocument();
-            doc.PrintPage += new PrintPageEventHandler(this.printTestResultsFile);
+            PrintDocument resultsFile = new PrintDocument();
+            resultsFile.PrintPage += new PrintPageEventHandler(this.printTestResultsFile);
             PrintDialog dialog = new PrintDialog();
-            dialog.Document = doc;
+            dialog.Document = resultsFile;
+
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                doc.Print();
+                resultsFile.Print();
             }
             else
             {
                 MessageBox.Show("Print Cancelled");
+                return;
             }
-
-            doc.Print();
         }
 
         private void printTestResultsFile(object sender, PrintPageEventArgs ev)
