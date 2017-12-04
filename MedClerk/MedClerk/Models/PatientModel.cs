@@ -225,12 +225,12 @@ namespace MedClerk.Models
 
         private static string SqlFindPatientByNameAndAddress(string name, string address)
         {
-            return String.Format("SELECT * FROM [Patients] WHERE [Patient Name] = '{0}' AND [Address] = '{1}';", name, address);
+            return String.Format("SELECT * FROM [Patients] WHERE LOWER([Patient Name]) LIKE LOWER('%{0}%') AND LOWER([Address]) LIKE '%{1}%';", name, address);
         }
 
         private static string SqlFindPatientByNameAndDateOfBirth(string name, DateTime dob)
         {
-            return String.Format("SELECT * FROM [Patients] WHERE [Patient Name] = '{0}' AND [Date of Birth] = CONVERT(DATE, '{1}', 103);", name, dob.ToString("dd/MM/yyyy"));
+            return String.Format("SELECT * FROM [Patients] WHERE LOWER([Patient Name]) LIKE LOWER('%{0}%') AND [Date of Birth] = CONVERT(DATE, '{1}', 103);", name, dob.ToString("dd/MM/yyyy"));
         }
 
         private static string SqlGetAppointments(string date)

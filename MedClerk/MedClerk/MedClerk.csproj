@@ -180,7 +180,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\default_photo.png" />
-    <Content Include="Images\profile_default.jpg" />
     <Content Include="MCDatabase.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

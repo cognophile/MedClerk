@@ -43,9 +43,9 @@ namespace MedClerk.Views
             const int DATE_TODAY = 0;
 
             var id = txtbx_SearchIdField.Text;
-            var name = txtbx_SearchNameField.Text;
+            var name = txtbx_SearchNameField.Text.ToLower();
             var dob = dtp_SearchDobSelector.Value;
-            var address = txtbx_SearchAddressField.Text;
+            var address = txtbx_SearchAddressField.Text.ToLower();
             var dateMatch = dob.CompareTo(DateTime.Today);
 
             if (!String.IsNullOrWhiteSpace(id))
