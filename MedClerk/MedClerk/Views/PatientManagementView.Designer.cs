@@ -82,6 +82,7 @@
             this.btn_AddPatient.TabIndex = 3;
             this.btn_AddPatient.Text = "Add";
             this.btn_AddPatient.UseVisualStyleBackColor = true;
+            this.btn_AddPatient.Click += new System.EventHandler(this.btn_AddPatient_Click);
             // 
             // lbl_patientsManagementTitle
             // 

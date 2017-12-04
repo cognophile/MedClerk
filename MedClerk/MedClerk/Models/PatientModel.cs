@@ -135,6 +135,24 @@ namespace MedClerk.Models
             return table;
         }
 
+        public bool SavePatient()
+        {
+            var connection = Properties.Settings.Default.DBSource;
+            var database = new DatabaseManager(connection);
+            var sql = SqlInsertPatient();
+
+            database.OpenConnection();
+
+            var result = database.ExecuteCommand(sql);
+
+            database.CloseConnection();
+
+            if (result > 0)
+                return true;
+            else
+                return false;
+        }
+
         private static string SqlGetPatientNames()
         {
             return String.Format("SELECT[Patient Id], [Patient Name] FROM [Patients] ");
@@ -171,6 +189,11 @@ namespace MedClerk.Models
                                  "INNER JOIN [Staff] ON [Appointments].[Staff Id] = [Staff].[Staff Id] " +
                                  "INNER JOIN [Patients] ON [Appointments].[Patient Id] = [Patients].[Patient Id] " +
                                  "WHERE CONVERT(DATE, [Appointments].[Date], 103) = CONVERT(DATE, '{0}', 103);", date.ToString());
+        }
+
+        private string SqlInsertPatient()
+        {
+            return String.Format("INSERT INTO [Patients] ([Patient Name], [Date of Birth], [Address]) VALUES ('{0}', CONVERT(DATE, '{1}', 103), '{2}');", FullName, DateOfBirth.ToString("dd/MM/yyyy"), Address);
         }
     }
 }
