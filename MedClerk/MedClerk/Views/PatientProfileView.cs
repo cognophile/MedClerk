@@ -19,6 +19,7 @@ namespace MedClerk.Views
     public partial class PatientProfileView : Form
     {
         private string path = @"C:\PatientTests\PatientTestResults.txt";
+        private string directoryPath = @"C:\PatientTests";
 
         public PatientProfileView(string id, string name, string dob, string address)
         {
@@ -52,38 +53,57 @@ namespace MedClerk.Views
 
         private void btn_PrintSelectedTest_Click(object sender, EventArgs e)
         {
-            // Output test reults to CSV text file
-            StreamWriter tmpTextFile = new StreamWriter(this.path);
-            for(int i = 0; i < dvg_Tests.RowCount; i++)
+            // Check if the folder and text file exist, if not create them
+            if (!Directory.Exists(directoryPath))
             {
-                string lines = "";
-                for (int j = 0; j < dvg_Tests.ColumnCount; j++)
-                {
-                    var value = dvg_Tests.Rows[i].Cells[j].Value.ToString();
-                    lines += (string.IsNullOrEmpty(lines) ? " " : ", ") + value;
-                }
-                tmpTextFile.WriteLine(lines);
-            }
-            tmpTextFile.Close();
-
-            PrintDocument resultsFile = new PrintDocument();
-            resultsFile.PrintPage += new PrintPageEventHandler(this.printTestResultsFile);
-            PrintDialog dialog = new PrintDialog();
-            dialog.Document = resultsFile;
-
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                resultsFile.Print();
+                Directory.CreateDirectory(directoryPath);
+                var newFile = File.CreateText(path);
+                newFile.Close();
+                MessageBox.Show("PatientTestResults folder has been created in C: and PatientResults text file has been created");
             }
             else
             {
-                MessageBox.Show("Print Cancelled");
-                return;
+                if (!File.Exists(path))
+                {
+                    var newFile = File.CreateText(path);
+                    newFile.Close();
+                    MessageBox.Show("PatientResults text file has been created");
+                }
             }
+                // Output test reults to CSV text file
+                StreamWriter tmpTextFile = new StreamWriter(this.path);
+                for (int i = 0; i < dvg_Tests.RowCount; i++)
+                {
+                    string lines = "";
+                    for (int j = 0; j < dvg_Tests.ColumnCount; j++)
+                    {
+                        var value = dvg_Tests.Rows[i].Cells[j].Value.ToString();
+                        lines += (string.IsNullOrEmpty(lines) ? " " : ", ") + value;
+                    }
+                    tmpTextFile.WriteLine(lines);
+                }
+                tmpTextFile.Close();
+
+                PrintDocument resultsFile = new PrintDocument();
+                resultsFile.PrintPage += new PrintPageEventHandler(this.printTestResultsFile);
+                PrintDialog dialog = new PrintDialog();
+                dialog.Document = resultsFile;
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    resultsFile.Print();
+                }
+                else
+                {
+                    MessageBox.Show("Print Cancelled");
+                    return;
+                }
         }
 
         private void printTestResultsFile(object sender, PrintPageEventArgs ev)
         {
+            
+
             StreamReader resultsFile = new StreamReader(this.path);
             Font printFont = new Font("Ariel", 10);
 
@@ -95,25 +115,25 @@ namespace MedClerk.Views
 
             // Improved print functionality code
             //  Cite: https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument.aspx
-            float linesPerPage = 0;
-            float yPos = 0;
+            float lines = 0;
+            float position = 0;
             int count = 0;
             float leftMargin = ev.MarginBounds.Left;
             float topMargin = ev.MarginBounds.Top;
             string line = null;
 
             // Calculate the number of lines per page.
-            linesPerPage = ev.MarginBounds.Height /
+            lines = ev.MarginBounds.Height /
                printFont.GetHeight(ev.Graphics);
 
             // Print each line of the file.
-            while (count < linesPerPage &&
+            while (count < lines &&
                ((line = resultsFile.ReadLine()) != null))
             {
-                yPos = topMargin + (count *
+                position = topMargin + (count *
                    printFont.GetHeight(ev.Graphics));
                 ev.Graphics.DrawString(line, printFont, Brushes.Black,
-                   leftMargin, yPos, new StringFormat());
+                   leftMargin, position, new StringFormat());
                 count++;
             }
 
@@ -126,6 +146,9 @@ namespace MedClerk.Views
 
         private void btn_ExtendSelectedPrescription_Click(object sender, EventArgs e)
         {
+            // If they've not selected a record AND the datepicker.Value.ToString("d") is still DateTime.Today.ToString("d");
+            // pop up a message box to say select a row and end date to extend
+
             //Get selected date
             var newDate = dtp_prescriptionEndDate.Value;
 
