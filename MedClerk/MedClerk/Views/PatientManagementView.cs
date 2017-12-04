@@ -27,15 +27,25 @@ namespace MedClerk.Views
 
         private void btn_ViewPatientProfile_Click(object sender, EventArgs e)
         {
-            var id = dGrid_SearchPatientResults.SelectedCells[0].Value.ToString();
-            var name = dGrid_SearchPatientResults.SelectedCells[1].Value.ToString();
-            var dob = dGrid_SearchPatientResults.SelectedCells[2].Value.ToString();
-            var address = dGrid_SearchPatientResults.SelectedCells[3].Value.ToString();
-            var oTiD = Convert.ToInt32(id);
-            var oPiD = Convert.ToInt32(id);
-            PatientController.obtainTests(oTiD);
-            PatientController.obtainPrescription(oPiD);
-            PatientController.LoadPatientProfile(this, id, name, dob, address);
+            if (dGrid_SearchPatientResults.SelectedRows.Count > 0)
+            {
+                var id = dGrid_SearchPatientResults.SelectedCells[0].Value.ToString();
+                var name = dGrid_SearchPatientResults.SelectedCells[1].Value.ToString();
+                var dob = dGrid_SearchPatientResults.SelectedCells[2].Value.ToString();
+                var address = dGrid_SearchPatientResults.SelectedCells[3].Value.ToString();
+                var oTiD = Convert.ToInt32(id);
+                var oPiD = Convert.ToInt32(id);
+                PatientController.obtainTests(oTiD);
+                PatientController.obtainPrescription(oPiD);
+                PatientController.LoadPatientProfile(this, id, name, dob, address);
+            }
+            else
+            {
+                // Inform the user the search criteria may be invalid
+                MessageBox.Show("Please select a patient record to view the profile of. \n\nHint: Click the '>' arrow on the left.",
+                        "Incorrect input format", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
         }
 
         private void btn_SearchPatients_Click(object sender, EventArgs e)
