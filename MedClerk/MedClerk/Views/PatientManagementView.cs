@@ -86,5 +86,36 @@ namespace MedClerk.Views
 
             dtp_SearchDobSelector.Value = DateTime.Today;
         }
+
+        private void btn_AddPatient_Click(object sender, EventArgs e)
+        {
+            if (txtbx_AddNameField == null || txtbx_AddAddressField == null || dtp_AddDobSelector == null)
+            {
+                MessageBox.Show("Error!", "Please Fill all Required Fields Before Adding Patient",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else
+            {
+                var dob = dtp_AddDobSelector.Value;
+                var name = txtbx_AddNameField.Text;
+                var address = txtbx_AddAddressField.Text;
+
+                var allAppointments = PatientController.AddPatient(name, address, dob);
+
+                if (allAppointments == true)
+                {
+                    MessageBox.Show("Success!", "Patient added.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Error!", "Patient couldn't be added.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+        }
     }
 }

@@ -74,5 +74,22 @@ namespace MedClerk.Controllers
 
             return patient.FindPatientByNameAndDateOfBirth();
         }
+
+        public static bool AddPatient(string name, string address, DateTime dob)
+        {
+            // Surround this in a try/catch in case we can't write to the database. 
+            // Where you catch the exception, send the message back to the view to display in a text box. 
+
+            PatientModel patient = new PatientModel(0, name, dob, address);
+            var result = patient.SavePatient();
+            if (result)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
