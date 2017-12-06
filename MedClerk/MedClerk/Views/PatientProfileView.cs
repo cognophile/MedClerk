@@ -146,19 +146,29 @@ namespace MedClerk.Views
 
         private void btn_ExtendSelectedPrescription_Click(object sender, EventArgs e)
         {
-            // If they've not selected a record AND the datepicker.Value.ToString("d") is still DateTime.Today.ToString("d");
-            // pop up a message box to say select a row and end date to extend
-
+            //const int Today_Date = 0;
             //Get selected date
             var newDate = dtp_prescriptionEndDate.Value;
-
+            //var dateCheck = newDate.CompareTo(DateTime.Today);
+            // If they've not selected a record AND the datepicker.Value.ToString("d") is still DateTime.Today.ToString("d");
+            // pop up a message box to say end date to extend*/
+            if (dtp_prescriptionEndDate.Value.Date == DateTime.Now.Date)
+            {
+                MessageBox.Show("Please select a date which is not today's date.");
+                return;
+            }
+            if (dgv_patientPrescriptions.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a prescription you want to extend. \n\nHint: Click the '>' arrow on the left.");
+                return;
+            }
             //dtp_prescriptionEndDate.Value = DateTime.Today;
             //var newEndDate = new DateTime(dtp_prescriptionEndDate.Value);
             //dtp_prescriptionEndDate.Value = Convert.ToDateTime(newEndDate);
 
             //Obtaining data from data grid view
-            var prescriptionId = dgv_patientPrescriptions.SelectedCells[0].Value.ToString();
-            var patientId = dgv_patientPrescriptions.SelectedCells[1].Value.ToString();
+            var prescriptionId = dgv_patientPrescriptions.SelectedCells[2].Value.ToString();
+            var patientId = dgv_patientPrescriptions.SelectedCells[0].Value.ToString();
             var endDate = dgv_patientPrescriptions.SelectedCells[4].Value.ToString();
 
             //Converting from objects to values
@@ -171,14 +181,14 @@ namespace MedClerk.Views
             if (result)
             {
                 MessageBox.Show("The prescription was extended. Click okay to refresh the table.", "Success!",
-                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 dgv_patientPrescriptions.DataSource = PatientController.obtainPrescription(patientID);
                 return;
             }
             else
             {
                 MessageBox.Show("Please Fill all Required Fields", "Error!",
-                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
         }
