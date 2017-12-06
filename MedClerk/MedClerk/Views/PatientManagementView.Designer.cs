@@ -297,6 +297,8 @@
             this.Controls.Add(this.btn_AddPatient);
             this.Controls.Add(this.btn_SearchPatients);
             this.Controls.Add(this.btn_OpenMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "PatientManagementView";
             this.Text = "Patient Management";
             ((System.ComponentModel.ISupportInitialize)(this.dGrid_SearchPatientResults)).EndInit();
