@@ -109,7 +109,7 @@
             // RegisterDatePicker
             // 
             this.RegisterDatePicker.Location = new System.Drawing.Point(15, 68);
-            this.RegisterDatePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RegisterDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.RegisterDatePicker.Name = "RegisterDatePicker";
             this.RegisterDatePicker.Size = new System.Drawing.Size(255, 20);
             this.RegisterDatePicker.TabIndex = 8;
@@ -127,6 +127,8 @@
             this.Controls.Add(this.RegisterListBox);
             this.Controls.Add(this.lbl_StaffUserInstructions);
             this.Controls.Add(this.lbl_StaffRegAndTblTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "StaffView";
             this.Text = "StaffView";
             this.ResumeLayout(false);

@@ -256,6 +256,8 @@
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.menuBtn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "AppointmentManagementView";
             this.Text = "AppointmentManagementView";
             this.ResumeLayout(false);

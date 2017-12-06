@@ -132,7 +132,9 @@
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.logoLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Login";
             this.Text = "Login";
             this.ResumeLayout(false);

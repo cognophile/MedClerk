@@ -72,9 +72,7 @@
             // logoutBtn
             // 
             this.logoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.logoutBtn.Location = new System.Drawing.Point(426, 219);
-
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.Size = new System.Drawing.Size(195, 54);
             this.logoutBtn.TabIndex = 3;
@@ -99,14 +97,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
             this.ClientSize = new System.Drawing.Size(681, 385);
             this.Controls.Add(this.appBtn);
-
             this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.patientsBtn);
             this.Controls.Add(this.staffBtn);
             this.Controls.Add(this.businessLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainMenu";
             this.Text = "Main Menu";
             this.Load += new System.EventHandler(this.mainMenu_Load);
