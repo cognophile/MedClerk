@@ -28,7 +28,11 @@ namespace MedClerk.Database
         /// </summary>
         public void OpenConnection()
         {
-            connection = new SqlConnection(connectionStr);
+            if (this.connection == null)
+            {
+                this.connection = new SqlConnection(this.connectionStr);
+            }
+
             connection.Open();
         }
         
