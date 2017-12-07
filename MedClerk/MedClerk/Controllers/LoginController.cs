@@ -18,17 +18,21 @@ namespace MedClerk.Controllers
         /// <returns>True if match found, else false</returns>
         public static Boolean Login(string username, string password)
         {
-            bool isVerified; 
-            //try
-            //{
+            bool isVerified;
+            try
+            {
                 var passwordHash = Password.Hash(password);
                 isVerified = UserModel.Verify(username, passwordHash);
                 return isVerified ? true : false;
-            //}
-            //catch (Exception ex)
-            //{
-
-            //}
+            }
+            catch (ArgumentNullException argEx)
+            {
+                return false; 
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         public static void Logout(Views.MainMenu menuForm)
