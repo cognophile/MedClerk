@@ -16,7 +16,7 @@ namespace MedClerk
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.Login());
+            Application.Run(new Views.LoginView());
         }
     }
 }
