@@ -39,7 +39,7 @@ namespace MedClerk.Views
                 //Disables view timetable button because there is no data to show
                 ViewTimetableButton.Enabled = false;
                 //Displays a message in RegisterListBox
-                RegisterListBox.Items.Clear();
+                RegisterListBox.DataSource = null;
                 MessageBox.Show("Practice is closed on weekends!", "No data found",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -57,7 +57,7 @@ namespace MedClerk.Views
             {
                 MessageBox.Show("No staff data was found for this date.", "No data found",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                RegisterListBox.Items.Clear();
+                RegisterListBox.DataSource = null;
             }
             else
             {
