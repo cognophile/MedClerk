@@ -11,13 +11,18 @@ using MedClerk.Controllers;
 
 namespace MedClerk.Views
 {
-    public partial class Login : Form
+    public partial class LoginView : Form
     {
-        public Login()
+        public LoginView()
         {
             InitializeComponent();
         }
-        
+
+        private void LoginView_Load(object sender, EventArgs e)
+        {
+            this.enterButton.Enabled = false;
+        }
+
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -25,15 +30,6 @@ namespace MedClerk.Views
 
         private void enterButton_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(usernameTextBox.Text) || String.IsNullOrEmpty(passwordTextBox.Text))
-            {
-                MessageBox.Show("You must enter credentials into both fields!", "Missing required fields",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                usernameTextBox.Clear();
-                passwordTextBox.Clear();
-                return;
-            }
-
             if (LoginController.Login(usernameTextBox.Text, passwordTextBox.Text))
             {
                 LoginController.LoadMenu(this);
@@ -44,6 +40,28 @@ namespace MedClerk.Views
                 usernameTextBox.Clear();
                 passwordTextBox.Clear();
             } 
+        }
+
+        private void usernameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(this.usernameTextBox.Text) && !String.IsNullOrWhiteSpace(this.passwordTextBox.Text))
+            {
+                this.enterButton.Enabled = true;
+                return;
+            }
+
+            this.enterButton.Enabled = false;
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(this.passwordTextBox.Text) && !String.IsNullOrWhiteSpace(this.usernameTextBox.Text))
+            {
+                this.enterButton.Enabled = true;
+                return;
+            }
+
+            this.enterButton.Enabled = false;
         }
     }
 }

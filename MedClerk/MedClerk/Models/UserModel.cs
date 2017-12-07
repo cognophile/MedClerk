@@ -37,7 +37,14 @@ namespace MedClerk.Models
                 DataTable table = results.Tables[RESULTS_TABLE];
                 var user = table.Rows[FIRST_RESULT].ItemArray.GetValue(USERNAME).ToString();
                 
-                if (user == username) { return true; } else { return false; }
+                if (user == username) {
+                    RecordUserLogin(DateTime.Today.Date, username);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (IndexOutOfRangeException)
             {
@@ -49,9 +56,27 @@ namespace MedClerk.Models
             }
         }
 
-        protected static string SqlValidateUserCredntialsExistInUserTable(string user, string hash)
+        private static void RecordUserLogin(DateTime todaysDate, string username)
+        {
+            var connection = Properties.Settings.Default.DBSource;
+            var database = new DatabaseManager(connection);
+            var sql = SqlInsertUserLastLogin(todaysDate, username);
+
+            database.OpenConnection();
+
+            var results = database.ExecuteCommand(sql);
+
+            database.CloseConnection();
+        }
+
+        private static string SqlValidateUserCredntialsExistInUserTable(string user, string hash)
         {
             return String.Format("SELECT [User].Username FROM dbo.[User] WHERE Username = '{0}' AND PasswordHash = '{1}';", user, hash);
+        }
+
+        private static string SqlInsertUserLastLogin(DateTime todaysDate, string username)
+        {
+            return String.Format("UPDATE [User] SET [User].[LastLogin] = CONVERT(DATE, '{0}', 103) WHERE [User].[Username] = '{1}';", todaysDate.ToString("d"), username);
         }
     }
 }
