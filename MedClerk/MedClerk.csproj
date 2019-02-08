@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\NUnit3TestAdapter.3.9.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.9.0\build\net35\NUnit3TestAdapter.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -77,10 +77,6 @@
     <Compile Include="Models\RemoveAppointmentModel.cs" />
     <Compile Include="Models\StaffModel.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Tests\DateTimeFormatterTest.cs" />
-    <Compile Include="Tests\PasswordTest.cs" />
-    <Compile Include="Tests\PatientModelTest.cs" />
-    <Compile Include="Tests\UserModelTest.cs" />
     <Compile Include="Utilities\DateTimeFormatter.cs" />
     <Compile Include="Utilities\Password.cs" />
     <Compile Include="Views\AppointmentManagementView.cs">
@@ -97,11 +93,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\MainMenu.cs">
+    <Compile Include="Views\MainMenuView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\MainMenu.Designer.cs">
-      <DependentUpon>MainMenu.cs</DependentUpon>
+    <Compile Include="Views\MainMenuView.Designer.cs">
+      <DependentUpon>MainMenuView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\PatientManagementView.cs">
       <SubType>Form</SubType>
@@ -136,8 +132,9 @@
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\MainMenu.resx">
-      <DependentUpon>MainMenu.cs</DependentUpon>
+    <EmbeddedResource Include="Views\MainMenuView.resx">
+      <DependentUpon>MainMenuView.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PatientManagementView.resx">
       <DependentUpon>PatientManagementView.cs</DependentUpon>

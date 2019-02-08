@@ -1,4 +1,6 @@
-# MedClerk
+[![Build Status](https://travis-ci.com/cognophile/MedClerk.svg?branch=master)](https://travis-ci.com/cognophile/MedClerk)
+
+# MedClerk 
 A reception management application for a medical center. Group assignment for MOD003263.
 
 ## Purpose

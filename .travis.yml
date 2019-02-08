@@ -1,0 +1,10 @@
+language: csharp
+mono: latest
+solution: MedClerk.sln
+
+install:
+  - nuget restore MedClerk.sln
+  - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
+script:
+  - msbuild /p:Configuration=Release MedClerk.sln
+  - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./MedClerk.Test/bin/Release/MedClerk.Test.dll 
