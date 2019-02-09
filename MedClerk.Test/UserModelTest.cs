@@ -12,29 +12,30 @@ namespace MedClerk.Tests
 {
     class UserModelTest
     {
-        //private TransactionScope rollback;
+        private TransactionScope rollback;
 
-        //[SetUp]
-        //public void SetUp()
-        //{
-        //    rollback = new TransactionScope();
-        //}
+        [SetUp]
+        public void SetUp()
+        {
+            rollback = new TransactionScope();
+        }
 
-        //[TearDown]
-        //public void TearDown()
-        //{
-        //    rollback.Dispose();
-        //}
+        [TearDown]
+        public void TearDown()
+        {
+            rollback.Dispose();
+        }
 
-        //[Test]        
-        //public void IntegrationTest_EnsureDatabaseIsReadable_ReturnsTrueIfValidUser()
-        //{
-        //    var username = "reception";
-        //    var hashedPassword = Password.Hash("password");
+        [Test]
+        [Ignore("Skipping DB integration tests due to mono .MDF incompatibility")]
+        public void IntegrationTest_EnsureDatabaseIsReadable_ReturnsTrueIfValidUser()
+        {
+            var username = "reception";
+            var hashedPassword = Password.Hash("password");
 
-        //    bool isValid = UserModel.Verify(username, hashedPassword);
+            bool isValid = UserModel.Verify(username, hashedPassword);
 
-        //    Assert.That(isValid, Is.EqualTo(true));
-        //}
+            Assert.That(isValid, Is.EqualTo(true));
+        }
     }
 }
